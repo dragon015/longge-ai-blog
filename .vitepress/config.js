@@ -4,8 +4,8 @@ import { defineConfig } from 'vitepress'
 const ghUser = 'dragon015'
 const repo = 'longge-ai-blog'
 const ghRepoUrl = `https://github.com/${ghUser}/${repo}`
-// 部署到 GitHub Pages 项目页时，把下一行注释打开并改成 `/${repo}/`
-const base = '/'
+// 部署到 GitHub Pages 项目页：网址为 https://dragon015.github.io/longge-ai-blog/
+const base = '/longge-ai-blog/'
 
 export default defineConfig({
   lang: 'zh-CN',
