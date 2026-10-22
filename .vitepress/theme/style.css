@@ -1,0 +1,335 @@
+/* =========================================================
+   龙哥的AI进阶之路 · 自定义主题
+   风格：深海军蓝 + 霓虹科技风（深浅双适配）
+   ========================================================= */
+
+/* ---------- 1. 品牌色与底色变量 ---------- */
+:root {
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #3b82f6;
+  --vp-c-brand-3: #1d4ed8;
+  --vp-c-brand-soft: rgba(37, 99, 235, 0.12);
+  --long-gradient: linear-gradient(120deg, #2563eb, #7c3aed 52%, #0891b2);
+  --long-glow: rgba(37, 99, 235, 0.25);
+}
+
+.dark {
+  --vp-c-bg: #070b1f;
+  --vp-c-bg-alt: #0a1130;
+  --vp-c-bg-elv: #0f1a40;
+  --vp-c-text-1: #e7eefb;
+  --vp-c-text-2: #a7b4d4;
+  --vp-c-text-3: #6b7aa3;
+  --vp-c-border: rgba(120, 160, 255, 0.14);
+  --vp-c-divider: rgba(120, 160, 255, 0.10);
+  --vp-c-brand-1: #38bdf8;
+  --vp-c-brand-2: #22d3ee;
+  --vp-c-brand-3: #0ea5e9;
+  --vp-c-brand-soft: rgba(56, 189, 248, 0.14);
+  --long-gradient: linear-gradient(120deg, #38bdf8, #818cf8 45%, #22d3ee);
+  --long-glow: rgba(56, 189, 248, 0.30);
+}
+
+/* ---------- 2. 全局细节 ---------- */
+::selection { background: var(--vp-c-brand-soft); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-border);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--vp-c-brand-1); }
+
+/* 导航栏毛玻璃 */
+.VPNavBar {
+  backdrop-filter: saturate(180%) blur(10px);
+  background: color-mix(in srgb, var(--vp-c-bg) 78%, transparent);
+}
+.dark .VPNavBar { border-bottom: 1px solid rgba(120, 160, 255, 0.10); }
+
+/* ---------- 3. 首页 Hero ---------- */
+.VPHero { position: relative; overflow: hidden; }
+.VPHero::before {
+  content: '';
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  width: 1200px;
+  height: 560px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(46% 46% at 50% 38%, var(--vp-c-brand-soft), transparent 70%),
+    radial-gradient(32% 32% at 76% 18%, rgba(129, 140, 248, 0.12), transparent 70%),
+    radial-gradient(30% 30% at 22% 22%, rgba(34, 211, 238, 0.10), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.VPHero .container { position: relative; z-index: 1; }
+
+.VPHero .name {
+  background: var(--long-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.VPHero .text { font-weight: 600; }
+.VPHero .tagline { max-width: 620px; margin: 0 auto; }
+
+.VPHero .actions .VPButton.brand {
+  border: none;
+  background: var(--long-gradient);
+  color: #fff;
+  box-shadow: 0 8px 24px var(--long-glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.VPHero .actions .VPButton.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px var(--long-glow);
+}
+.dark .VPHero .actions .VPButton.brand { color: #04101f; }
+
+/* ---------- 4. 首页特性卡片 ---------- */
+.VPFeatures .item .box {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 16px;
+  background: var(--vp-c-bg-alt);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.VPFeatures .item .box:hover {
+  transform: translateY(-4px);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 14px 34px var(--long-glow);
+}
+.VPFeatures .item .box .title { color: var(--vp-c-brand-1); font-weight: 700; }
+.VPFeatures .item .box .details { color: var(--vp-c-text-2); line-height: 1.65; }
+
+/* ---------- 5. 首页自定义区块（门户分区） ---------- */
+.VPHome .vp-doc { max-width: 1152px; }
+
+.hp-section { padding: 52px 0 4px; }
+.hp-section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: var(--vp-c-text-1);
+}
+.hp-section-head::before {
+  content: '';
+  width: 6px;
+  height: 22px;
+  border-radius: 4px;
+  background: var(--long-gradient);
+  box-shadow: 0 0 12px var(--long-glow);
+}
+
+.hp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+.hp-card {
+  display: block;
+  text-decoration: none;
+  padding: 22px;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 16px;
+  background: var(--vp-c-bg-alt);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  color: var(--vp-c-text-1);
+}
+.hp-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 14px 34px var(--long-glow);
+  color: var(--vp-c-text-1);
+}
+.hp-card-icon { font-size: 28px; margin-bottom: 10px; }
+.hp-card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+.hp-card-desc { font-size: 0.92rem; color: var(--vp-c-text-2); line-height: 1.6; }
+
+/* 飞轮高亮区 */
+.hp-flywheel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 30px;
+  border-radius: 18px;
+  border: 1px solid var(--vp-c-border);
+  background:
+    radial-gradient(120% 140% at 0% 0%, var(--vp-c-brand-soft), transparent 60%),
+    var(--vp-c-bg-alt);
+}
+.hp-flywheel-text { flex: 1 1 320px; }
+.hp-flywheel-text p { margin: 0; color: var(--vp-c-text-2); line-height: 1.7; font-size: 1rem; }
+.hp-flywheel-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.hp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.hp-btn.primary {
+  background: var(--long-gradient);
+  color: #fff;
+  box-shadow: 0 8px 22px var(--long-glow);
+}
+.dark .hp-btn.primary { color: #04101f; }
+.hp-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px var(--long-glow); color: #fff; }
+.dark .hp-btn.primary:hover { color: #04101f; }
+.hp-btn.ghost {
+  border: 1px solid var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+.hp-btn.ghost:hover { background: var(--vp-c-brand-soft); transform: translateY(-2px); }
+
+/* 三层结构（地图层 / 主题层 / 原子层） */
+.hp-layers { display: flex; flex-direction: column; gap: 12px; }
+.hp-layer {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--vp-c-border);
+  background: var(--vp-c-bg-alt);
+}
+.hp-layer-tag {
+  flex: 0 0 auto;
+  min-width: 72px;
+  text-align: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border: 1px solid var(--vp-c-border);
+}
+.hp-layer-body { flex: 1; }
+.hp-layer-title { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+.hp-layer-desc { font-size: 0.92rem; color: var(--vp-c-text-2); line-height: 1.6; }
+
+/* 飞轮内的动态进度行（由构建脚本刷新） */
+.hp-flywheel-text .hp-progress { margin-top: 12px; font-size: 0.9rem; color: var(--vp-c-text-2); }
+.hp-progress strong { color: var(--vp-c-brand-1); }
+
+/* 路线概览 */
+.hp-steps { display: flex; flex-wrap: wrap; gap: 12px; }
+.hp-step {
+  flex: 1 1 160px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--vp-c-border);
+  background: var(--vp-c-bg-alt);
+  position: relative;
+}
+.hp-step-no {
+  display: inline-flex;
+  width: 26px; height: 26px;
+  align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--long-gradient);
+  color: #fff;
+  font-size: 0.85rem; font-weight: 700;
+  margin-bottom: 8px;
+}
+.dark .hp-step-no { color: #04101f; }
+.hp-step-title { font-weight: 700; margin-bottom: 4px; }
+.hp-step-desc { font-size: 0.85rem; color: var(--vp-c-text-2); line-height: 1.55; }
+
+/* ---------- 6. 文档页（知识库等） ---------- */
+.vp-doc h1 {
+  background: var(--long-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+.vp-doc h2 {
+  border-top: none;
+  margin-top: 2.4rem;
+  padding-top: 0;
+  position: relative;
+}
+.vp-doc h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 3px;
+  background: var(--long-gradient);
+}
+
+/* Callout 美化 */
+.vp-doc .tip,
+.vp-doc .info,
+.vp-doc .warning,
+.vp-doc .danger {
+  border-radius: 12px;
+  border-width: 1px;
+  border-left-width: 4px;
+}
+
+/* 代码块 */
+.vp-doc div[class*='language-'] {
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-border);
+}
+
+/* 行内代码 */
+.vp-doc :not(pre) > code {
+  border-radius: 6px;
+}
+
+/* 表格（知识库里偶尔用到） */
+.vp-doc table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ---------- 7. 侧边栏/页脚微调 ---------- */
+.VPSidebarItem.is-active > .item > .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+}
+.VPFooter { border-top: 1px solid var(--vp-c-divider); }
+
+/* ---------- 8. 移动端 ---------- */
+@media (max-width: 640px) {
+  .hp-section-head { font-size: 1.3rem; }
+  .hp-flywheel { padding: 22px; }
+}
+
+/* ---------- 9. 知识图谱（Mermaid 客户端渲染） ---------- */
+.mermaid-svg {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(11, 16, 32, 0.6), rgba(7, 11, 31, 0.35));
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.12);
+  overflow-x: auto;
+}
+.mermaid-svg svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

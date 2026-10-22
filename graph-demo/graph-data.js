@@ -1,0 +1,811 @@
+window.GRAPH_DATA = {
+  "generatedBy": "scripts/build-kb-graph.mjs",
+  "nodes": [
+    {
+      "id": "knowledge__attention",
+      "title": "注意力机制",
+      "route": "/knowledge/attention",
+      "domain": "核心骨架",
+      "tags": [
+        "注意力机制",
+        "QKV",
+        "缩放点积注意力",
+        "KV缓存",
+        "GQA",
+        "MLA",
+        "RoPE",
+        "多头注意力"
+      ],
+      "aliases": [
+        "注意力机制",
+        "Attention",
+        "自注意力",
+        "QKV",
+        "KV Cache",
+        "KV缓存",
+        "GQA",
+        "MQA",
+        "MLA",
+        "RoPE",
+        "多头注意力",
+        "缩放点积"
+      ]
+    },
+    {
+      "id": "knowledge__llms",
+      "title": "大语言模型概览",
+      "route": "/knowledge/llms",
+      "domain": "模型与应用",
+      "tags": [
+        "大语言模型",
+        "Tokenization",
+        "Embedding",
+        "上下文窗口",
+        "自回归",
+        "ScalingLaw"
+      ],
+      "aliases": [
+        "大语言模型",
+        "LLM",
+        "大模型",
+        "Tokenization",
+        "分词",
+        "BPE",
+        "Embedding",
+        "上下文窗口",
+        "自回归",
+        "Scaling Law",
+        "困惑度"
+      ]
+    },
+    {
+      "id": "knowledge__ml_basics",
+      "title": "机器学习基础",
+      "route": "/knowledge/ml-basics",
+      "domain": "地基",
+      "tags": [
+        "机器学习",
+        "监督学习",
+        "无监督学习",
+        "强化学习",
+        "过拟合",
+        "梯度下降",
+        "评估指标"
+      ],
+      "aliases": [
+        "机器学习",
+        "ML",
+        "监督学习",
+        "无监督学习",
+        "强化学习",
+        "梯度下降",
+        "过拟合",
+        "评估指标",
+        "正则化"
+      ]
+    },
+    {
+      "id": "knowledge__neural_networks",
+      "title": "神经网络与反向传播",
+      "route": "/knowledge/neural-networks",
+      "domain": "地基",
+      "tags": [
+        "神经网络",
+        "反向传播",
+        "激活函数",
+        "感知机",
+        "梯度下降"
+      ],
+      "aliases": [
+        "神经网络",
+        "反向传播",
+        "Backpropagation",
+        "激活函数",
+        "感知机",
+        "链式法则",
+        "梯度下降",
+        "万能近似定理"
+      ]
+    },
+    {
+      "id": "knowledge__reasoning",
+      "title": "推理模型",
+      "route": "/knowledge/reasoning",
+      "domain": "模型与应用",
+      "tags": [
+        "推理模型",
+        "推理轨迹",
+        "RLVR",
+        "思考开关",
+        "推理缩放",
+        "训练缩放"
+      ],
+      "aliases": [
+        "推理模型",
+        "Reasoning Model",
+        "思维链",
+        "CoT",
+        "RLVR",
+        "推理缩放",
+        "思考开关",
+        "顿悟时刻",
+        "o1",
+        "DeepSeek-R1",
+        "推理努力"
+      ]
+    },
+    {
+      "id": "knowledge__training",
+      "title": "预训练与后训练",
+      "route": "/knowledge/training",
+      "domain": "训练",
+      "tags": [
+        "预训练",
+        "后训练",
+        "SFT",
+        "RLHF",
+        "DPO",
+        "RLVR",
+        "CLM",
+        "MLM"
+      ],
+      "aliases": [
+        "预训练",
+        "后训练",
+        "Pre-training",
+        "Post-training",
+        "SFT",
+        "RLHF",
+        "DPO",
+        "RLVR",
+        "CLM",
+        "MLM",
+        "微调",
+        "对齐",
+        "基础模型"
+      ]
+    },
+    {
+      "id": "knowledge__transformer",
+      "title": "Transformer 架构",
+      "route": "/knowledge/transformer",
+      "domain": "核心骨架",
+      "tags": [
+        "Transformer",
+        "自注意力",
+        "位置编码",
+        "LayerNorm",
+        "残差连接",
+        "编码器解码器"
+      ],
+      "aliases": [
+        "Transformer",
+        "自注意力",
+        "Self-Attention",
+        "位置编码",
+        "位置编码器",
+        "编码器",
+        "解码器",
+        "多头注意力",
+        "层归一化",
+        "残差连接"
+      ]
+    },
+    {
+      "id": "base_models__claude",
+      "title": "Claude",
+      "route": "/base-models/claude",
+      "domain": "模型笔记",
+      "tags": [
+        "Claude",
+        "Anthropic",
+        "宪法AI",
+        "基础模型"
+      ],
+      "aliases": [
+        "Claude",
+        "Anthropic",
+        "宪法AI",
+        "Constitutional AI",
+        "Opus",
+        "Sonnet",
+        "Haiku"
+      ]
+    },
+    {
+      "id": "base_models__deepseek",
+      "title": "DeepSeek",
+      "route": "/base-models/deepseek",
+      "domain": "模型笔记",
+      "tags": [
+        "DeepSeek",
+        "MLA",
+        "MoE",
+        "开源模型"
+      ],
+      "aliases": [
+        "DeepSeek",
+        "深度求索",
+        "MLA",
+        "MoE",
+        "R1",
+        "V3"
+      ]
+    },
+    {
+      "id": "base_models__gpt",
+      "title": "GPT",
+      "route": "/base-models/gpt",
+      "domain": "模型笔记",
+      "tags": [
+        "GPT",
+        "OpenAI",
+        "基础模型"
+      ],
+      "aliases": [
+        "GPT",
+        "OpenAI",
+        "ChatGPT",
+        "o1",
+        "o3",
+        "4o"
+      ]
+    },
+    {
+      "id": "post_training__index",
+      "title": "后训练总览",
+      "route": "/post-training/",
+      "domain": "后训练专题",
+      "tags": [
+        "后训练",
+        "SFT",
+        "RLHF",
+        "DPO",
+        "RLVR",
+        "对齐"
+      ],
+      "aliases": [
+        "后训练",
+        "Post-training",
+        "SFT",
+        "RLHF",
+        "DPO",
+        "RLVR",
+        "对齐"
+      ]
+    },
+    {
+      "id": "post_training__rlhf_dpo",
+      "title": "RLHF 与 DPO",
+      "route": "/post-training/rlhf-dpo",
+      "domain": "后训练专题",
+      "tags": [
+        "RLHF",
+        "DPO",
+        "RLVR",
+        "奖励模型",
+        "PPO",
+        "偏好优化"
+      ],
+      "aliases": [
+        "RLHF",
+        "DPO",
+        "RLVR",
+        "PPO",
+        "奖励模型",
+        "偏好优化",
+        "对齐"
+      ]
+    },
+    {
+      "id": "post_training__sft",
+      "title": "SFT 监督微调",
+      "route": "/post-training/sft",
+      "domain": "后训练专题",
+      "tags": [
+        "SFT",
+        "监督微调",
+        "指令微调",
+        "LoRA",
+        "PEFT"
+      ],
+      "aliases": [
+        "SFT",
+        "监督微调",
+        "指令微调",
+        "LoRA",
+        "PEFT",
+        "QLoRA",
+        "微调"
+      ]
+    },
+    {
+      "id": "agent__index",
+      "title": "Agent 总览",
+      "route": "/agent/",
+      "domain": "Agent 专题",
+      "tags": [
+        "Agent",
+        "智能体",
+        "工具调用",
+        "ReAct",
+        "规划",
+        "记忆"
+      ],
+      "aliases": [
+        "Agent",
+        "智能体",
+        "ReAct",
+        "Function Calling",
+        "智能体总览"
+      ]
+    },
+    {
+      "id": "agent__tool_use",
+      "title": "工具调用",
+      "route": "/agent/tool-use",
+      "domain": "Agent 专题",
+      "tags": [
+        "工具调用",
+        "Function Calling",
+        "函数调用",
+        "MCP",
+        "Agent"
+      ],
+      "aliases": [
+        "工具调用",
+        "Function Calling",
+        "函数调用",
+        "Tool Use",
+        "MCP"
+      ]
+    },
+    {
+      "id": "architecture__index",
+      "title": "模型架构总览",
+      "route": "/architecture/",
+      "domain": "模型架构专题",
+      "tags": [
+        "模型架构",
+        "注意力变体",
+        "MoE",
+        "RoPE",
+        "位置编码"
+      ],
+      "aliases": [
+        "模型架构",
+        "MoE",
+        "混合专家",
+        "GQA",
+        "MLA",
+        "Mamba",
+        "SSM",
+        "线性注意力"
+      ]
+    },
+    {
+      "id": "training_systems__index",
+      "title": "训练系统总览",
+      "route": "/training-systems/",
+      "domain": "训练系统专题",
+      "tags": [
+        "训练系统",
+        "分布式训练",
+        "并行",
+        "ZeRO",
+        "FlashAttention"
+      ],
+      "aliases": [
+        "训练系统",
+        "分布式训练",
+        "ZeRO",
+        "DeepSpeed",
+        "Megatron",
+        "FSDP",
+        "FlashAttention"
+      ]
+    },
+    {
+      "id": "inference_models__index",
+      "title": "推理模型总览",
+      "route": "/inference-models/",
+      "domain": "推理模型专题",
+      "tags": [
+        "推理模型",
+        "推理轨迹",
+        "RLVR",
+        "思考开关"
+      ],
+      "aliases": [
+        "推理模型",
+        "推理轨迹",
+        "RLVR",
+        "思考开关",
+        "Aha moment",
+        "推理努力"
+      ]
+    },
+    {
+      "id": "inference_optimization__index",
+      "title": "推理优化总览",
+      "route": "/inference-optimization/",
+      "domain": "推理优化专题",
+      "tags": [
+        "推理优化",
+        "量化",
+        "KV缓存",
+        "投机解码",
+        "vLLM"
+      ],
+      "aliases": [
+        "推理优化",
+        "量化",
+        "投机解码",
+        "vLLM",
+        "PagedAttention",
+        "蒸馏",
+        "批处理"
+      ]
+    },
+    {
+      "id": "evaluation__index",
+      "title": "评测总览",
+      "route": "/evaluation/",
+      "domain": "评测专题",
+      "tags": [
+        "评测",
+        "基准",
+        "Benchmark",
+        "MMLU",
+        "HumanEval"
+      ],
+      "aliases": [
+        "评测",
+        "基准",
+        "Benchmark",
+        "MMLU",
+        "GSM8K",
+        "HumanEval",
+        "榜单"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "source": "knowledge__attention",
+      "target": "knowledge__transformer"
+    },
+    {
+      "source": "knowledge__attention",
+      "target": "architecture__index"
+    },
+    {
+      "source": "knowledge__attention",
+      "target": "inference_optimization__index"
+    },
+    {
+      "source": "knowledge__attention",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "knowledge__attention",
+      "target": "base_models__deepseek"
+    },
+    {
+      "source": "knowledge__attention",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "knowledge__transformer"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "knowledge__attention"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "inference_optimization__index"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "knowledge__reasoning"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "agent__index"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "architecture__index"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "base_models__claude"
+    },
+    {
+      "source": "knowledge__ml_basics",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "knowledge__ml_basics",
+      "target": "knowledge__neural_networks"
+    },
+    {
+      "source": "knowledge__neural_networks",
+      "target": "knowledge__transformer"
+    },
+    {
+      "source": "knowledge__neural_networks",
+      "target": "knowledge__ml_basics"
+    },
+    {
+      "source": "knowledge__reasoning",
+      "target": "inference_models__index"
+    },
+    {
+      "source": "knowledge__reasoning",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "knowledge__reasoning",
+      "target": "agent__index"
+    },
+    {
+      "source": "knowledge__reasoning",
+      "target": "post_training__index"
+    },
+    {
+      "source": "knowledge__reasoning",
+      "target": "post_training__rlhf_dpo"
+    },
+    {
+      "source": "knowledge__reasoning",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "post_training__index"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "post_training__sft"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "knowledge__ml_basics"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "post_training__rlhf_dpo"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "knowledge__reasoning"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "inference_models__index"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "knowledge__attention"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "knowledge__transformer"
+    },
+    {
+      "source": "knowledge__transformer",
+      "target": "knowledge__attention"
+    },
+    {
+      "source": "knowledge__transformer",
+      "target": "knowledge__neural_networks"
+    },
+    {
+      "source": "knowledge__transformer",
+      "target": "inference_optimization__index"
+    },
+    {
+      "source": "knowledge__transformer",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "knowledge__transformer",
+      "target": "architecture__index"
+    },
+    {
+      "source": "knowledge__transformer",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "base_models__claude",
+      "target": "base_models__gpt"
+    },
+    {
+      "source": "base_models__claude",
+      "target": "post_training__index"
+    },
+    {
+      "source": "base_models__claude",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "base_models__claude",
+      "target": "base_models__deepseek"
+    },
+    {
+      "source": "base_models__claude",
+      "target": "architecture__index"
+    },
+    {
+      "source": "base_models__deepseek",
+      "target": "base_models__claude"
+    },
+    {
+      "source": "base_models__deepseek",
+      "target": "knowledge__attention"
+    },
+    {
+      "source": "base_models__deepseek",
+      "target": "architecture__index"
+    },
+    {
+      "source": "base_models__gpt",
+      "target": "base_models__claude"
+    },
+    {
+      "source": "post_training__index",
+      "target": "post_training__rlhf_dpo"
+    },
+    {
+      "source": "post_training__index",
+      "target": "post_training__sft"
+    },
+    {
+      "source": "post_training__index",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "post_training__index",
+      "target": "knowledge__reasoning"
+    },
+    {
+      "source": "post_training__index",
+      "target": "inference_models__index"
+    },
+    {
+      "source": "post_training__index",
+      "target": "base_models__claude"
+    },
+    {
+      "source": "post_training__index",
+      "target": "training_systems__index"
+    },
+    {
+      "source": "post_training__rlhf_dpo",
+      "target": "post_training__index"
+    },
+    {
+      "source": "post_training__rlhf_dpo",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "post_training__rlhf_dpo",
+      "target": "knowledge__reasoning"
+    },
+    {
+      "source": "post_training__rlhf_dpo",
+      "target": "inference_models__index"
+    },
+    {
+      "source": "post_training__sft",
+      "target": "post_training__index"
+    },
+    {
+      "source": "post_training__sft",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "agent__index",
+      "target": "agent__tool_use"
+    },
+    {
+      "source": "agent__index",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "agent__index",
+      "target": "knowledge__reasoning"
+    },
+    {
+      "source": "agent__index",
+      "target": "inference_models__index"
+    },
+    {
+      "source": "agent__tool_use",
+      "target": "agent__index"
+    },
+    {
+      "source": "architecture__index",
+      "target": "base_models__claude"
+    },
+    {
+      "source": "architecture__index",
+      "target": "knowledge__attention"
+    },
+    {
+      "source": "architecture__index",
+      "target": "knowledge__transformer"
+    },
+    {
+      "source": "architecture__index",
+      "target": "base_models__deepseek"
+    },
+    {
+      "source": "architecture__index",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "training_systems__index",
+      "target": "post_training__index"
+    },
+    {
+      "source": "training_systems__index",
+      "target": "inference_optimization__index"
+    },
+    {
+      "source": "inference_models__index",
+      "target": "agent__index"
+    },
+    {
+      "source": "inference_models__index",
+      "target": "knowledge__reasoning"
+    },
+    {
+      "source": "inference_models__index",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "inference_models__index",
+      "target": "post_training__index"
+    },
+    {
+      "source": "inference_models__index",
+      "target": "post_training__rlhf_dpo"
+    },
+    {
+      "source": "inference_models__index",
+      "target": "evaluation__index"
+    },
+    {
+      "source": "inference_optimization__index",
+      "target": "training_systems__index"
+    },
+    {
+      "source": "inference_optimization__index",
+      "target": "knowledge__attention"
+    },
+    {
+      "source": "inference_optimization__index",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "inference_optimization__index",
+      "target": "knowledge__transformer"
+    },
+    {
+      "source": "evaluation__index",
+      "target": "inference_models__index"
+    }
+  ]
+};

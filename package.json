@@ -1,0 +1,20 @@
+{
+  "name": "longge-ai-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview",
+    "kb:graph": "node scripts/build-kb-graph.mjs",
+    "prebuild": "node scripts/build-kb-graph.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
+    "mermaid": "^11.4.1"
+  }
+}
