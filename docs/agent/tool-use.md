@@ -36,13 +36,17 @@ aliases: [工具调用, Function Calling, 函数调用, Tool Use, MCP]
 <!-- kb-related:start -->
 ## 相关笔记
 
+- [主流 AI 编码 Agent 的架构范式](/agent/architectures) — 标签：Agent、标签：工具调用、交叉引用
 - [Agent 总览](/agent/) — 标签：Agent、标签：工具调用、交叉引用
+- [大模型幻觉](/knowledge/hallucination) — 交叉引用
 
 <!-- kb-related:end -->
 
 <!-- kb-backlinks:start -->
 ## 被以下笔记引用
 
+- [大模型幻觉](/knowledge/hallucination)
+- [主流 AI 编码 Agent 的架构范式](/agent/architectures)
 - [Agent 总览](/agent/)
 
 <!-- kb-backlinks:end -->

@@ -32,6 +32,28 @@
       ]
     },
     {
+      "id": "knowledge__hallucination",
+      "title": "大模型幻觉",
+      "route": "/knowledge/hallucination",
+      "domain": "模型与应用",
+      "tags": [
+        "幻觉",
+        "事实性",
+        "参数化记忆",
+        "置信度"
+      ],
+      "aliases": [
+        "幻觉",
+        "Hallucination",
+        "大模型幻觉",
+        "一本正经胡说",
+        "事实性错误",
+        "胡说八道",
+        "confabulation",
+        "幻觉率"
+      ]
+    },
+    {
       "id": "knowledge__llms",
       "title": "大语言模型概览",
       "route": "/knowledge/llms",
@@ -320,6 +342,33 @@
       ]
     },
     {
+      "id": "agent__architectures",
+      "title": "主流 AI 编码 Agent 的架构范式",
+      "route": "/agent/architectures",
+      "domain": "Agent 专题",
+      "tags": [
+        "Agent",
+        "编码智能体",
+        "多智能体",
+        "沙箱",
+        "工具调用",
+        "Claude Code",
+        "Codex",
+        "WorkBuddy",
+        "架构对比"
+      ],
+      "aliases": [
+        "编码Agent",
+        "Coding Agent",
+        "Codex",
+        "Claude Code",
+        "WorkBuddy",
+        "Agent架构",
+        "智能体架构",
+        "终端Agent"
+      ]
+    },
+    {
       "id": "agent__index",
       "title": "Agent 总览",
       "route": "/agent/",
@@ -496,6 +545,30 @@
       "target": "knowledge__llms"
     },
     {
+      "source": "knowledge__hallucination",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "knowledge__hallucination",
+      "target": "evaluation__index"
+    },
+    {
+      "source": "knowledge__hallucination",
+      "target": "knowledge__reasoning"
+    },
+    {
+      "source": "knowledge__hallucination",
+      "target": "agent__tool_use"
+    },
+    {
+      "source": "knowledge__hallucination",
+      "target": "post_training__rlhf_dpo"
+    },
+    {
+      "source": "knowledge__hallucination",
+      "target": "post_training__index"
+    },
+    {
       "source": "knowledge__llms",
       "target": "knowledge__transformer"
     },
@@ -528,6 +601,10 @@
       "target": "base_models__claude"
     },
     {
+      "source": "knowledge__llms",
+      "target": "knowledge__hallucination"
+    },
+    {
       "source": "knowledge__ml_basics",
       "target": "knowledge__training"
     },
@@ -554,6 +631,10 @@
     {
       "source": "knowledge__reasoning",
       "target": "agent__index"
+    },
+    {
+      "source": "knowledge__reasoning",
+      "target": "knowledge__hallucination"
     },
     {
       "source": "knowledge__reasoning",
@@ -685,6 +766,10 @@
     },
     {
       "source": "post_training__index",
+      "target": "knowledge__hallucination"
+    },
+    {
+      "source": "post_training__index",
       "target": "base_models__claude"
     },
     {
@@ -708,12 +793,36 @@
       "target": "inference_models__index"
     },
     {
+      "source": "post_training__rlhf_dpo",
+      "target": "knowledge__hallucination"
+    },
+    {
       "source": "post_training__sft",
       "target": "post_training__index"
     },
     {
       "source": "post_training__sft",
       "target": "knowledge__training"
+    },
+    {
+      "source": "agent__architectures",
+      "target": "agent__tool_use"
+    },
+    {
+      "source": "agent__architectures",
+      "target": "agent__index"
+    },
+    {
+      "source": "agent__architectures",
+      "target": "knowledge__hallucination"
+    },
+    {
+      "source": "agent__architectures",
+      "target": "knowledge__reasoning"
+    },
+    {
+      "source": "agent__index",
+      "target": "agent__architectures"
     },
     {
       "source": "agent__index",
@@ -734,6 +843,10 @@
     {
       "source": "agent__tool_use",
       "target": "agent__index"
+    },
+    {
+      "source": "agent__tool_use",
+      "target": "knowledge__hallucination"
     },
     {
       "source": "architecture__index",
@@ -806,6 +919,10 @@
     {
       "source": "evaluation__index",
       "target": "inference_models__index"
+    },
+    {
+      "source": "evaluation__index",
+      "target": "knowledge__hallucination"
     }
   ]
 }

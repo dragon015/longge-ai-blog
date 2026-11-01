@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 540" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <marker id="arB" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="540" fill="#f8fafc"/>
+  <text x="340" y="28" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">Agent Loop：所有编码 Agent 的通用循环</text>
+
+  <rect x="250" y="44" width="180" height="50" rx="12" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+  <text x="340" y="75" text-anchor="middle" fill="#3730a3" font-size="15" font-weight="700">👤 用户任务 / 目标</text>
+
+  <line x1="340" y1="94" x2="340" y2="116" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="200" y="118" width="280" height="80" rx="14" fill="#1e3a8a" stroke="#1e40af" stroke-width="2"/>
+  <text x="340" y="150" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">🧠 LLM 推理（Thought）</text>
+  <text x="340" y="174" text-anchor="middle" fill="#bfdbfe" font-size="12">读取上下文 · 规划 · 决策：要调工具还是直接答？</text>
+
+  <line x1="340" y1="198" x2="340" y2="220" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <polygon points="340,222 432,260 340,298 248,260" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="340" y="265" text-anchor="middle" fill="#92400e" font-size="14" font-weight="700">需要工具？</text>
+
+  <line x1="248" y1="260" x2="110" y2="260" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="218" y="252" text-anchor="middle" fill="#64748b" font-size="13" font-weight="600">否</text>
+  <line x1="110" y1="260" x2="110" y2="374" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="20" y="374" width="200" height="64" rx="14" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="120" y="404" text-anchor="middle" fill="#166534" font-size="15" font-weight="700">✅ 最终答案</text>
+  <text x="120" y="426" text-anchor="middle" fill="#15803d" font-size="11">返回用户，任务结束</text>
+
+  <line x1="432" y1="260" x2="600" y2="260" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="520" y="252" text-anchor="middle" fill="#64748b" font-size="13" font-weight="600">是</text>
+  <line x1="600" y1="260" x2="600" y2="294" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="460" y="296" width="200" height="66" rx="14" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="560" y="326" text-anchor="middle" fill="#075985" font-size="15" font-weight="700">🔧 执行工具（Action）</text>
+  <text x="560" y="348" text-anchor="middle" fill="#0369a1" font-size="11">受沙箱 / 护栏约束</text>
+
+  <line x1="560" y1="362" x2="560" y2="404" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="460" y="406" width="200" height="66" rx="14" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="560" y="436" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="700">👁 观察结果（Observation）</text>
+  <text x="560" y="458" text-anchor="middle" fill="#475569" font-size="11">结果回灌上下文</text>
+
+  <path d="M560,439 L560,500 L120,500 L120,158 L200,158" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arB)"/>
+  <text x="138" y="490" text-anchor="start" fill="#2563eb" font-size="12" font-weight="600">结果回灌，继续推理（循环直到终态）</text>
+</svg>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="680" height="560" fill="#f8fafc"/>
+  <text x="340" y="28" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">三种主流编码 Agent 的架构对比</text>
+
+  <!-- 列1 Claude Code -->
+  <g>
+    <rect x="10" y="46" width="215" height="70" rx="12" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
+    <text x="117" y="76" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Claude Code</text>
+    <text x="117" y="98" text-anchor="middle" fill="#ffedd5" font-size="11">终端贴库编码 Agent</text>
+    <g font-size="10.5">
+      <rect x="10" y="128" width="215" height="56" rx="8" fill="#fff" stroke="#fdba74" stroke-width="1.5"/>
+      <text x="20" y="145" fill="#9a3412" font-size="9.5" font-weight="700">核心循环</text>
+      <text x="20" y="164" fill="#0f172a">单线程 Agent Loop</text>
+      <rect x="10" y="188" width="215" height="56" rx="8" fill="#fff" stroke="#fdba74" stroke-width="1.5"/>
+      <text x="20" y="205" fill="#9a3412" font-size="9.5" font-weight="700">上下文</text>
+      <text x="20" y="224" fill="#0f172a">HTML 形块 + 摘要压缩</text>
+      <rect x="10" y="248" width="215" height="56" rx="8" fill="#fff" stroke="#fdba74" stroke-width="1.5"/>
+      <text x="20" y="265" fill="#9a3412" font-size="9.5" font-weight="700">安全</text>
+      <text x="20" y="284" fill="#0f172a">权限门 + Hooks 边界</text>
+      <rect x="10" y="308" width="215" height="56" rx="8" fill="#fff" stroke="#fdba74" stroke-width="1.5"/>
+      <text x="20" y="325" fill="#9a3412" font-size="9.5" font-weight="700">编辑</text>
+      <text x="20" y="344" fill="#0f172a">写文件工具</text>
+      <rect x="10" y="368" width="215" height="56" rx="8" fill="#fff" stroke="#fdba74" stroke-width="1.5"/>
+      <text x="20" y="385" fill="#9a3412" font-size="9.5" font-weight="700">多代理</text>
+      <text x="20" y="404" fill="#0f172a">子代理 + worktree 隔离</text>
+      <rect x="10" y="428" width="215" height="56" rx="8" fill="#fff" stroke="#fdba74" stroke-width="1.5"/>
+      <text x="20" y="445" fill="#9a3412" font-size="9.5" font-weight="700">记忆</text>
+      <text x="20" y="464" fill="#0f172a">CLAUDE.md + 会话</text>
+      <rect x="10" y="488" width="215" height="44" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+      <text x="20" y="505" fill="#9a3412" font-size="9.5" font-weight="700">能力层</text>
+      <text x="20" y="523" fill="#0f172a">MCP + 子代理定义</text>
+    </g>
+  </g>
+
+  <!-- 列2 Codex -->
+  <g>
+    <rect x="233" y="46" width="215" height="70" rx="12" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
+    <text x="340" y="76" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">OpenAI Codex CLI</text>
+    <text x="340" y="98" text-anchor="middle" fill="#dcfce7" font-size="11">Rust 开源编码 Agent</text>
+    <g font-size="10.5">
+      <rect x="233" y="128" width="215" height="56" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+      <text x="243" y="145" fill="#166534" font-size="9.5" font-weight="700">核心循环</text>
+      <text x="243" y="164" fill="#0f172a">三角色 Loop</text>
+      <rect x="233" y="188" width="215" height="56" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+      <text x="243" y="205" fill="#166534" font-size="9.5" font-weight="700">上下文</text>
+      <text x="243" y="224" fill="#0f172a">按需拉取 rg/ls/cat</text>
+      <rect x="233" y="248" width="215" height="56" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+      <text x="243" y="265" fill="#166534" font-size="9.5" font-weight="700">安全</text>
+      <text x="243" y="284" fill="#0f172a">OS 沙箱 Seatbelt/Landlock</text>
+      <rect x="233" y="308" width="215" height="56" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+      <text x="243" y="325" fill="#166534" font-size="9.5" font-weight="700">编辑</text>
+      <text x="243" y="344" fill="#0f172a">apply_patch 事务补丁</text>
+      <rect x="233" y="368" width="215" height="56" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+      <text x="243" y="385" fill="#166534" font-size="9.5" font-weight="700">多代理</text>
+      <text x="243" y="404" fill="#0f172a">单体 + MCP server</text>
+      <rect x="233" y="428" width="215" height="56" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+      <text x="243" y="445" fill="#166534" font-size="9.5" font-weight="700">记忆</text>
+      <text x="243" y="464" fill="#0f172a">AGENTS.md + 会话</text>
+      <rect x="233" y="488" width="215" height="44" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+      <text x="243" y="505" fill="#166534" font-size="9.5" font-weight="700">能力层</text>
+      <text x="243" y="523" fill="#0f172a">MCP 双角色</text>
+    </g>
+  </g>
+
+  <!-- 列3 WorkBuddy -->
+  <g>
+    <rect x="456" y="46" width="214" height="70" rx="12" fill="#6366f1" stroke="#4f46e5" stroke-width="2"/>
+    <text x="563" y="76" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">WorkBuddy</text>
+    <text x="563" y="98" text-anchor="middle" fill="#e0e7ff" font-size="11">桌面多场景 Agent 平台</text>
+    <g font-size="10.5">
+      <rect x="456" y="128" width="214" height="56" rx="8" fill="#fff" stroke="#a5b4fc" stroke-width="1.5"/>
+      <text x="466" y="145" fill="#3730a3" font-size="9.5" font-weight="700">核心循环</text>
+      <text x="466" y="164" fill="#0f172a">Agent Loop + 延迟工具</text>
+      <rect x="456" y="188" width="214" height="56" rx="8" fill="#fff" stroke="#a5b4fc" stroke-width="1.5"/>
+      <text x="466" y="205" fill="#3730a3" font-size="9.5" font-weight="700">上下文</text>
+      <text x="466" y="224" fill="#0f172a">检索 + 三层记忆回填</text>
+      <rect x="456" y="248" width="214" height="56" rx="8" fill="#fff" stroke="#a5b4fc" stroke-width="1.5"/>
+      <text x="466" y="265" fill="#3730a3" font-size="9.5" font-weight="700">安全</text>
+      <text x="466" y="284" fill="#0f172a">沙箱 + 按需权限升级</text>
+      <rect x="456" y="308" width="214" height="56" rx="8" fill="#fff" stroke="#a5b4fc" stroke-width="1.5"/>
+      <text x="466" y="325" fill="#3730a3" font-size="9.5" font-weight="700">编辑</text>
+      <text x="466" y="344" fill="#0f172a">文件工具 + 编辑器 SDK</text>
+      <rect x="456" y="368" width="214" height="56" rx="8" fill="#fff" stroke="#a5b4fc" stroke-width="1.5"/>
+      <text x="466" y="385" fill="#3730a3" font-size="9.5" font-weight="700">多代理</text>
+      <text x="466" y="404" fill="#0f172a">多角色 + Skill 编排</text>
+      <rect x="456" y="428" width="214" height="56" rx="8" fill="#fff" stroke="#a5b4fc" stroke-width="1.5"/>
+      <text x="466" y="445" fill="#3730a3" font-size="9.5" font-weight="700">记忆</text>
+      <text x="466" y="464" fill="#0f172a">三层记忆(云/用户/区)</text>
+      <rect x="456" y="488" width="214" height="44" rx="8" fill="#eef2ff" stroke="#a5b4fc" stroke-width="1.5"/>
+      <text x="466" y="505" fill="#3730a3" font-size="9.5" font-weight="700">能力层</text>
+      <text x="466" y="523" fill="#0f172a">Skills + 连接器 + 市场</text>
+    </g>
+  </g>
+</svg>

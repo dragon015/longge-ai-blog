@@ -15,9 +15,11 @@ title: 概念别名表
 | 4o | [GPT](/base-models/gpt) |
 | 榜单 | [评测总览](/evaluation/) |
 | 编码器 | [Transformer 架构](/knowledge/transformer) |
+| 编码Agent | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
 | 残差连接 | [Transformer 架构](/knowledge/transformer) |
 | 层归一化 | [Transformer 架构](/knowledge/transformer) |
 | 大模型 | [大语言模型概览](/knowledge/llms) |
+| 大模型幻觉 | [大模型幻觉](/knowledge/hallucination) |
 | 大语言模型 | [大语言模型概览](/knowledge/llms) |
 | 对齐 | [预训练与后训练](/knowledge/training) |
 | 对齐 | [后训练总览](/post-training/) |
@@ -34,6 +36,9 @@ title: 概念别名表
 | 函数调用 | [工具调用](/agent/tool-use) |
 | 后训练 | [预训练与后训练](/knowledge/training) |
 | 后训练 | [后训练总览](/post-training/) |
+| 胡说八道 | [大模型幻觉](/knowledge/hallucination) |
+| 幻觉 | [大模型幻觉](/knowledge/hallucination) |
+| 幻觉率 | [大模型幻觉](/knowledge/hallucination) |
 | 混合专家 | [模型架构总览](/architecture/) |
 | 机器学习 | [机器学习基础](/knowledge/ml-basics) |
 | 基础模型 | [预训练与后训练](/knowledge/training) |
@@ -55,6 +60,7 @@ title: 概念别名表
 | 上下文窗口 | [大语言模型概览](/knowledge/llms) |
 | 深度求索 | [DeepSeek](/base-models/deepseek) |
 | 神经网络 | [神经网络与反向传播](/knowledge/neural-networks) |
+| 事实性错误 | [大模型幻觉](/knowledge/hallucination) |
 | 思考开关 | [推理模型](/knowledge/reasoning) |
 | 思考开关 | [推理模型总览](/inference-models/) |
 | 思维链 | [推理模型](/knowledge/reasoning) |
@@ -78,17 +84,21 @@ title: 概念别名表
 | 线性注意力 | [模型架构总览](/architecture/) |
 | 宪法AI | [Claude](/base-models/claude) |
 | 训练系统 | [训练系统总览](/training-systems/) |
+| 一本正经胡说 | [大模型幻觉](/knowledge/hallucination) |
 | 预训练 | [预训练与后训练](/knowledge/training) |
 | 蒸馏 | [推理优化总览](/inference-optimization/) |
 | 正则化 | [机器学习基础](/knowledge/ml-basics) |
 | 指令微调 | [SFT 监督微调](/post-training/sft) |
 | 智能体 | [Agent 总览](/agent/) |
+| 智能体架构 | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
 | 智能体总览 | [Agent 总览](/agent/) |
+| 终端Agent | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
 | 注意力机制 | [注意力机制](/knowledge/attention) |
 | 自回归 | [大语言模型概览](/knowledge/llms) |
 | 自注意力 | [注意力机制](/knowledge/attention) |
 | 自注意力 | [Transformer 架构](/knowledge/transformer) |
 | Agent | [Agent 总览](/agent/) |
+| Agent架构 | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
 | Aha moment | [推理模型总览](/inference-models/) |
 | Anthropic | [Claude](/base-models/claude) |
 | Attention | [注意力机制](/knowledge/attention) |
@@ -97,7 +107,11 @@ title: 概念别名表
 | BPE | [大语言模型概览](/knowledge/llms) |
 | ChatGPT | [GPT](/base-models/gpt) |
 | Claude | [Claude](/base-models/claude) |
+| Claude Code | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
 | CLM | [预训练与后训练](/knowledge/training) |
+| Codex | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
+| Coding Agent | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
+| confabulation | [大模型幻觉](/knowledge/hallucination) |
 | Constitutional AI | [Claude](/base-models/claude) |
 | CoT | [推理模型](/knowledge/reasoning) |
 | DeepSeek | [DeepSeek](/base-models/deepseek) |
@@ -116,6 +130,7 @@ title: 概念别名表
 | GQA | [模型架构总览](/architecture/) |
 | GSM8K | [评测总览](/evaluation/) |
 | Haiku | [Claude](/base-models/claude) |
+| Hallucination | [大模型幻觉](/knowledge/hallucination) |
 | HumanEval | [评测总览](/evaluation/) |
 | KV Cache | [注意力机制](/knowledge/attention) |
 | KV缓存 | [注意力机制](/knowledge/attention) |
@@ -170,11 +185,13 @@ title: 概念别名表
 | Transformer | [Transformer 架构](/knowledge/transformer) |
 | V3 | [DeepSeek](/base-models/deepseek) |
 | vLLM | [推理优化总览](/inference-optimization/) |
+| WorkBuddy | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
 | ZeRO | [训练系统总览](/training-systems/) |
 
 ## 笔记 → 别名（写作时补录用）
 
 - [注意力机制](/knowledge/attention)：注意力机制、Attention、自注意力、QKV、KV Cache、KV缓存、GQA、MQA、MLA、RoPE、多头注意力、缩放点积
+- [大模型幻觉](/knowledge/hallucination)：幻觉、Hallucination、大模型幻觉、一本正经胡说、事实性错误、胡说八道、confabulation、幻觉率
 - [大语言模型概览](/knowledge/llms)：大语言模型、LLM、大模型、Tokenization、分词、BPE、Embedding、上下文窗口、自回归、Scaling Law、困惑度
 - [机器学习基础](/knowledge/ml-basics)：机器学习、ML、监督学习、无监督学习、强化学习、梯度下降、过拟合、评估指标、正则化
 - [神经网络与反向传播](/knowledge/neural-networks)：神经网络、反向传播、Backpropagation、激活函数、感知机、链式法则、梯度下降、万能近似定理
@@ -187,6 +204,7 @@ title: 概念别名表
 - [后训练总览](/post-training/)：后训练、Post-training、SFT、RLHF、DPO、RLVR、对齐
 - [RLHF 与 DPO](/post-training/rlhf-dpo)：RLHF、DPO、RLVR、PPO、奖励模型、偏好优化、对齐
 - [SFT 监督微调](/post-training/sft)：SFT、监督微调、指令微调、LoRA、PEFT、QLoRA、微调
+- [主流 AI 编码 Agent 的架构范式](/agent/architectures)：编码Agent、Coding Agent、Codex、Claude Code、WorkBuddy、Agent架构、智能体架构、终端Agent
 - [Agent 总览](/agent/)：Agent、智能体、ReAct、Function Calling、智能体总览
 - [工具调用](/agent/tool-use)：工具调用、Function Calling、函数调用、Tool Use、MCP
 - [模型架构总览](/architecture/)：模型架构、MoE、混合专家、GQA、MLA、Mamba、SSM、线性注意力

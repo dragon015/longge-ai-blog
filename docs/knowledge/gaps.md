@@ -20,7 +20,7 @@ title: 知识缺口
 - [x] **RLVR 与推理训练** — 见 [推理模型](/knowledge/reasoning)
 - [x] **大语言模型（LLM）** — 见 [大语言模型概览](/knowledge/llms)
 - [x] **推理模型** — 见 [推理模型](/knowledge/reasoning)
-- [x] **Agent 智能体** — 见 [Agent 总览](/agent/)
+- [x] **Agent 智能体** — 见 [主流 AI 编码 Agent 的架构范式](/agent/architectures)
 - [x] **推理优化与量化** — 见 [训练系统总览](/training-systems/)
 - [x] **模型架构对比** — 见 [推理模型](/knowledge/reasoning)
 - [x] **参数高效微调（LoRA/PEFT）** — 见 [预训练与后训练](/knowledge/training)

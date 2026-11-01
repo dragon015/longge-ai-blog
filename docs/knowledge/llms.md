@@ -95,15 +95,16 @@ graph TD
 - **想做应用 / 产品**：看 [Agent 智能体](/agent/)——让模型调用工具、自己完成任务。
 - **想抠成本与速度**：看 [推理优化](/inference-optimization/)——量化、蒸馏、KV 缓存优化。
 - **想横向比各家**：看 [模型架构](/architecture/) 与 [基础模型](/base-models/claude)。
+- **想了解模型最大的毛病**：看 [大模型幻觉](/knowledge/hallucination)——它为什么"一本正经胡说八道"。
 
 <!-- kb-related:start -->
 ## 相关笔记
 
 - [注意力机制](/knowledge/attention) — 交叉引用
+- [大模型幻觉](/knowledge/hallucination) — 交叉引用
 - [推理模型](/knowledge/reasoning) — 交叉引用
 - [预训练与后训练](/knowledge/training) — 交叉引用
 - [Transformer 架构](/knowledge/transformer) — 交叉引用
-- [Claude](/base-models/claude) — 交叉引用
 
 <!-- kb-related:end -->
 
@@ -111,6 +112,7 @@ graph TD
 ## 被以下笔记引用
 
 - [注意力机制](/knowledge/attention)
+- [大模型幻觉](/knowledge/hallucination)
 - [推理模型](/knowledge/reasoning)
 - [预训练与后训练](/knowledge/training)
 - [Transformer 架构](/knowledge/transformer)

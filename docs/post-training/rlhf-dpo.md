@@ -44,12 +44,14 @@ DPO 的革命性在于：**不需要单独的奖励模型，也不需要 PPO**�
 - [后训练总览](/post-training/) — 标签：RLHF、标签：DPO、标签：RLVR、交叉引用
 - [推理模型](/knowledge/reasoning) — 标签：RLVR、交叉引用
 - [推理模型总览](/inference-models/) — 标签：RLVR、交叉引用
+- [大模型幻觉](/knowledge/hallucination) — 交叉引用
 
 <!-- kb-related:end -->
 
 <!-- kb-backlinks:start -->
 ## 被以下笔记引用
 
+- [大模型幻觉](/knowledge/hallucination)
 - [推理模型](/knowledge/reasoning)
 - [预训练与后训练](/knowledge/training)
 - [后训练总览](/post-training/)

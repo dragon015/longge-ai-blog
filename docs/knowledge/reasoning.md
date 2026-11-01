@@ -78,6 +78,7 @@ aliases: [推理模型, Reasoning Model, 思维链, CoT, RLVR, 推理缩放, 思
 - 想看各家怎么控「思考油门」：本博客 [推理模型](/inference-models/) 栏目。
 - 想知道这背后的强化学习原理：回看 [预训练与后训练](/knowledge/training) 的 RLVR 一节。
 - 想知道怎么让模型「边想边调用工具 / 自己行动」：看 [Agent 智能体](/agent/)。
+- 想知道"系统二"慢思考为什么能压低幻觉：看 [大模型幻觉](/knowledge/hallucination)。
 
 <!-- kb-related:start -->
 ## 相关笔记
@@ -86,17 +87,19 @@ aliases: [推理模型, Reasoning Model, 思维链, CoT, RLVR, 推理缩放, 思
 - [预训练与后训练](/knowledge/training) — 标签：RLVR、交叉引用
 - [后训练总览](/post-training/) — 标签：RLVR、交叉引用
 - [RLHF 与 DPO](/post-training/rlhf-dpo) — 标签：RLVR、交叉引用
-- [大语言模型概览](/knowledge/llms) — 交叉引用
+- [大模型幻觉](/knowledge/hallucination) — 交叉引用
 
 <!-- kb-related:end -->
 
 <!-- kb-backlinks:start -->
 ## 被以下笔记引用
 
+- [大模型幻觉](/knowledge/hallucination)
 - [大语言模型概览](/knowledge/llms)
 - [预训练与后训练](/knowledge/training)
 - [后训练总览](/post-training/)
 - [RLHF 与 DPO](/post-training/rlhf-dpo)
+- [主流 AI 编码 Agent 的架构范式](/agent/architectures)
 - [Agent 总览](/agent/)
 - [推理模型总览](/inference-models/)
 

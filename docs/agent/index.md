@@ -31,15 +31,21 @@ Agent 补上了三样东西：
 - 上下文管理：长任务如何不"忘事"、不爆上下文
 - 可控性：何时停、何时追问、如何避免跑偏
 
+## 主流架构案例解析
+
+光讲范式还不够——2026 年最成熟的 Agent 落地形态是**编码智能体**。Claude Code、OpenAI Codex CLI、WorkBuddy 三家共享同一套骨架（Agent Loop + 工具 + 护栏），却在**沙箱隔离、上下文工程、多代理编排、记忆与可扩展能力层**上做出了截然不同的取舍。逐家拆解与对照表见 👉 [主流 AI 编码 Agent 的架构范式](/agent/architectures)。
+
 ## 子页面
 
 - [工具调用](/agent/tool-use)
+- [主流 AI 编码 Agent 的架构范式](/agent/architectures)（Codex / Claude Code / WorkBuddy 对比解析）
 
 参考：[学习路线](/roadmap)
 
 <!-- kb-related:start -->
 ## 相关笔记
 
+- [主流 AI 编码 Agent 的架构范式](/agent/architectures) — 标签：Agent、标签：工具调用、交叉引用
 - [工具调用](/agent/tool-use) — 标签：工具调用、标签：Agent、交叉引用
 - [大语言模型概览](/knowledge/llms) — 交叉引用
 - [推理模型](/knowledge/reasoning) — 交叉引用
@@ -52,6 +58,7 @@ Agent 补上了三样东西：
 
 - [大语言模型概览](/knowledge/llms)
 - [推理模型](/knowledge/reasoning)
+- [主流 AI 编码 Agent 的架构范式](/agent/architectures)
 - [工具调用](/agent/tool-use)
 - [推理模型总览](/inference-models/)
 

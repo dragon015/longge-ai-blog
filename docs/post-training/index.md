@@ -48,6 +48,7 @@ aliases: [后训练, Post-training, SFT, RLHF, DPO, RLVR, 对齐]
 <!-- kb-backlinks:start -->
 ## 被以下笔记引用
 
+- [大模型幻觉](/knowledge/hallucination)
 - [推理模型](/knowledge/reasoning)
 - [预训练与后训练](/knowledge/training)
 - [Claude](/base-models/claude)
