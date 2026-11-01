@@ -34,15 +34,16 @@ const USER_AGENT = 'aihot-skill/2.0.0 (+https://aihot.news/aihot-skill/)'
 const LIMIT = 12
 const ARCHIVE_DAYS = 14 // 索引页展示的往期天数（文件全部保留，仅列表截断）
 
-// ---------- 分类字典（ slug → 中文标签 + 霓虹色，slug 来自 AI HOT API 实测） ----------
+// ---------- 分类字典（ slug → 中文标签 + 霓虹色 + 白底适配色，slug 来自 AI HOT API 实测） ----------
+// color=深色主题芯片色（保留兼容）；bg/fg=白底面板上的浅底深字组合
 const CATEGORIES = {
-  industry: { label: '行业', color: '#38bdf8' },
-  'ai-models': { label: '模型', color: '#a78bfa' },
-  'ai-products': { label: '产品', color: '#34d399' },
-  paper: { label: '论文', color: '#fbbf24' },
-  tip: { label: '技巧', color: '#f472b6' },
-  opinion: { label: '观点', color: '#22d3ee' },
-  default: { label: '动态', color: '#94a3b8' },
+  industry: { label: '行业', color: '#38bdf8', bg: '#e0f2fe', fg: '#0369a1' },
+  'ai-models': { label: '模型', color: '#a78bfa', bg: '#ede9fe', fg: '#6d28d9' },
+  'ai-products': { label: '产品', color: '#34d399', bg: '#d1fae5', fg: '#047857' },
+  paper: { label: '论文', color: '#fbbf24', bg: '#fef3c7', fg: '#b45309' },
+  tip: { label: '技巧', color: '#f472b6', bg: '#fce7f3', fg: '#be185d' },
+  opinion: { label: '观点', color: '#22d3ee', bg: '#cffafe', fg: '#0e7490' },
+  default: { label: '动态', color: '#94a3b8', bg: '#f1f5f9', fg: '#475569' },
 }
 
 // ---------- 工具 ----------
@@ -112,7 +113,7 @@ function newsCard(item, index) {
 
   return `<div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:${cat.color}">${esc(cat.label)}</span>
+    <span class="news-cat" style="--cat:${cat.color};--cat-bg:${cat.bg};--cat-fg:${cat.fg}">${esc(cat.label)}</span>
     <a class="news-title" href="${esc(aihotLink)}" target="_blank" rel="noopener">${index + 1}. ${esc(item.title)}</a>
   </div>
   <p class="news-summary">${esc(item.summary)}</p>
@@ -144,6 +145,8 @@ title: AI 动态 · ${dateKey}
 
 ${NOTICE}
 
+<div class="news-wrap">
+
 # AI 动态 · ${dateKey}
 
 > 本页由飞轮脚本自动抓取生成，共 ${items.length} 条（口径：${windowLabel}）。标题链接指向 AI HOT 精选详情，「原文」为第三方出处。
@@ -153,6 +156,8 @@ ${renderDaySection(dateKey, items, windowLabel, true)}
 ---
 
 资讯来源：[AI HOT](https://aihot.news)（aihot.news）公开 API 精选，摘要与标题版权归原作者所有；本页仅作学习索引，重要数字与政策请回第三方原文核对。
+
+</div>
 `
 }
 
@@ -171,6 +176,8 @@ title: AI 最新动态
 
 ${NOTICE}
 
+<div class="news-wrap">
+
 # AI 最新动态
 
 <div class="news-banner">
@@ -187,6 +194,8 @@ ${archiveLines}
 ---
 
 资讯来源：[AI HOT](https://aihot.news)（aihot.news）公开 API 精选，摘要与标题版权归原作者所有；本页仅作学习索引，重要数字与政策请回第三方原文核对。
+
+</div>
 `
 }
 
