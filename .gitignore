@@ -5,3 +5,4 @@ node_modules
 *.local
 *.log
 graph-check.html
+.vitepress/config.js.timestamp-*
