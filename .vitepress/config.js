@@ -82,6 +82,7 @@ export default defineConfig({
           { text: '工具调用', link: '/agent/tool-use' },
         ],
       },
+      { text: '📰 AI动态', link: '/ai-news/' },
       { text: '👤 关于', link: '/about' },
     ],
 
