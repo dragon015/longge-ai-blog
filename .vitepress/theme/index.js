@@ -54,21 +54,50 @@ function renderMermaidIn(el = document) {
   })
 }
 
-// 访问量计数器：Vercount（不蒜子兼容实现，busuanzi.ibruce.info 官方长期不稳，
-// 改用社区维护的兼容版；沿用 busuanzi_* 的 DOM ID，无需改标签结构）。
-// VitePress 是 SPA，路由切换不会重载脚本，故在 path 变化时重新注入脚本按新 URL 计数。
+// 访问量计数器：直连 Vercount 公共计数 API（events.vercount.one，CORS 开放、无需注册、首访自动建站）。
+// 不依赖第三方脚本的注入/初始化时机，自己在 SPA 的 onMounted / 路由变化时按当前 URL 直接 POST 计数并填充 busuanzi_* 占位。
+// 复刻 Vercount 的 UV cookie 逻辑（vercount_uv_<host>），避免把每次访问都算作新访客。
 function refreshCounter(path) {
-  if (typeof document === 'undefined') return
+  if (typeof document === 'undefined' || typeof window === 'undefined') return
   if (refreshCounter._last === path) return
   refreshCounter._last = path
-  const id = 'vercount-counter'
-  const old = document.getElementById(id)
-  if (old) old.remove()
-  const s = document.createElement('script')
-  s.id = id
-  s.async = true
-  s.src = 'https://cn.vercount.one/js' // 中国加速；海外用 https://vercount.one/js
-  document.body.appendChild(s)
+
+  const host = window.location.host || 'unknown-host'
+  // 本地预览不计数，避免污染线上数据
+  if (/^(localhost|127\.0\.0\.1|::1)$/.test(host)) return
+
+  const API = 'https://events.vercount.one/api/v2/log'
+  const cookieName = 'vercount_uv_' + host.replace(/[^a-zA-Z0-9_-]/g, '_')
+  const getCookie = (n) => {
+    const m = document.cookie.split('; ').find((c) => c.startsWith(n + '='))
+    return m ? m.substring(n.length + 1) : null
+  }
+  let isNewUv = false
+  if (getCookie(cookieName) !== '1') {
+    isNewUv = true
+    document.cookie = `${cookieName}=1; path=/; max-age=31536000; samesite=lax`
+  }
+
+  const url = window.location.href
+  fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ url, isNewUv }),
+  })
+    .then((r) => r.json())
+    .then((res) => {
+      if (!res || res.status !== 'success' || !res.data) return
+      const set = (id, val) => {
+        const el = document.getElementById(id)
+        if (el) el.textContent = val
+      }
+      set('busuanzi_value_site_pv', res.data.site_pv)
+      set('busuanzi_value_site_uv', res.data.site_uv)
+      set('busuanzi_value_page_pv', res.data.page_pv)
+    })
+    .catch(() => {
+      /* 计数服务不可达时保留占位，不影响页面渲染 */
+    })
 }
 
 export default {
