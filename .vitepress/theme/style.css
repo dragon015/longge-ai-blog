@@ -522,3 +522,24 @@
     margin-left: 0;
   }
 }
+
+/* ---------- 10. 访问量计数器（Vercount / 不蒜子兼容） ---------- */
+/* page_pv：每篇文章正文之后；site_pv/site_uv：每页底部 footer 之后 */
+.page-views {
+  margin: 1.75rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--vp-c-divider);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+}
+.site-views {
+  text-align: center;
+  padding: 1rem 0 2.25rem;
+  font-size: 0.82rem;
+  color: var(--vp-c-text-2);
+}
+.site-views .sv-divider {
+  margin: 0 0.6rem;
+  opacity: 0.45;
+}

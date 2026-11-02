@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 460" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+    <marker id="arS" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="460" fill="#f8fafc"/>
+  <text x="340" y="26" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">神经元与网络：前向传播 + 反向传播</text>
+
+  <!-- 神经元 schematic -->
+  <rect x="20" y="44" width="220" height="120" rx="12" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="2"/>
+  <text x="130" y="66" text-anchor="middle" fill="#075985" font-size="13" font-weight="700">一个神经元</text>
+  <circle cx="60" cy="120" r="6" fill="#0284c7"/>
+  <circle cx="60" cy="100" r="6" fill="#0284c7"/>
+  <circle cx="60" cy="80" r="6" fill="#0284c7"/>
+  <line x1="66" y1="120" x2="150" y2="103" stroke="#475569" stroke-width="1.5"/>
+  <line x1="66" y1="100" x2="150" y2="103" stroke="#475569" stroke-width="1.5"/>
+  <line x1="66" y1="80" x2="150" y2="103" stroke="#475569" stroke-width="1.5"/>
+  <rect x="150" y="90" width="34" height="26" rx="6" fill="#0284c7"/>
+  <text x="167" y="108" text-anchor="middle" fill="#fff" font-size="14">Σ</text>
+  <line x1="184" y1="103" x2="214" y2="103" stroke="#475569" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="225" y="100" fill="#075985" font-size="11" font-weight="700">激活</text>
+  <text x="225" y="118" fill="#475569" font-size="9">ReLU等</text>
+  <text x="60" y="148" fill="#475569" font-size="10">z=Σwᵢxᵢ+b</text>
+
+  <!-- 网络 -->
+  <rect x="260" y="44" width="400" height="120" rx="12" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="2"/>
+  <text x="460" y="66" text-anchor="middle" fill="#075985" font-size="13" font-weight="700">前馈网络（叠加成深度模型）</text>
+  <circle cx="300" cy="90" r="14" fill="#0284c7"/>
+  <circle cx="300" cy="120" r="14" fill="#0284c7"/>
+  <circle cx="300" cy="150" r="14" fill="#0284c7"/>
+  <circle cx="460" cy="90" r="14" fill="#0284c7"/>
+  <circle cx="460" cy="120" r="14" fill="#0284c7"/>
+  <circle cx="460" cy="150" r="14" fill="#0284c7"/>
+  <circle cx="620" cy="120" r="14" fill="#0284c7"/>
+  <line x1="314" y1="90" x2="446" y2="90" stroke="#475569" stroke-width="1.2"/>
+  <line x1="314" y1="90" x2="446" y2="120" stroke="#475569" stroke-width="1.2"/>
+  <line x1="314" y1="90" x2="446" y2="150" stroke="#475569" stroke-width="1.2"/>
+  <line x1="314" y1="120" x2="446" y2="90" stroke="#475569" stroke-width="1.2"/>
+  <line x1="314" y1="120" x2="446" y2="120" stroke="#475569" stroke-width="1.2"/>
+  <line x1="314" y1="120" x2="446" y2="150" stroke="#475569" stroke-width="1.2"/>
+  <line x1="314" y1="150" x2="446" y2="90" stroke="#475569" stroke-width="1.2"/>
+  <line x1="314" y1="150" x2="446" y2="120" stroke="#475569" stroke-width="1.2"/>
+  <line x1="314" y1="150" x2="446" y2="150" stroke="#475569" stroke-width="1.2"/>
+  <line x1="474" y1="90" x2="606" y2="120" stroke="#475569" stroke-width="1.2"/>
+  <line x1="474" y1="120" x2="606" y2="120" stroke="#475569" stroke-width="1.2"/>
+  <line x1="474" y1="150" x2="606" y2="120" stroke="#475569" stroke-width="1.2"/>
+  <text x="300" y="180" text-anchor="middle" fill="#475569" font-size="10">输入层</text>
+  <text x="460" y="180" text-anchor="middle" fill="#475569" font-size="10">隐藏层</text>
+  <text x="620" y="180" text-anchor="middle" fill="#475569" font-size="10">输出</text>
+
+  <!-- 反向传播 -->
+  <text x="340" y="208" text-anchor="middle" fill="#075985" font-size="14" font-weight="700">反向传播：用链式法则把误差「分摊」回每个权重</text>
+  <rect x="20" y="220" width="640" height="80" rx="12" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="2"/>
+  <text x="44" y="246" fill="#0f172a" font-size="12">① 前向：输入 → 各层加权求和+激活 → 输出预测</text>
+  <text x="44" y="270" fill="#0f172a" font-size="12">② 算损失：预测 vs 真实标签（如交叉熵）</text>
+  <text x="44" y="292" fill="#0f172a" font-size="12">③ 反向：损失对每层参数求偏导（链式法则）→ 得到梯度</text>
+
+  <!-- gradient arrow -->
+  <line x1="620" y1="300" x2="620" y2="340" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arS)"/>
+  <text x="632" y="326" fill="#dc2626" font-size="11" font-weight="700">梯度</text>
+
+  <rect x="20" y="344" width="640" height="92" rx="12" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="2"/>
+  <text x="44" y="370" fill="#0f172a" font-size="12">④ 梯度下降：w ← w − η·∇w ，照着梯度一步步调优（η = 学习率）</text>
+  <text x="44" y="394" fill="#0f172a" font-size="12">⑤ 循环：重复前向→反向→更新，直到损失收敛</text>
+  <text x="44" y="420" fill="#075985" font-size="11" font-weight="700">💡 万能近似定理：神经元够多、层够深，前馈网络可逼近任意连续函数——「深」是能力来源。</text>
+</svg>

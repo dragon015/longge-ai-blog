@@ -11,6 +11,8 @@ aliases: [注意力机制, Attention, 自注意力, QKV, KV Cache, KV缓存, GQA
 
 > 这是 Transformer 的「发动机」，也是理解一切大模型的关键零件。上一篇 [Transformer 架构](/knowledge/transformer) 把它当黑盒用，这篇拆开看：Q/K/V 是什么、公式怎么来的、推理时怎么省显存、各家怎么魔改。
 
+<img src="/assets/attention.svg" alt="缩放点积注意力计算流程" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 用比喻先建立直觉
 
 想象你在读一句话，看到「它」这个词，你脑子里会自动问：「它指的是前面哪个人 / 哪件事？」——**你给前面的每个词分配了不同的「注意力权重」**。

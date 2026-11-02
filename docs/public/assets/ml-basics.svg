@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 460" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+    <marker id="arE" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#059669"/></marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="460" fill="#f8fafc"/>
+  <text x="340" y="26" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">机器学习三大范式 + 核心学习循环</text>
+
+  <text x="340" y="50" text-anchor="middle" fill="#065f46" font-size="13" font-weight="700">按「数据有没有标准答案」分三类</text>
+  <rect x="20" y="60" width="200" height="120" rx="12" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="120" y="86" text-anchor="middle" fill="#065f46" font-size="14" font-weight="700">监督学习</text>
+  <text x="120" y="108" text-anchor="middle" fill="#0f172a" font-size="11">(数据带标签)</text>
+  <text x="120" y="130" text-anchor="middle" fill="#0f172a" font-size="11">分类 / 回归</text>
+  <text x="120" y="152" text-anchor="middle" fill="#475569" font-size="10">猫狗图→标签</text>
+  <text x="120" y="170" text-anchor="middle" fill="#475569" font-size="10">房价预测</text>
+
+  <rect x="240" y="60" width="200" height="120" rx="12" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="340" y="86" text-anchor="middle" fill="#065f46" font-size="14" font-weight="700">无监督学习</text>
+  <text x="340" y="108" text-anchor="middle" fill="#0f172a" font-size="11">(数据无标签)</text>
+  <text x="340" y="130" text-anchor="middle" fill="#0f172a" font-size="11">聚类 / 降维</text>
+  <text x="340" y="152" text-anchor="middle" fill="#475569" font-size="10">用户分群</text>
+  <text x="340" y="170" text-anchor="middle" fill="#475569" font-size="10">异常检测</text>
+
+  <rect x="460" y="60" width="200" height="120" rx="12" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="560" y="86" text-anchor="middle" fill="#065f46" font-size="14" font-weight="700">强化学习</text>
+  <text x="560" y="108" text-anchor="middle" fill="#0f172a" font-size="11">(奖励信号)</text>
+  <text x="560" y="130" text-anchor="middle" fill="#0f172a" font-size="11">试错 + 最大化回报</text>
+  <text x="560" y="152" text-anchor="middle" fill="#475569" font-size="10">游戏 / 机器人</text>
+  <text x="560" y="170" text-anchor="middle" fill="#475569" font-size="10">RLHF 也属此类</text>
+
+  <text x="340" y="214" text-anchor="middle" fill="#065f46" font-size="13" font-weight="700">核心学习循环（一切模型的地基）</text>
+  <rect x="20" y="224" width="150" height="56" rx="10" fill="#059669" stroke="#047857" stroke-width="2"/>
+  <text x="95" y="248" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">数据 + 目标</text>
+  <text x="95" y="268" text-anchor="middle" fill="#d1fae5" font-size="10">尽量预测准</text>
+  <line x1="170" y1="252" x2="206" y2="252" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="206" y="224" width="150" height="56" rx="10" fill="#fff" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="281" y="248" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="700">模型调参</text>
+  <text x="281" y="268" text-anchor="middle" fill="#475569" font-size="10">梯度下降更新 w</text>
+  <line x1="356" y1="252" x2="392" y2="252" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="392" y="224" width="150" height="56" rx="10" fill="#fff" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="467" y="248" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="700">预测输出</text>
+  <text x="467" y="268" text-anchor="middle" fill="#475569" font-size="10">对新样本推断</text>
+  <line x1="542" y1="252" x2="578" y2="252" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="578" y="224" width="82" height="56" rx="10" fill="#fff" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="619" y="252" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="700">评估</text>
+  <text x="619" y="270" text-anchor="middle" fill="#475569" font-size="10">算误差</text>
+  <path d="M619,280 L619,318 L95,318 L95,280" fill="none" stroke="#059669" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arE)"/>
+  <text x="340" y="308" text-anchor="middle" fill="#047857" font-size="11" font-weight="700">误差反向传回，调整参数（「学习」= 不断逼近目标）</text>
+
+  <rect x="20" y="338" width="640" height="106" rx="12" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="40" y="362" fill="#065f46" font-size="13" font-weight="700">还要警惕两个经典问题</text>
+  <rect x="40" y="374" width="290" height="56" rx="10" fill="#fff" stroke="#6ee7b7" stroke-width="1.5"/>
+  <text x="185" y="398" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="700">过拟合（记死训练集）</text>
+  <text x="185" y="418" text-anchor="middle" fill="#475569" font-size="10">训练好、测试差 → 正则化/早停</text>
+  <rect x="350" y="374" width="290" height="56" rx="10" fill="#fff" stroke="#6ee7b7" stroke-width="1.5"/>
+  <text x="495" y="398" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="700">欠拟合（学不动）</text>
+  <text x="495" y="418" text-anchor="middle" fill="#475569" font-size="10">模型太简单 → 加深/加宽</text>
+</svg>

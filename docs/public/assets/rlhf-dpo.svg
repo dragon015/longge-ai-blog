@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="680" height="470" fill="#f8fafc"/>
+  <text x="340" y="26" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">RLHF vs DPO vs RLVR：三条对齐路线</text>
+
+  <!-- RLHF -->
+  <g>
+    <rect x="10" y="44" width="215" height="60" rx="12" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+    <text x="117" y="72" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">RLHF</text>
+    <text x="117" y="92" text-anchor="middle" fill="#fee2e2" font-size="11">奖励模型 + 强化学习</text>
+    <g font-size="10.5">
+      <rect x="10" y="112" width="215" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="20" y="130" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="20" y="148" fill="#0f172a">① SFT 基础模型</text>
+      <rect x="10" y="160" width="215" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="20" y="178" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="20" y="196" fill="#0f172a">② 训 Reward Model</text>
+      <rect x="10" y="208" width="215" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="20" y="226" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="20" y="244" fill="#0f172a">③ PPO 强化学习</text>
+      <rect x="10" y="256" width="215" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="20" y="274" fill="#991b1b" font-size="9.5" font-weight="700">特点</text>
+      <text x="20" y="290" fill="#0f172a">复杂·不稳·成本高</text>
+      <rect x="10" y="300" width="215" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="20" y="318" fill="#991b1b" font-size="9.5" font-weight="700">适合</text>
+      <text x="20" y="334" fill="#0f172a">强对齐·风格好</text>
+      <rect x="10" y="344" width="215" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="20" y="362" fill="#991b1b" font-size="9.5" font-weight="700">奖励信号</text>
+      <text x="20" y="378" fill="#0f172a">人类偏好</text>
+      <rect x="10" y="388" width="215" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="20" y="406" fill="#991b1b" font-size="9.5" font-weight="700">代表</text>
+      <text x="20" y="422" fill="#0f172a">ChatGPT / Claude</text>
+    </g>
+  </g>
+
+  <!-- DPO -->
+  <g>
+    <rect x="233" y="44" width="215" height="60" rx="12" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+    <text x="340" y="72" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">DPO</text>
+    <text x="340" y="92" text-anchor="middle" fill="#fee2e2" font-size="11">偏好数据直接优化</text>
+    <g font-size="10.5">
+      <rect x="233" y="112" width="215" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="243" y="130" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="243" y="148" fill="#0f172a">① SFT 基础模型</text>
+      <rect x="233" y="160" width="215" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="243" y="178" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="243" y="196" fill="#0f172a">② 收集偏好对(chosen/rej)</text>
+      <rect x="233" y="208" width="215" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="243" y="226" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="243" y="244" fill="#0f172a">③ 分类式损失直接训</text>
+      <rect x="233" y="256" width="215" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="243" y="274" fill="#991b1b" font-size="9.5" font-weight="700">特点</text>
+      <text x="243" y="290" fill="#0f172a">简单·稳定</text>
+      <rect x="233" y="300" width="215" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="243" y="318" fill="#991b1b" font-size="9.5" font-weight="700">适合</text>
+      <text x="243" y="334" fill="#0f172a">资源有限·求简单</text>
+      <rect x="233" y="344" width="215" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="243" y="362" fill="#991b1b" font-size="9.5" font-weight="700">奖励信号</text>
+      <text x="243" y="378" fill="#0f172a">人类偏好</text>
+      <rect x="233" y="388" width="215" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="243" y="406" fill="#991b1b" font-size="9.5" font-weight="700">代表</text>
+      <text x="243" y="422" fill="#0f172a">Llama / Mistral 系</text>
+    </g>
+  </g>
+
+  <!-- RLVR -->
+  <g>
+    <rect x="456" y="44" width="214" height="60" rx="12" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+    <text x="563" y="72" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">RLVR</text>
+    <text x="563" y="92" text-anchor="middle" fill="#fee2e2" font-size="11">可验证奖励</text>
+    <g font-size="10.5">
+      <rect x="456" y="112" width="214" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="466" y="130" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="466" y="148" fill="#0f172a">① SFT 基础模型</text>
+      <rect x="456" y="160" width="214" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="466" y="178" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="466" y="196" fill="#0f172a">② 生成+验证对错</text>
+      <rect x="456" y="208" width="214" height="44" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="466" y="226" fill="#991b1b" font-size="9.5" font-weight="700">步骤</text>
+      <text x="466" y="244" fill="#0f172a">③ 0/1 奖励强化学习</text>
+      <rect x="456" y="256" width="214" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="466" y="274" fill="#991b1b" font-size="9.5" font-weight="700">特点</text>
+      <text x="466" y="290" fill="#0f172a">长出「顿悟时刻」</text>
+      <rect x="456" y="300" width="214" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="466" y="318" fill="#991b1b" font-size="9.5" font-weight="700">适合</text>
+      <text x="466" y="334" fill="#0f172a">会思考·解题强</text>
+      <rect x="456" y="344" width="214" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="466" y="362" fill="#991b1b" font-size="9.5" font-weight="700">奖励信号</text>
+      <text x="466" y="378" fill="#0f172a">答案对错(验算/编译)</text>
+      <rect x="456" y="388" width="214" height="40" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+      <text x="466" y="406" fill="#991b1b" font-size="9.5" font-weight="700">代表</text>
+      <text x="466" y="422" fill="#0f172a">DeepSeek-R1</text>
+    </g>
+  </g>
+</svg>

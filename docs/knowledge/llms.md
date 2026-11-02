@@ -11,6 +11,8 @@ aliases: [大语言模型, LLM, 大模型, Tokenization, 分词, BPE, Embedding,
 
 > 这是把前面几篇串起来的「总章」。你已经分别看了机器学习、神经网络、Transformer、注意力、训练——这篇用一个「从文字到智能」的完整链路，把它们黏合成一幅全景图。读完它，你应该能对着任意一个 LLM 说出「它由哪些零件、怎么造出来的」。
 
+<img src="/assets/llms-pipeline.svg" alt="LLM 全链路流程图" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 一句话定义
 
 **大语言模型（LLM）**：一个参数量巨大（几十亿到上万亿）、在海量文本上预训练出来的神经网络，核心本领是「给定前面的文字，预测下一个最可能出现的字（token）」。聊天、写代码、翻译，都是这个本领的「外溢」。

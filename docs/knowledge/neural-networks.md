@@ -11,6 +11,8 @@ aliases: [神经网络, 反向传播, Backpropagation, 激活函数, 感知机, 
 
 > 上一篇讲了机器学习的「框架」，这篇钻进模型内部，看参数到底是怎么被「调」出来的。神经网络是现代所有大模型的最小积木，理解了它，再看 Transformer、LLM 就是「搭积木」。
 
+<img src="/assets/neural-networks.svg" alt="神经元、网络与反向传播" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 从感知机说起
 
 1943 年的「感知机」是最朴素的神经元：把几个输入加权求和，超过阈值就输出 1，否则 0。

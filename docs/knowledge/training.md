@@ -11,6 +11,8 @@ aliases: [预训练, 后训练, Pre-training, Post-training, SFT, RLHF, DPO, RLV
 
 > 一个能聊天的大模型，不是「训一次」就成的，而是分阶段「打磨」出来的：先海量自学（预训练），再针对性调教（后训练）。这篇把这条流水线讲清楚，也是本博客 [后训练](/post-training/) 栏目的总纲。
 
+<img src="/assets/training-pipeline.svg" alt="预训练与后训练流水线" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 两个阶段，两种目标
 
 ```mermaid

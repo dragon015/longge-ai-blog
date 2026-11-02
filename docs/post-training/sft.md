@@ -9,6 +9,8 @@ aliases: [SFT, 监督微调, 指令微调, LoRA, PEFT, QLoRA, 微调]
 
 > 一句话：用一批"标准答案"教模型学会你想要的输出风格与能力。后训练的第一步几乎都是它。
 
+<img src="/assets/sft.svg" alt="SFT 监督微调流程" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 核心思想
 
 预训练模型已经"懂很多"，但不一定按你的格式答、也不一定擅长特定任务。SFT 就是用 **(指令, 期望回答)** 这样的配对数据，做一轮有监督的微调，把模型"对齐"到目标行为上。

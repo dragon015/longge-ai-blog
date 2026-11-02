@@ -11,6 +11,8 @@ aliases: [Transformer, 自注意力, Self-Attention, 位置编码, 位置编码�
 
 > 2017 年 Google 论文《Attention Is All You Need》提出的 Transformer，是今天所有大模型的统一骨架。GPT、Claude、DeepSeek 再怎么花哨，底层都是它在「搭积木」。这篇先讲整体结构，注意力机制的细节留到 [注意力机制](/knowledge/attention) 单开一篇。
 
+<img src="/assets/transformer.svg" alt="Transformer 架构示意图" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 为什么需要 Transformer
 
 在它之前，序列建模主要靠 **RNN / LSTM**：一句话要一个字一个字地「读」，第 N 个字的结果依赖第 N-1 个字。这带来两个致命问题：

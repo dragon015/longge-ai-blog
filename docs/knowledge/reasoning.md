@@ -11,6 +11,8 @@ aliases: [推理模型, Reasoning Model, 思维链, CoT, RLVR, 推理缩放, 思
 
 > 传统 AI 像「抢答的学生」，问完立刻蹦答案；推理模型像「会打草稿的学生」——先在草稿纸上一步步推、自我检查，再给最终答案。这篇讲清楚它为什么「会想」、以及怎么控制它「想多久」。也是本博客 [推理模型](/inference-models/) 栏目的总纲。
 
+<img src="/assets/reasoning.svg" alt="推理模型工作机制" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 推理模型 = 会打草稿的学生
 
 推理模型在正式回答前，会先生成一段**推理轨迹（Reasoning Trace）**：把「先算 A、再验证 B、哦不对重来」的过程写出来，最后才给答案。

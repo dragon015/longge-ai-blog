@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="360" fill="#f8fafc"/>
+  <text x="340" y="26" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">AI 学习四阶段路线图</text>
+
+  <!-- 阶段卡片 -->
+  <rect x="20" y="56" width="150" height="240" rx="12" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2"/>
+  <rect x="20" y="56" width="150" height="34" rx="12" fill="#6366f1"/>
+  <text x="95" y="78" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">① 夯实基础</text>
+  <text x="32" y="108" fill="#3730a3" font-size="10.5" font-weight="700">目标</text>
+  <text x="32" y="126" fill="#0f172a" font-size="10">看懂技术文章</text>
+  <text x="32" y="144" fill="#0f172a" font-size="10">不被数学劝退</text>
+  <text x="32" y="170" fill="#3730a3" font-size="10.5" font-weight="700">核心</text>
+  <text x="32" y="188" fill="#0f172a" font-size="10">线代·概率·微积分</text>
+  <text x="32" y="206" fill="#0f172a" font-size="10">Python·numpy</text>
+  <text x="32" y="224" fill="#0f172a" font-size="10">ML 基础·NN</text>
+  <text x="32" y="252" fill="#3730a3" font-size="10.5" font-weight="700">验收</text>
+  <text x="32" y="270" fill="#0f172a" font-size="10">手推感知机梯度</text>
+
+  <rect x="178" y="56" width="150" height="240" rx="12" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2"/>
+  <rect x="178" y="56" width="150" height="34" rx="12" fill="#4f46e5"/>
+  <text x="253" y="78" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">② Transformer/LLM</text>
+  <text x="190" y="108" fill="#3730a3" font-size="10.5" font-weight="700">目标</text>
+  <text x="190" y="126" fill="#0f172a" font-size="10">懂为何这么设计</text>
+  <text x="190" y="144" fill="#0f172a" font-size="10">讲清注意力</text>
+  <text x="190" y="170" fill="#3730a3" font-size="10.5" font-weight="700">核心</text>
+  <text x="190" y="188" fill="#0f172a" font-size="10">Self-Attn·GQA/MLA</text>
+  <text x="190" y="206" fill="#0f172a" font-size="10">RoPE·Scaling Law</text>
+  <text x="190" y="224" fill="#0f172a" font-size="10">Dense vs MoE</text>
+  <text x="190" y="252" fill="#3730a3" font-size="10.5" font-weight="700">验收</text>
+  <text x="190" y="270" fill="#0f172a" font-size="10">画 LLM 架构图</text>
+
+  <rect x="336" y="56" width="150" height="240" rx="12" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2"/>
+  <rect x="336" y="56" width="150" height="34" rx="12" fill="#6366f1"/>
+  <text x="411" y="78" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">③ 后训练/对齐</text>
+  <text x="348" y="108" fill="#3730a3" font-size="10.5" font-weight="700">目标</text>
+  <text x="348" y="126" fill="#0f172a" font-size="10">预训练给知识</text>
+  <text x="348" y="144" fill="#0f172a" font-size="10">后训练给能力</text>
+  <text x="348" y="170" fill="#3730a3" font-size="10.5" font-weight="700">核心</text>
+  <text x="348" y="188" fill="#0f172a" font-size="10">SFT·LoRA/QLoRA</text>
+  <text x="348" y="206" fill="#0f172a" font-size="10">RLHF·DPO·RM</text>
+  <text x="348" y="224" fill="#0f172a" font-size="10">RLVR·思维链</text>
+  <text x="348" y="252" fill="#3730a3" font-size="10.5" font-weight="700">验收</text>
+  <text x="348" y="270" fill="#0f172a" font-size="10">讲清三者关系</text>
+
+  <rect x="494" y="56" width="166" height="240" rx="12" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2"/>
+  <rect x="494" y="56" width="166" height="34" rx="12" fill="#4f46e5"/>
+  <text x="577" y="78" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">④ 推理模型/Agent</text>
+  <text x="506" y="108" fill="#3730a3" font-size="10.5" font-weight="700">目标</text>
+  <text x="506" y="126" fill="#0f172a" font-size="10">从聊天到干活</text>
+  <text x="506" y="144" fill="#0f172a" font-size="10">能用的系统</text>
+  <text x="506" y="170" fill="#3730a3" font-size="10.5" font-weight="700">核心</text>
+  <text x="506" y="188" fill="#0f172a" font-size="10">推理缩放·effort</text>
+  <text x="506" y="206" fill="#0f172a" font-size="10">Agent Loop·工具</text>
+  <text x="506" y="224" fill="#0f172a" font-size="10">MCP·多代理</text>
+  <text x="506" y="252" fill="#3730a3" font-size="10.5" font-weight="700">验收</text>
+  <text x="506" y="270" fill="#0f172a" font-size="10">造一个 Agent</text>
+
+  <line x1="170" y1="176" x2="176" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="328" y1="176" x2="334" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="486" y1="176" x2="492" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="20" y="312" width="640" height="34" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="34" y="334" fill="#9a3412" font-size="12">💡 每阶段都标了「目标 / 核心 / 验收」，把验收换成你自己的标准即可。详见各模块笔记。</text>
+</svg>

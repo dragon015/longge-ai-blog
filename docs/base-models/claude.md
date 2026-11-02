@@ -13,6 +13,8 @@ Anthropic 推出的闭源大模型系列，以 **Constitutional AI（宪法式 A
 
 > 本文为学习笔记，非官方文档。数据以各代发布时的公开信息为准。
 
+<img src="/assets/claude-family.svg" alt="Claude 家族定位图" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 模型系列总览
 
 | 代次 | 代表版本 | 发布时间 | 关键特点 |

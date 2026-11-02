@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 460" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+    <marker id="arA" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="460" fill="#f8fafc"/>
+  <text x="340" y="26" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">推理模型：从「抢答」到「先打草稿再答」</text>
+
+  <!-- 普通模型 -->
+  <rect x="30" y="50" width="300" height="120" rx="12" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+  <text x="180" y="74" text-anchor="middle" fill="#92400e" font-size="14" font-weight="700">普通模型（快答型）</text>
+  <rect x="55" y="88" width="250" height="34" rx="8" fill="#fff" stroke="#fcd34d" stroke-width="1.5"/>
+  <text x="180" y="110" text-anchor="middle" fill="#0f172a" font-size="12">问题 → 直接给答案</text>
+  <text x="180" y="155" text-anchor="middle" fill="#b45309" font-size="11">复杂题易错，但快、省 token</text>
+
+  <!-- 推理模型 -->
+  <rect x="350" y="50" width="300" height="120" rx="12" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+  <text x="500" y="74" text-anchor="middle" fill="#92400e" font-size="14" font-weight="700">推理模型（会思考）</text>
+  <rect x="375" y="88" width="250" height="70" rx="8" fill="#fff" stroke="#fcd34d" stroke-width="1.5"/>
+  <text x="500" y="110" text-anchor="middle" fill="#0f172a" font-size="12">问题 → 推理轨迹（草稿）</text>
+  <text x="500" y="130" text-anchor="middle" fill="#0f172a" font-size="12">→ 自我检查 / 纠错</text>
+  <text x="500" y="150" text-anchor="middle" fill="#0f172a" font-size="12">→ 最终答案</text>
+
+  <line x1="180" y1="170" x2="180" y2="200" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="500" y1="170" x2="500" y2="200" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- RLVR loop -->
+  <rect x="30" y="200" width="620" height="150" rx="12" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+  <text x="50" y="224" fill="#92400e" font-size="13" font-weight="700">它怎么「学会思考」：RLVR（可验证奖励）</text>
+  <rect x="50" y="234" width="170" height="44" rx="10" fill="#d97706" stroke="#b45309" stroke-width="2"/>
+  <text x="135" y="256" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">生成推理轨迹</text>
+  <text x="135" y="272" text-anchor="middle" fill="#fef3c7" font-size="10">草稿+答案</text>
+  <line x1="220" y1="256" x2="256" y2="256" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="256" y="234" width="180" height="44" rx="10" fill="#fff" stroke="#fcd34d" stroke-width="1.5"/>
+  <text x="346" y="256" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="700">验证答案对错</text>
+  <text x="346" y="272" text-anchor="middle" fill="#475569" font-size="10">符号验算/编译跑测</text>
+  <line x1="436" y1="256" x2="472" y2="256" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="472" y="234" width="160" height="44" rx="10" fill="#d97706" stroke="#b45309" stroke-width="2"/>
+  <text x="552" y="256" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">奖励 1 / 0</text>
+  <text x="552" y="272" text-anchor="middle" fill="#fef3c7" font-size="10">只看出错与否</text>
+  <path d="M552,278 L552,310 L135,310 L135,278" fill="none" stroke="#d97706" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arA)"/>
+  <text x="343" y="300" text-anchor="middle" fill="#b45309" font-size="11" font-weight="700">强化学习循环：纯靠对错奖励，模型自己长出「顿悟时刻」</text>
+
+  <!-- 思考开关 -->
+  <rect x="30" y="366" width="300" height="70" rx="12" fill="#fff" stroke="#fcd34d" stroke-width="2"/>
+  <text x="180" y="390" text-anchor="middle" fill="#92400e" font-size="13" font-weight="700">🧠 思考开关（Thinking）</text>
+  <text x="180" y="412" text-anchor="middle" fill="#0f172a" font-size="11">难题打草稿 / 简单题直接答</text>
+  <text x="180" y="428" text-anchor="middle" fill="#475569" font-size="10">按难度分配算力（effort）</text>
+  <rect x="350" y="366" width="300" height="70" rx="12" fill="#fff" stroke="#fcd34d" stroke-width="2"/>
+  <text x="500" y="390" text-anchor="middle" fill="#92400e" font-size="13" font-weight="700">⏱️ 代价</text>
+  <text x="500" y="412" text-anchor="middle" fill="#0f172a" font-size="11">更慢、更费 token（= 钱）</text>
+  <text x="500" y="428" text-anchor="middle" fill="#475569" font-size="10">用推理时缩放换准确率</text>
+</svg>

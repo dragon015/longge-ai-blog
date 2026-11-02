@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 460" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+    <marker id="arR" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#e11d48"/></marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="460" fill="#f8fafc"/>
+  <text x="340" y="26" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">幻觉从哪来、怎么治</text>
+
+  <!-- 本质 -->
+  <rect x="220" y="44" width="240" height="48" rx="12" fill="#e11d48" stroke="#be123c" stroke-width="2"/>
+  <text x="340" y="68" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">本质：它是「补全机」</text>
+  <text x="340" y="86" text-anchor="middle" fill="#ffe4e6" font-size="11">next-token 预测，非事实校验</text>
+
+  <line x1="340" y1="92" x2="340" y2="112" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- 三类成因 -->
+  <text x="340" y="130" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">三类根因（共存）</text>
+  <rect x="30" y="138" width="190" height="70" rx="10" fill="#fff1f2" stroke="#fda4af" stroke-width="2"/>
+  <text x="125" y="162" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">目标层</text>
+  <text x="125" y="182" text-anchor="middle" fill="#0f172a" font-size="11">优化流畅度≠事实</text>
+  <text x="125" y="198" text-anchor="middle" fill="#475569" font-size="10">RLHF 偏好可被骗</text>
+  <rect x="245" y="138" width="190" height="70" rx="10" fill="#fff1f2" stroke="#fda4af" stroke-width="2"/>
+  <text x="340" y="162" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">架构层</text>
+  <text x="340" y="182" text-anchor="middle" fill="#0f172a" font-size="11">自回归无验证回路</text>
+  <text x="340" y="198" text-anchor="middle" fill="#475569" font-size="10">逐 token 无事实核对</text>
+  <rect x="460" y="138" width="190" height="70" rx="10" fill="#fff1f2" stroke="#fda4af" stroke-width="2"/>
+  <text x="555" y="162" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">记忆层</text>
+  <text x="555" y="182" text-anchor="middle" fill="#0f172a" font-size="11">参数化记忆有边界</text>
+  <text x="555" y="198" text-anchor="middle" fill="#475569" font-size="10">缺知识就「脑补」</text>
+
+  <line x1="340" y1="208" x2="340" y2="234" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="200" y="234" width="280" height="40" rx="10" fill="#e11d48" stroke="#be123c" stroke-width="2"/>
+  <text x="340" y="259" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">→ 编造以填补空白（幻觉）</text>
+
+  <line x1="340" y1="274" x2="340" y2="300" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="340" y="318" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">缓解手段（让模型「凭证据」）</text>
+
+  <rect x="20" y="326" width="148" height="92" rx="10" fill="#fff" stroke="#fda4af" stroke-width="2"/>
+  <text x="94" y="350" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">RAG 检索</text>
+  <text x="94" y="372" text-anchor="middle" fill="#0f172a" font-size="11">先查真实文档</text>
+  <text x="94" y="390" text-anchor="middle" fill="#0f172a" font-size="11">再生成+引用</text>
+  <text x="94" y="408" text-anchor="middle" fill="#475569" font-size="10">见 /knowledge/llms</text>
+
+  <rect x="180" y="326" width="148" height="92" rx="10" fill="#fff" stroke="#fda4af" stroke-width="2"/>
+  <text x="254" y="350" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">工具调用</text>
+  <text x="254" y="372" text-anchor="middle" fill="#0f172a" font-size="11">查 API/数据库</text>
+  <text x="254" y="390" text-anchor="middle" fill="#0f172a" font-size="11">而非凭记忆答</text>
+  <text x="254" y="408" text-anchor="middle" fill="#475569" font-size="10">见 /agent/tool-use</text>
+
+  <rect x="340" y="326" width="148" height="92" rx="10" fill="#fff" stroke="#fda4af" stroke-width="2"/>
+  <text x="414" y="350" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">系统二慢思考</text>
+  <text x="414" y="372" text-anchor="middle" fill="#0f172a" font-size="11">多步自我验证</text>
+  <text x="414" y="390" text-anchor="middle" fill="#0f172a" font-size="11">压低幻觉率</text>
+  <text x="414" y="408" text-anchor="middle" fill="#475569" font-size="10">见 /knowledge/reasoning</text>
+
+  <rect x="500" y="326" width="160" height="92" rx="10" fill="#fff" stroke="#fda4af" stroke-width="2"/>
+  <text x="580" y="350" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="700">评测 + 护栏</text>
+  <text x="580" y="372" text-anchor="middle" fill="#0f172a" font-size="11">语义正确性测</text>
+  <text x="580" y="390" text-anchor="middle" fill="#0f172a" font-size="11">防注入/事实栏</text>
+  <text x="580" y="408" text-anchor="middle" fill="#475569" font-size="10">见 /evaluation/</text>
+</svg>

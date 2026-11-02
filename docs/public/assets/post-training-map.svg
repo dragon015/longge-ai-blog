@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+    <marker id="arF" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#c026d3"/></marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="420" fill="#f8fafc"/>
+  <text x="340" y="26" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">后训练技术地图：从基础模型到「好用的助手」</text>
+
+  <rect x="250" y="44" width="180" height="50" rx="12" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+  <text x="340" y="68" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">基础模型（预训练）</text>
+  <text x="340" y="86" text-anchor="middle" fill="#475569" font-size="10">博学但没规矩</text>
+
+  <line x1="340" y1="94" x2="340" y2="120" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="250" y="120" width="180" height="44" rx="12" fill="#c026d3" stroke="#a21caf" stroke-width="2"/>
+  <text x="340" y="144" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">SFT 监督微调</text>
+  <text x="340" y="160" text-anchor="middle" fill="#fae8ff" font-size="10">教格式与能力（第一步）</text>
+
+  <line x1="150" y1="164" x2="150" y2="190" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="340" y1="164" x2="340" y2="190" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="530" y1="164" x2="530" y2="190" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="50" y="190" width="200" height="120" rx="12" fill="#fdf4ff" stroke="#f0abfc" stroke-width="2"/>
+  <text x="150" y="216" text-anchor="middle" fill="#86198f" font-size="14" font-weight="700">RLHF</text>
+  <text x="150" y="240" text-anchor="middle" fill="#0f172a" font-size="11">① 训 Reward Model</text>
+  <text x="150" y="260" text-anchor="middle" fill="#0f172a" font-size="11">② PPO 强化学习</text>
+  <text x="150" y="282" text-anchor="middle" fill="#475569" font-size="10">对齐人类偏好</text>
+  <text x="150" y="300" text-anchor="middle" fill="#475569" font-size="10">复杂但信号明确</text>
+
+  <rect x="240" y="190" width="200" height="120" rx="12" fill="#fdf4ff" stroke="#f0abfc" stroke-width="2"/>
+  <text x="340" y="216" text-anchor="middle" fill="#86198f" font-size="14" font-weight="700">DPO</text>
+  <text x="340" y="240" text-anchor="middle" fill="#0f172a" font-size="11">跳过奖励模型</text>
+  <text x="340" y="260" text-anchor="middle" fill="#0f172a" font-size="11">偏好对直接优化</text>
+  <text x="340" y="282" text-anchor="middle" fill="#475569" font-size="10">简单·稳定</text>
+  <text x="340" y="300" text-anchor="middle" fill="#475569" font-size="10">开源首选</text>
+
+  <rect x="430" y="190" width="200" height="120" rx="12" fill="#fdf4ff" stroke="#f0abfc" stroke-width="2"/>
+  <text x="530" y="216" text-anchor="middle" fill="#86198f" font-size="14" font-weight="700">RLVR</text>
+  <text x="530" y="240" text-anchor="middle" fill="#0f172a" font-size="11">可验证奖励</text>
+  <text x="530" y="260" text-anchor="middle" fill="#0f172a" font-size="11">答案对错 0/1</text>
+  <text x="530" y="282" text-anchor="middle" fill="#475569" font-size="10">推理模型钥匙</text>
+  <text x="530" y="300" text-anchor="middle" fill="#475569" font-size="10">DeepSeek-R1</text>
+
+  <line x1="150" y1="310" x2="150" y2="340" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="340" y1="310" x2="340" y2="340" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="530" y1="310" x2="530" y2="340" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M150,340 L150,360 L530,360 L530,340" fill="none" stroke="#c026d3" stroke-width="2.5" marker-end="url(#arF)"/>
+  <rect x="220" y="360" width="240" height="44" rx="12" fill="#c026d3" stroke="#a21caf" stroke-width="2"/>
+  <text x="340" y="384" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">听话 + 会思考的模型</text>
+  <text x="340" y="400" text-anchor="middle" fill="#fae8ff" font-size="10">按指令办事、必要时先想再答</text>
+</svg>

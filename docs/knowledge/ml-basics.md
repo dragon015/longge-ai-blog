@@ -11,6 +11,8 @@ aliases: [机器学习, ML, 监督学习, 无监督学习, 强化学习, 梯度�
 
 > 这是整套知识库的「地基」。如果把 AI 比作盖楼，这一篇讲的是「地桩和钢筋」——后面所有神经网络、大模型，本质上都是在这套框架上长出来的。
 
+<img src="/assets/ml-basics.svg" alt="机器学习三大范式与学习循环" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 一句话理解机器学习
 
 传统编程是「人写规则，计算机执行」：

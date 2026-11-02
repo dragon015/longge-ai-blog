@@ -179,6 +179,7 @@ export default defineConfig({
           items: [
             { text: '总览', link: '/agent/' },
             { text: '工具调用', link: '/agent/tool-use' },
+            { text: '主流架构解析', link: '/agent/architectures' },
           ],
         },
       ],

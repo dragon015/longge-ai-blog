@@ -9,6 +9,8 @@ aliases: [RLHF, DPO, RLVR, PPO, 奖励模型, 偏好优化, 对齐]
 
 > 一句话：让模型"更合人类心意"。RLHF 用奖励模型 + 强化学习，DPO 用偏好数据直接优化，殊途同归。
 
+<img src="/assets/rlhf-dpo.svg" alt="RLHF DPO RLVR 对比" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## RLHF（基于人类反馈的强化学习）
 
 经典三步走：

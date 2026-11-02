@@ -9,6 +9,8 @@ aliases: [后训练, Post-training, SFT, RLHF, DPO, RLVR, 对齐]
 
 > 预训练给模型"知识和语言能力"，后训练给模型"能力和偏好"——让它更会对话、更听话、更会思考。
 
+<img src="/assets/post-training-map.svg" alt="后训练技术地图" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 后训练在做什么
 
 一个大模型的生命周期通常分两段：

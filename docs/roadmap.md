@@ -4,6 +4,8 @@
 
 下面按阶段划分。每个阶段都标注了**目标**、**核心内容**和**验收标准**（你可以把验收标准换成自己的）。
 
+<img src="/assets/roadmap.svg" alt="AI 学习路线图" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 阶段一：夯实基础
 
 **目标**：能独立看懂一篇 Transformer / 训练相关的技术文章，不被数学符号劝退。

@@ -13,6 +13,8 @@ aliases: [幻觉, Hallucination, 大模型幻觉, 一本正经胡说, 事实性�
 
 ---
 
+<img src="/assets/hallucination.svg" alt="幻觉成因与缓解示意图" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;margin:16px 0" />
+
 ## 先定义：什么叫"幻觉"
 
 **幻觉（Hallucination）** 指模型生成的内容**表面流畅、语法正确，但事实错误、无依据，或与输入/上下文矛盾**。它和"答错"不同——答错往往是能力边界，幻觉则是"明明没把握，却编得很笃定"。

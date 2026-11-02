@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+    <marker id="arG" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#059669"/></marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="430" fill="#f8fafc"/>
+  <text x="340" y="26" text-anchor="middle" fill="#0f172a" font-size="19" font-weight="700">SFT：用「标准答案」把模型对齐到目标行为</text>
+
+  <rect x="20" y="50" width="200" height="90" rx="12" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="120" y="74" text-anchor="middle" fill="#065f46" font-size="13" font-weight="700">高质量数据</text>
+  <text x="120" y="98" text-anchor="middle" fill="#0f172a" font-size="11">(指令, 期望回答)</text>
+  <text x="120" y="120" text-anchor="middle" fill="#475569" font-size="10">人工/合成/蒸馏</text>
+
+  <line x1="220" y1="95" x2="256" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="256" y="50" width="180" height="90" rx="12" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+  <text x="346" y="74" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="700">基础模型</text>
+  <text x="346" y="98" text-anchor="middle" fill="#475569" font-size="11">已预训练</text>
+  <text x="346" y="120" text-anchor="middle" fill="#475569" font-size="10">懂很多但不会按格式答</text>
+
+  <line x1="436" y1="95" x2="472" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="472" y="50" width="188" height="90" rx="12" fill="#059669" stroke="#047857" stroke-width="2"/>
+  <text x="566" y="74" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">有监督微调</text>
+  <text x="566" y="98" text-anchor="middle" fill="#d1fae5" font-size="11">用配对数据调参数</text>
+  <text x="566" y="120" text-anchor="middle" fill="#d1fae5" font-size="10">让输出贴近期望</text>
+
+  <line x1="566" y1="140" x2="566" y2="166" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="446" y="166" width="240" height="48" rx="12" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="566" y="190" text-anchor="middle" fill="#065f46" font-size="13" font-weight="700">指令遵循模型</text>
+  <text x="566" y="208" text-anchor="middle" fill="#0f172a" font-size="10">按格式答、擅长目标任务</text>
+
+  <!-- 两种做法 -->
+  <text x="340" y="250" text-anchor="middle" fill="#065f46" font-size="13" font-weight="700">两种常见做法</text>
+  <rect x="30" y="262" width="300" height="120" rx="12" fill="#fff" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="180" y="288" text-anchor="middle" fill="#065f46" font-size="14" font-weight="700">全量微调（Full FT）</text>
+  <text x="180" y="312" text-anchor="middle" fill="#0f172a" font-size="11">更新全部参数</text>
+  <text x="180" y="334" text-anchor="middle" fill="#0f172a" font-size="11">✅ 效果好</text>
+  <text x="180" y="356" text-anchor="middle" fill="#475569" font-size="10">❌ 成本高、易灾难性遗忘</text>
+
+  <rect x="350" y="262" width="300" height="120" rx="12" fill="#fff" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="500" y="288" text-anchor="middle" fill="#065f46" font-size="14" font-weight="700">参数高效（PEFT）</text>
+  <text x="500" y="312" text-anchor="middle" fill="#0f172a" font-size="11">只训小部份，如 LoRA / QLoRA</text>
+  <text x="500" y="334" text-anchor="middle" fill="#0f172a" font-size="11">✅ 省显存、可叠多个适配器</text>
+  <text x="500" y="356" text-anchor="middle" fill="#475569" font-size="10">⚠️ 上限可能略低于全量</text>
+
+  <rect x="30" y="396" width="620" height="28" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="44" y="415" fill="#9a3412" font-size="11">💡 效果上限往往由<tspan font-weight="700">数据质量</tspan>决定：多样性、格式一致、难例挖掘。详见 <tspan font-weight="700">/post-training/</tspan>。</text>
+</svg>
