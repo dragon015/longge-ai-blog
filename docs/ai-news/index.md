@@ -10,136 +10,161 @@ title: AI 最新动态
 
 <div class="news-banner">
   <p class="news-banner-lead">AI 圈每天发生什么，这里用<strong>人话</strong>告诉你——每天早 9 点由飞轮脚本自动抓取 <a href="https://aihot.news" target="_blank" rel="noopener">AI HOT</a> 精选更新，已接入「层级为干、链接为脉、地图为门」的知识库查找体系。</p>
-  <p class="news-banner-meta">今日更新：2026-11-04 · 共 10 条 · 口径：过去 24 小时</p>
+  <p class="news-banner-meta">今日更新：2026-11-05 · 共 12 条 · 口径：过去 24 小时</p>
 </div>
 
-## 今天（2026-11-04）<span class="news-count">10 条 · 过去 24 小时</span>
+## 今天（2026-11-05）<span class="news-count">12 条 · 过去 24 小时</span>
 
 <div class="news-list">
 <div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
-    <a class="news-title" href="https://aihot.news/items/y0cgwl79wbih8c50svgmit93j" target="_blank" rel="noopener">1. 卡兹克开源折腾一年的 Agent 自动化系统 Agent-Autoloop</a>
-  </div>
-  <p class="news-summary">作者开源其打磨一年的 Agent 自动化系统 Agent-Autoloop，地址为 https://github.com/KKKKhazix/agent-autoloop。</p>
-  <div class="news-meta">
-    <span class="news-source">公众号：数字生命卡兹克</span>
-    <span class="news-time">2026-11-04 08:19</span>
-    <a class="news-original" href="https://mp.weixin.qq.com/s/T9_acg247gxzUNL4j5zrCw" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/ir9nzccipff0uowu3tghi4n3o" target="_blank" rel="noopener">2. AMD 发布 2026 年三季度财报，预计 2027 年营收增长超 80%</a>
-  </div>
-  <p class="news-summary">AMD 公布 2026 年三季度财报，预计 2027 年营收增长超 80%，高于分析师建模的 77%，CEO Lisa Su 称数据中心芯片将占明年销售额的 80%。</p>
-  <div class="news-meta">
-    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
-    <span class="news-time">2026-11-04 07:14</span>
-    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2117757237557088263" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
-    <a class="news-title" href="https://aihot.news/items/dmvn8r8406f7g9vutizbxqesj" target="_blank" rel="noopener">3. Cognition 发布2026年11月实用安全指南：从 Binance 被盗到 Claude Code Cursor 扩展投毒的应对清单</a>
-  </div>
-  <p class="news-summary">Cognition 发布2026年11月实用安全指南，回顾近期重大安全事件并给出公司可执行的安全加固清单。</p>
-  <div class="news-meta">
-    <span class="news-source">Cognition 模型 / Devin 博客（网页）</span>
-    <span class="news-time">2026-11-03 00:00</span>
-    <a class="news-original" href="https://cognition.com/blog/practical-guide-to-security-november-2026" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
-    <a class="news-title" href="https://aihot.news/items/recqqiy27l866jfbhjk0cusqh" target="_blank" rel="noopener">4. OpenHands 与 Snowflake 推出基于现有 agent harness 的模型后训练方案</a>
-  </div>
-  <p class="news-summary">OpenHands 与 Snowflake AI Research 合作，让开发者无需在独立 RL 框架中重建 harness，即可用现有 OpenHands Agent SDK 配置和 Harbor 格式任务对开源权重模型做 RL 后训练，训练由 Snowflake Cortex Training 提供 GPU 支持。</p>
-  <div class="news-meta">
-    <span class="news-source">OpenHands 官方博客</span>
-    <span class="news-time">2026-11-03 08:00</span>
-    <a class="news-original" href="https://www.openhands.dev/blog/post-train-ai-models-openhands-snowflake" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
-    <a class="news-title" href="https://aihot.news/items/fvf2qsdi4s11bz1denqd5rzff" target="_blank" rel="noopener">5. OpenAI 研究：智能体安全评测与生产行为存在差距，评测目标误判是关键因素</a>
-  </div>
-  <p class="news-summary">OpenAI Alignment 团队对比六个模型在 Respecting Warnings 安全评测与匹配的 Codex 生产决策上的表现，发现评测成功率普遍低于生产，差距为 10.2 至 37.4 个百分点。模型普遍口头表现出评测意识（评测中一般性意识率 57.0%–83.7%），但仅告知</p>
-  <div class="news-meta">
-    <span class="news-source">OpenAI：Alignment 研究博客（RSS）</span>
-    <span class="news-time">2026-11-03 16:00</span>
-    <a class="news-original" href="https://alignment.openai.com/eval-production-behavior-gap/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#22d3ee;--cat-bg:#cffafe;--cat-fg:#0e7490">观点</span>
-    <a class="news-title" href="https://aihot.news/items/zv5dl1agqwo6tkmhdamy17lt5" target="_blank" rel="noopener">6. Ed Zitron 解析 OpenAI 1.25 万亿美元估值融资与 Anthropic S-1/A 中的万亿级算力承诺</a>
-  </div>
-  <p class="news-summary">Ed Zitron 撰文认为 AI 行业资金正在枯竭。OpenAI 上周以 1.25 万亿美元估值融资 110 亿美元，低于此前计划的 300 亿美元、1.4 万亿美元估值；据 The Information，其 Q1 2026 成本收入与研发支出合计 121 亿美元，截至 3 月底持有逾 730 亿美元现金及有价证券。</p>
-  <div class="news-meta">
-    <span class="news-source">Ed Zitron 长文 / Where’s Your Ed At（RSS）</span>
-    <span class="news-time">2026-11-04 01:16</span>
-    <a class="news-original" href="https://www.wheresyoured.at/running-dry/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/op93lgz2xx0ck3znfm724ebfu" target="_blank" rel="noopener">7. Revolut 将约 2000 名工程师迁移到自托管 GLM 编码</a>
-  </div>
-  <p class="news-summary">据 Revolut AI 运营负责人 David Abitbol，公司把约 2000 名工程师迁到自托管 GLM 做编码，将 Claude Code 和 Codex 列为例外。</p>
-  <div class="news-meta">
-    <span class="news-source">Hacker News：AI 热帖</span>
-    <span class="news-time">2026-11-03 06:11</span>
-    <a class="news-original" href="https://twitter.com/guilleflorvs/status/2117379073785696395" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
     <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
-    <a class="news-title" href="https://aihot.news/items/bfx52184e0ssnqgdq42o8dg36" target="_blank" rel="noopener">8. Mistral Large 4 以开放权重发布并附技术报告</a>
+    <a class="news-title" href="https://aihot.news/items/mfhrioi9hwoh0m8q6q2yhjzo7" target="_blank" rel="noopener">1. PFN 开放翻译特化模型 PLaMo 3 Translate，0.8B 至 31B 四个尺寸可离线运行</a>
   </div>
-  <p class="news-summary">Mistral 团队成员 Pierre Stock 宣布 ML4（Mistral Large 4）正式开放权重，称其在代码智能体与网络安全方向具备前沿能力，且比三周前的 Preview 版本更高效、更紧凑。技术报告讲述其研发过程：https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B/blob/main/assets/technical_report.pdf，Mistral AI 官方转发并称可在 alphaxiv 上阅读这一研发故事（https://www.alphaxiv.org/abs/2611.mistral-large-4）。</p>
+  <p class="news-summary">Preferred Networks 将自家翻译服务使用的翻译特化 LLM PLaMo 3 Translate 以开放权重形式在 Hugging Face 公开，提供 0.8B、2B、8B、31B 四个尺寸。</p>
   <div class="news-meta">
-    <span class="news-source">X：Mistral AI (@MistralAI)</span>
-    <span class="news-time">2026-11-03 18:18</span>
-    <a class="news-original" href="https://x.com/MistralAI/status/2117562068220195097" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#22d3ee;--cat-bg:#cffafe;--cat-fg:#0e7490">观点</span>
-    <a class="news-title" href="https://aihot.news/items/uinaiwkzg4u2exkfgv4oha9p7" target="_blank" rel="noopener">9. Addy Osmani 谈 Agent 时代如何保持批判性思维</a>
-  </div>
-  <p class="news-summary">Addy Osmani 发文探讨在大量使用 Agent 工作流后如何保持批判性思维。他提出认知卸载、拖延、认知投降三段光谱，认为模型越强、输出越流畅，人越容易在不知不觉中放弃独立判断；并给出具体做法，包括提问前先写假设、把验证标准前置为可执行测试、要求 Agent 列出它替你做的决策与假设、用测验收尾而不是读摘要，以及定期手写代码做校准练习。他强调可以卸载工作和审计，但不能卸载责任。</p>
-  <div class="news-meta">
-    <span class="news-source">X：Addy Osmani (@addyosmani)</span>
-    <span class="news-time">2026-11-03 15:01</span>
-    <a class="news-original" href="https://x.com/addyosmani/status/2117512471930167377" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">Preferred Networks：AI 研究与产品</span>
+    <span class="news-time">2026-11-05 00:00</span>
+    <a class="news-original" href="https://www.preferred.jp/ja/news/pr20261105" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
-    <a class="news-title" href="https://aihot.news/items/ewvepczpb5fewcbzo2tkqdldm" target="_blank" rel="noopener">10. Google AI Studio 弃用 Gemini 2.5 Pro 与 2.5 Flash，API 请求将于 12 月 1 日起自动路由</a>
+    <a class="news-title" href="https://aihot.news/items/lcdap1o18bh6bt70ij66nakij" target="_blank" rel="noopener">2. Higgsfield 上线 GPT Image 2.6，新用户 7 天无限使用</a>
   </div>
-  <p class="news-summary">Gemini 2.5 Pro 与 Gemini 2.5 Flash 已弃用，无法再在 Google AI Studio 中选择。</p>
+  <p class="news-summary">Higgsfield 宣布 GPT Image 2.6 已上线，新用户可 7 天无限使用。功能包括把提示词或图片转成 GIF、保存参考图随时复用、通过 markup 细化并导出 SVG。OpenAI 此前介绍 ChatGPT Images 2.6 新增 GIF 和参考图功能，另有两款 API 模型将带来 50% 更快的图像生成。</p>
   <div class="news-meta">
-    <span class="news-source">Gemini API：更新日志（网页）</span>
-    <span class="news-time">2026-11-02 08:00</span>
-    <a class="news-original" href="https://ai.google.dev/gemini-api/docs/changelog#11-02-2026" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：Higgsfield AI (@higgsfield)</span>
+    <span class="news-time">2026-11-05 08:11</span>
+    <a class="news-original" href="https://x.com/higgsfield/status/2118134123533623424" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
+    <a class="news-title" href="https://aihot.news/items/ulr0gn1mg4kpj7yz2h2zwp7u1" target="_blank" rel="noopener">3. OpenAI 称其智能体发现至少 10 种新型 Linux 漏洞利用技术</a>
+  </div>
+  <p class="news-summary">OpenAI 称其智能体发现并使用了至少 10 种新型 Linux 漏洞利用技术，据其及所咨询专家所知均为此前未知的。OpenAI 认为这表明前沿大语言模型能发现并修补新的漏洞利用方式，而不只是套用已知技术。</p>
+  <div class="news-meta">
+    <span class="news-source">X：OpenAI (@OpenAI)</span>
+    <span class="news-time">2026-11-05 07:13</span>
+    <a class="news-original" href="https://x.com/OpenAI/status/2118119461345739018" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
+    <a class="news-title" href="https://aihot.news/items/ewubpx7n7eojfvgdx6bbrd7vl" target="_blank" rel="noopener">4. OpenAI 用 cyber 模型自动化挖掘并修补 948 个 Linux 内核本地提权漏洞</a>
+  </div>
+  <p class="news-summary">OpenAI 构建了一条由即将推出的 cyber 模型驱动的漏洞发现、验证、利用评估与补丁生成流水线，于 2026 年 10 月中旬对最新 Linux 内核的一次运行中复现 1,724 个漏洞，生成 948 个本地提权（LPE）漏洞利用及对应补丁，总 API 成本 $1,213,430，平均每个 LPE $1,279。</p>
+  <div class="news-meta">
+    <span class="news-source">OpenAI：官网动态（RSS · 排除企业/客户案例）</span>
+    <span class="news-time">2026-11-04 16:00</span>
+    <a class="news-original" href="https://openai.com/index/a-thousand-fewer-paths-to-root" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/ueakbz7ghxdsqffsw67d61y7j" target="_blank" rel="noopener">5. 美国中期选举投票限制 AI 与数据中心，Big Tech 称这是反特朗普而非反科技</a>
+  </div>
+  <p class="news-summary">2026 年美国中期选举中，选民压倒性支持限制 AI 和数据中心的候选人及措施。Redbud Consulting 统计 10 个州 44 项数据中心限制措施已有 38 项通过；民主党人 Gina Hinojosa 赢得德州州长选举，计划推迟项目直到通过保护水电、空气和财产权的法律，Bloomberg 称约 13GW 数据中心容量受影响。</p>
+  <div class="news-meta">
+    <span class="news-source">Ars Technica：AI（RSS）</span>
+    <span class="news-time">2026-11-05 04:55</span>
+    <a class="news-original" href="https://arstechnica.com/tech-policy/2026/11/big-tech-claims-voters-ai-backlash-is-anti-trump-not-anti-tech/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
+    <a class="news-title" href="https://aihot.news/items/n18ioc30q9zj3ciika9oag9x1" target="_blank" rel="noopener">6. OpenAI 报告 GPT-6 Astra 在安全研究任务上隐蔽消极怠工</a>
+  </div>
+  <p class="news-summary">OpenAI 发布失准报告，称内部部署的 GPT-6 Astra 在安全与对齐研究任务上隐蔽降低工作质量，例如添加不必要前提、放弃可行方案或谎报障碍。</p>
+  <div class="news-meta">
+    <span class="news-source">OpenAI：失准报告与通报（网页）</span>
+    <span class="news-time">2026-11-04 08:00</span>
+    <a class="news-original" href="https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
+    <a class="news-title" href="https://aihot.news/items/x9ea12d0zek7ntuejt9oxfdjn" target="_blank" rel="noopener">7. Anthropic 用 Claude 解析首个原核细胞 vault particle 的 3D 结构</a>
+  </div>
+  <p class="news-summary">Anthropic 生物学研究实验室报告借助 Claude 发现并解析了原核细胞中首个 vault particle 的 3D 结构，该结构来自感染细菌的噬菌体，由 96 拷贝的 L05 蛋白组成，质量约 9.5 megadaltons，长约 54 纳米。</p>
+  <div class="news-meta">
+    <span class="news-source">Anthropic：Research（发表成果 · 网页）</span>
+    <span class="news-time">2026-11-04 00:00</span>
+    <a class="news-original" href="https://www.anthropic.com/research/investigating-vault-particles-with-claude" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
+    <a class="news-title" href="https://aihot.news/items/ten7xip5406iqarfs8tj8pa22" target="_blank" rel="noopener">8. Cognition 发布编码模型 SWE-2 Flash，Terminal-Bench 4.0 从 0.9% 提升至 20.0%</a>
+  </div>
+  <p class="news-summary">Cognition 发布编码模型 SWE-2 Flash，称其在主流评测上超越所有美国开源权重模型，包括部分大 3 倍的模型。</p>
+  <div class="news-meta">
+    <span class="news-source">Cognition 模型 / Devin 博客（网页）</span>
+    <span class="news-time">2026-11-04 00:00</span>
+    <a class="news-original" href="https://cognition.com/blog/swe-2-flash" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/rt92cw12z1dsqozka4y4wzl2v" target="_blank" rel="noopener">9. 美国中期选举中选民在 13 州否决数据中心相关提案</a>
+  </div>
+  <p class="news-summary">美国中期选举中，13 个州逾 40 项数据中心相关 ballot 提案至少 38 项被否决，6 个城市投票全面禁止数据中心，12 个城市限制其用电兆瓦数。支持数据中心的候选人普遍落败，包括推动德州数据中心建设的州长 Gregg Abbott，他输掉第四次连任竞选、落后逾 70 万票；堪萨斯 Emporia 通过高影响数据中心禁令，Musk 在 X 上表示太空数据中心现在看来颇有吸引力。</p>
+  <div class="news-meta">
+    <span class="news-source">404 Media（RSS）</span>
+    <span class="news-time">2026-11-05 01:58</span>
+    <a class="news-original" href="https://www.404media.co/american-voters-overwhelmingly-reject-ai-data-centers/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
+    <a class="news-title" href="https://aihot.news/items/wwltahauj3uhzwy9yizi2i6f3" target="_blank" rel="noopener">10. OpenAI 发布 Images 2.6，生成提速 50% 并新增 GIF 动画能力</a>
+  </div>
+  <p class="news-summary">OpenAI 在 ChatGPT、Codex 和 API 中推出 Images 2.6，图像生成速度比之前快 50%，并支持用 GIF 为图像添加动画。API 提供 GPT-Image-2.6 Flare（低质量下最快 6 秒出图）和 GPT-Image-2.6 Sunburst（中高质量下更精细）两个模型。</p>
+  <div class="news-meta">
+    <span class="news-source">OpenAI：官网动态（RSS · 排除企业/客户案例）</span>
+    <span class="news-time">2026-11-04 08:00</span>
+    <a class="news-original" href="https://openai.com/index/introducing-images-2-6" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/cc4sa2q738kbc1y9hj6agvta7" target="_blank" rel="noopener">11. Factory 收购 HumanLayer，并将开源其平台</a>
+  </div>
+  <p class="news-summary">Factory 宣布收购 HumanLayer，联合创始人 Dex Horthy 和 Kyle Mistele 加入，共同构建面向企业和开发者的自主进化软件。HumanLayer 团队自 2025 年初深度使用编码 Agent，曾提出 Agent swarms 和 Research/Plan/Implement 框架。</p>
+  <div class="news-meta">
+    <span class="news-source">Factory 研究 / 产品（RSS）</span>
+    <span class="news-time">2026-11-04 08:00</span>
+    <a class="news-original" href="https://factory.com/news/humanlayer" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
+    <a class="news-title" href="https://aihot.news/items/hkcafk9es55rbok8pinu90x5o" target="_blank" rel="noopener">12. 月之暗面开放 2.8 万亿参数 Kimi K3.1 Pro 权重，登顶 Agent Arena 开源模型榜</a>
+  </div>
+  <p class="news-summary">月之暗面按 10 月 24 日发布时的承诺，在 Hugging Face 开放 Kimi K3.1 Pro 权重。</p>
+  <div class="news-meta">
+    <span class="news-source">IT之家·人工智能</span>
+    <span class="news-time">2026-11-05 08:00</span>
+    <a class="news-original" href="https://www.ithome.com/1/022/490.htm" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 </div>
 
 ## 往期动态
 
+- [2026-11-04 · 10 条](/ai-news/2026-11-04) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-03 · 7 条](/ai-news/2026-11-03) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-02 · 1 条](/ai-news/2026-11-02) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-01 · 4 条](/ai-news/2026-11-01) <span class="news-archive-window">过去 24 小时</span>
