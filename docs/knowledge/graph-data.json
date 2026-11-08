@@ -594,6 +594,10 @@
     },
     {
       "source": "knowledge__attention",
+      "target": "practice__gpt_rag_dojo"
+    },
+    {
+      "source": "knowledge__attention",
       "target": "practice__nano_gpt"
     },
     {
@@ -631,6 +635,10 @@
     {
       "source": "knowledge__hallucination",
       "target": "agent__architectures"
+    },
+    {
+      "source": "knowledge__hallucination",
+      "target": "practice__gpt_rag_dojo"
     },
     {
       "source": "knowledge__llms",
@@ -762,11 +770,11 @@
     },
     {
       "source": "knowledge__training",
-      "target": "practice__nano_gpt"
+      "target": "practice__gpt_rag_dojo"
     },
     {
       "source": "knowledge__training",
-      "target": "practice__gpt_rag_dojo"
+      "target": "practice__nano_gpt"
     },
     {
       "source": "knowledge__transformer",
@@ -787,6 +795,10 @@
     {
       "source": "knowledge__transformer",
       "target": "architecture__index"
+    },
+    {
+      "source": "knowledge__transformer",
+      "target": "practice__gpt_rag_dojo"
     },
     {
       "source": "knowledge__transformer",

@@ -73,7 +73,7 @@ features:
 <div class="hp-flywheel">
   <div class="hp-flywheel-text">
     <p>这个知识库有一套<strong>自动成长的飞轮</strong>：每新增一篇笔记，脚本就自动画出<strong>全站知识图谱</strong>、对照"理想课程"检测出<strong>知识缺口</strong>、汇总<strong>概念别名表</strong>，并把<strong>相关笔记和反链</strong>注入每篇页底。你顺着缺口去学、去写，覆盖进度就往前推——库越用越聪明。</p>
-    <p class="hp-progress"><!-- kb-progress:start -->覆盖进度 <strong>16 / 20</strong> 个核心概念 · 图谱共 <strong>24</strong> 篇笔记 · <strong>123</strong> 条链接（构建时由脚本自动刷新）<!-- kb-progress:end --></p>
+    <p class="hp-progress"><!-- kb-progress:start -->覆盖进度 <strong>16 / 20</strong> 个核心概念 · 图谱共 <strong>24</strong> 篇笔记 · <strong>126</strong> 条链接（构建时由脚本自动刷新）<!-- kb-progress:end --></p>
   </div>
   <div class="hp-flywheel-actions">
     <a class="hp-btn primary" href="/knowledge/graph">🗺️ 看知识图谱</a>
