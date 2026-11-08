@@ -86,6 +86,7 @@ export default defineConfig({
         text: '🛠️ 实战',
         items: [
           { text: '从零手搓 GPT', link: '/practice/nano-gpt' },
+          { text: 'GPT & 检索问答闯关台', link: '/practice/gpt-rag-dojo' },
         ],
       },
       { text: '📰 AI动态', link: '/ai-news/' },
@@ -194,6 +195,7 @@ export default defineConfig({
           text: '实战',
           items: [
             { text: '从零手搓 GPT', link: '/practice/nano-gpt' },
+            { text: 'GPT & 检索问答闯关台', link: '/practice/gpt-rag-dojo' },
           ],
         },
       ],

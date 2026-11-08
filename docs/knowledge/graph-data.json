@@ -519,6 +519,33 @@
       ]
     },
     {
+      "id": "practice__gpt_rag_dojo",
+      "title": "GPT 与检索问答 · 13 关实战闯关台",
+      "route": "/practice/gpt-rag-dojo",
+      "domain": "实战专题",
+      "tags": [
+        "Transformer",
+        "注意力机制",
+        "预训练",
+        "自回归",
+        "大语言模型",
+        "实战"
+      ],
+      "aliases": [
+        "GPT和RAG学习",
+        "RAG入门",
+        "引导学习客户端",
+        "庖丁解牛",
+        "闯关学习",
+        "互动学习",
+        "GPT实战",
+        "检索增强实战",
+        "手搓GPT",
+        "nanoGPT配套",
+        "13关Dojo"
+      ]
+    },
+    {
       "id": "practice__nano_gpt",
       "title": "从零手搓 GPT（nanoGPT 风格实战）",
       "route": "/practice/nano-gpt",
@@ -567,6 +594,10 @@
     },
     {
       "source": "knowledge__attention",
+      "target": "practice__nano_gpt"
+    },
+    {
+      "source": "knowledge__attention",
       "target": "knowledge__llms"
     },
     {
@@ -588,6 +619,10 @@
     {
       "source": "knowledge__hallucination",
       "target": "post_training__rlhf_dpo"
+    },
+    {
+      "source": "knowledge__hallucination",
+      "target": "practice__nano_gpt"
     },
     {
       "source": "knowledge__hallucination",
@@ -636,6 +671,10 @@
     {
       "source": "knowledge__llms",
       "target": "practice__nano_gpt"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "practice__gpt_rag_dojo"
     },
     {
       "source": "knowledge__ml_basics",
@@ -726,6 +765,10 @@
       "target": "practice__nano_gpt"
     },
     {
+      "source": "knowledge__training",
+      "target": "practice__gpt_rag_dojo"
+    },
+    {
       "source": "knowledge__transformer",
       "target": "knowledge__attention"
     },
@@ -744,6 +787,10 @@
     {
       "source": "knowledge__transformer",
       "target": "architecture__index"
+    },
+    {
+      "source": "knowledge__transformer",
+      "target": "practice__nano_gpt"
     },
     {
       "source": "knowledge__transformer",
@@ -968,6 +1015,34 @@
     {
       "source": "evaluation__index",
       "target": "knowledge__hallucination"
+    },
+    {
+      "source": "practice__gpt_rag_dojo",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "practice__gpt_rag_dojo",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "practice__gpt_rag_dojo",
+      "target": "knowledge__attention"
+    },
+    {
+      "source": "practice__gpt_rag_dojo",
+      "target": "knowledge__transformer"
+    },
+    {
+      "source": "practice__gpt_rag_dojo",
+      "target": "knowledge__hallucination"
+    },
+    {
+      "source": "practice__gpt_rag_dojo",
+      "target": "practice__nano_gpt"
+    },
+    {
+      "source": "practice__nano_gpt",
+      "target": "practice__gpt_rag_dojo"
     },
     {
       "source": "practice__nano_gpt",

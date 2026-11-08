@@ -10,6 +10,8 @@ aliases: [nanoGPT, NanoGPT, 手搓GPT, 手写GPT, 从零实现GPT, 实战GPT, �
 > **一句话：** 亲手把 Embedding / 因果注意力 / Transformer Block / 自回归生成逐行写成可运行代码并跑通，是「读懂大模型」最快的闭环——它把本知识库里所有零件从「看懂」变成「能跑」。
 
 > 想「了解大模型」，最快的路径不是再读一篇笔记，而是亲手跑通一个真实 Transformer 的训练循环。这个实战工程把 GPT 的每一行都用 PyTorch 写出来、逐行中文注释、字符级训练，**CPU 也能跑**。它和本库的「理论笔记」是配套的：笔记讲「为什么」，工程讲「怎么实现」。
+>
+> 如果还没装好 PyTorch、或想要有人一步步带着走，可以先去 [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo)：浏览器里就能真跑缩小版实验，每关对应本工程的哪个文件、哪条命令都标好了，跑通直觉再回本机跑真模型。
 
 ---
 
@@ -103,19 +105,23 @@ step  2000 | loss 1.8xxx | ...
 <!-- kb-related:start -->
 ## 相关笔记
 
+- [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) — 标签：Transformer、标签：注意力机制、标签：预训练、标签：自回归、标签：大语言模型、交叉引用
 - [大语言模型概览](/knowledge/llms) — 标签：大语言模型、标签：自回归、交叉引用
 - [注意力机制](/knowledge/attention) — 标签：注意力机制、交叉引用
 - [大模型幻觉](/knowledge/hallucination) — 标签：幻觉、交叉引用
 - [预训练与后训练](/knowledge/training) — 标签：预训练、交叉引用
-- [Transformer 架构](/knowledge/transformer) — 标签：Transformer、交叉引用
 
 <!-- kb-related:end -->
 
 <!-- kb-backlinks:start -->
 ## 被以下笔记引用
 
+- [注意力机制](/knowledge/attention)
+- [大模型幻觉](/knowledge/hallucination)
 - [大语言模型概览](/knowledge/llms)
 - [预训练与后训练](/knowledge/training)
+- [Transformer 架构](/knowledge/transformer)
+- [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo)
 
 <!-- kb-backlinks:end -->
 

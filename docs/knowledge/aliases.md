@@ -12,12 +12,14 @@ title: 概念别名表
 
 | 你可能输入 | 对应笔记 |
 | --- | --- |
+| 13关Dojo | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | 4o | [GPT](/base-models/gpt) |
 | 榜单 | [评测总览](/evaluation/) |
 | 编码器 | [Transformer 架构](/knowledge/transformer) |
 | 编码Agent | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
 | 残差连接 | [Transformer 架构](/knowledge/transformer) |
 | 层归一化 | [Transformer 架构](/knowledge/transformer) |
+| 闯关学习 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | 从零实现GPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | 大模型 | [大语言模型概览](/knowledge/llms) |
 | 大模型幻觉 | [大模型幻觉](/knowledge/hallucination) |
@@ -38,6 +40,7 @@ title: 概念别名表
 | 后训练 | [预训练与后训练](/knowledge/training) |
 | 后训练 | [后训练总览](/post-training/) |
 | 胡说八道 | [大模型幻觉](/knowledge/hallucination) |
+| 互动学习 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | 幻觉 | [大模型幻觉](/knowledge/hallucination) |
 | 幻觉率 | [大模型幻觉](/knowledge/hallucination) |
 | 混合专家 | [模型架构总览](/architecture/) |
@@ -47,12 +50,14 @@ title: 概念别名表
 | 激活函数 | [神经网络与反向传播](/knowledge/neural-networks) |
 | 监督微调 | [SFT 监督微调](/post-training/sft) |
 | 监督学习 | [机器学习基础](/knowledge/ml-basics) |
+| 检索增强实战 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | 奖励模型 | [RLHF 与 DPO](/post-training/rlhf-dpo) |
 | 解码器 | [Transformer 架构](/knowledge/transformer) |
 | 困惑度 | [大语言模型概览](/knowledge/llms) |
 | 链式法则 | [神经网络与反向传播](/knowledge/neural-networks) |
 | 量化 | [推理优化总览](/inference-optimization/) |
 | 模型架构 | [模型架构总览](/architecture/) |
+| 庖丁解牛 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | 批处理 | [推理优化总览](/inference-optimization/) |
 | 偏好优化 | [RLHF 与 DPO](/post-training/rlhf-dpo) |
 | 评测 | [评测总览](/evaluation/) |
@@ -64,6 +69,7 @@ title: 概念别名表
 | 实战GPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | 事实性错误 | [大模型幻觉](/knowledge/hallucination) |
 | 手搓大模型 | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
+| 手搓GPT | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | 手搓GPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | 手写GPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | 手写Transformer | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
@@ -91,6 +97,7 @@ title: 概念别名表
 | 宪法AI | [Claude](/base-models/claude) |
 | 训练系统 | [训练系统总览](/training-systems/) |
 | 一本正经胡说 | [大模型幻觉](/knowledge/hallucination) |
+| 引导学习客户端 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | 预训练 | [预训练与后训练](/knowledge/training) |
 | 蒸馏 | [推理优化总览](/inference-optimization/) |
 | 正则化 | [机器学习基础](/knowledge/ml-basics) |
@@ -132,6 +139,8 @@ title: 概念别名表
 | Function Calling | [Agent 总览](/agent/) |
 | Function Calling | [工具调用](/agent/tool-use) |
 | GPT | [GPT](/base-models/gpt) |
+| GPT和RAG学习 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
+| GPT实战 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | GQA | [注意力机制](/knowledge/attention) |
 | GQA | [模型架构总览](/architecture/) |
 | GSM8K | [评测总览](/evaluation/) |
@@ -157,6 +166,7 @@ title: 概念别名表
 | MQA | [注意力机制](/knowledge/attention) |
 | nanoGPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | NanoGPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
+| nanoGPT配套 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | o1 | [推理模型](/knowledge/reasoning) |
 | o1 | [GPT](/base-models/gpt) |
 | o3 | [GPT](/base-models/gpt) |
@@ -171,6 +181,7 @@ title: 概念别名表
 | QKV | [注意力机制](/knowledge/attention) |
 | QLoRA | [SFT 监督微调](/post-training/sft) |
 | R1 | [DeepSeek](/base-models/deepseek) |
+| RAG入门 | [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) |
 | ReAct | [Agent 总览](/agent/) |
 | Reasoning Model | [推理模型](/knowledge/reasoning) |
 | RLHF | [预训练与后训练](/knowledge/training) |
@@ -221,6 +232,7 @@ title: 概念别名表
 - [推理模型总览](/inference-models/)：推理模型、推理轨迹、RLVR、思考开关、Aha moment、推理努力
 - [推理优化总览](/inference-optimization/)：推理优化、量化、投机解码、vLLM、PagedAttention、蒸馏、批处理
 - [评测总览](/evaluation/)：评测、基准、Benchmark、MMLU、GSM8K、HumanEval、榜单
+- [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo)：GPT和RAG学习、RAG入门、引导学习客户端、庖丁解牛、闯关学习、互动学习、GPT实战、检索增强实战、手搓GPT、nanoGPT配套、13关Dojo
 - [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt)：nanoGPT、NanoGPT、手搓GPT、手写GPT、从零实现GPT、实战GPT、手写Transformer、Karpathy、手搓大模型
 
 > 给笔记加别名的方法：在 frontmatter 里写 `aliases: [Attention, 自注意力, QKV]`，下次构建本表自动更新。

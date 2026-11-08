@@ -3,6 +3,7 @@ import { nextTick, onMounted, watch } from 'vue'
 import { useRoute } from 'vitepress'
 import mermaid from 'mermaid'
 import KnowledgeGraph from './components/KnowledgeGraph.vue'
+import TutorFrame from './components/TutorFrame.vue'
 import Layout from './components/Layout.vue'
 import './style.css'
 
@@ -104,9 +105,10 @@ export default {
   extends: DefaultTheme,
   // 覆盖默认布局，注入访问量计数器（doc-after / layout-bottom）
   Layout,
-  // 注册全局组件，供 markdown 页面直接使用 <KnowledgeGraph />
+  // 注册全局组件，供 markdown 页面直接使用 <KnowledgeGraph /> / <TutorFrame />
   enhanceApp({ app }) {
     app.component('KnowledgeGraph', KnowledgeGraph)
+    app.component('TutorFrame', TutorFrame)
   },
   setup() {
     const route = useRoute()

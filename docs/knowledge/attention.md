@@ -121,8 +121,8 @@ graph TD
 - [DeepSeek](/base-models/deepseek) — 标签：MLA、交叉引用
 - [模型架构总览](/architecture/) — 标签：RoPE、交叉引用
 - [推理优化总览](/inference-optimization/) — 标签：KV缓存、交叉引用
+- [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) — 标签：注意力机制、交叉引用
 - [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) — 标签：注意力机制、交叉引用
-- [大语言模型概览](/knowledge/llms) — 交叉引用
 
 <!-- kb-related:end -->
 
@@ -135,6 +135,7 @@ graph TD
 - [DeepSeek](/base-models/deepseek)
 - [模型架构总览](/architecture/)
 - [推理优化总览](/inference-optimization/)
+- [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo)
 - [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt)
 
 <!-- kb-backlinks:end -->

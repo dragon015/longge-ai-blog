@@ -111,10 +111,10 @@ graph TD
 ## 相关笔记
 
 - [模型架构总览](/architecture/) — 标签：位置编码、交叉引用
+- [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo) — 标签：Transformer、交叉引用
 - [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) — 标签：Transformer、交叉引用
 - [注意力机制](/knowledge/attention) — 交叉引用
 - [大语言模型概览](/knowledge/llms) — 交叉引用
-- [神经网络与反向传播](/knowledge/neural-networks) — 交叉引用
 
 <!-- kb-related:end -->
 
@@ -127,6 +127,7 @@ graph TD
 - [预训练与后训练](/knowledge/training)
 - [模型架构总览](/architecture/)
 - [推理优化总览](/inference-optimization/)
+- [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo)
 - [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt)
 
 <!-- kb-backlinks:end -->

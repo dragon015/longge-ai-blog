@@ -107,6 +107,7 @@ aliases: [幻觉, Hallucination, 大模型幻觉, 一本正经胡说, 事实性�
 - [主流 AI 编码 Agent 的架构范式](/agent/architectures)
 - [工具调用](/agent/tool-use)
 - [评测总览](/evaluation/)
+- [GPT 与检索问答 · 13 关实战闯关台](/practice/gpt-rag-dojo)
 - [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt)
 
 <!-- kb-backlinks:end -->

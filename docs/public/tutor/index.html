@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>庖丁解牛 · GPT & RAG 实战闯关 Dojo</title>
+<style>
+  :root{
+    --bg:#070b1a; --bg2:#0a1024; --panel:#0e1530; --panel2:#131c3d;
+    --line:#22304f; --line2:#2d3f66;
+    --cyan:#22d3ee; --purple:#a855f7; --amber:#fbbf24; --green:#34d399;
+    --red:#f87171; --pink:#f472b6;
+    --text:#e6ecff; --muted:#8ea0c9; --dim:#5e6f9c;
+    --shadow:0 10px 40px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:radial-gradient(1200px 700px at 85% -10%,#11203f 0%,var(--bg) 55%);color:var(--text);
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:var(--line2);border-radius:8px}
+  ::-webkit-scrollbar-track{background:transparent}
+  code,pre,.mono{font-family:"Cascadia Code",Consolas,"Courier New",monospace}
+
+  #app{display:grid;grid-template-columns:272px 1fr;grid-template-rows:60px 1fr;height:100vh}
+  header.topbar{grid-column:1/3;display:flex;align-items:center;gap:16px;padding:0 20px;
+    background:linear-gradient(90deg,rgba(34,211,238,.08),rgba(168,85,247,.08));border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+  .brand{font-weight:800;font-size:16px;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+  .brand .logo{width:30px;height:30px;border-radius:9px;background:conic-gradient(from 200deg,var(--cyan),var(--purple),var(--amber),var(--cyan));
+    display:grid;place-items:center;font-size:16px;box-shadow:0 0 18px rgba(34,211,238,.45)}
+  .brand small{color:var(--muted);font-weight:500;font-size:11px;display:block}
+  .spacer{flex:1}
+  .progress-wrap{display:flex;align-items:center;gap:10px;min-width:210px}
+  .progress-bar{flex:1;height:8px;border-radius:6px;background:var(--panel2);overflow:hidden;border:1px solid var(--line)}
+  .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));transition:width .45s}
+  .progress-txt{font-size:12px;color:var(--muted);white-space:nowrap}
+  .btn{cursor:pointer;border:1px solid var(--line2);background:var(--panel2);color:var(--text);
+    padding:8px 14px;border-radius:10px;font-size:13px;transition:.18s;user-select:none;font-family:inherit}
+  .btn:hover:not(:disabled){border-color:var(--cyan);box-shadow:0 0 14px rgba(34,211,238,.25)}
+  .btn.primary{background:linear-gradient(90deg,rgba(34,211,238,.18),rgba(168,85,247,.18));border-color:var(--cyan)}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .btn.sm{padding:5px 11px;font-size:12px}
+
+  aside.sidebar{background:linear-gradient(180deg,var(--bg2),var(--bg));border-right:1px solid var(--line);overflow-y:auto;padding:14px 10px}
+  .chap{margin-bottom:16px}
+  .chap-head{font-size:12px;color:var(--dim);padding:6px 10px;letter-spacing:1px;font-weight:700}
+  .lv{display:flex;align-items:center;gap:9px;padding:9px 10px;margin:3px 0;border-radius:9px;font-size:12.5px;
+    color:var(--muted);border:1px solid transparent;cursor:pointer;transition:.15s}
+  .lv:hover:not(.locked){background:var(--panel);color:var(--text)}
+  .lv.active{background:var(--panel2);color:var(--text);border-color:var(--line2);box-shadow:inset 3px 0 0 var(--cyan)}
+  .lv.locked{opacity:.42;cursor:not-allowed}
+  .lv.passed .badge{background:var(--green);border-color:var(--green);color:#04231a}
+  .lv .badge{width:20px;height:20px;flex:none;border-radius:50%;border:1.5px solid var(--line2);display:grid;place-items:center;font-size:10px;font-weight:700}
+
+  main.content{overflow-y:auto;padding:22px 30px 90px}
+  .stepper{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin-bottom:18px;padding:10px 12px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .stp{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;
+    border:1.5px solid var(--line2);color:var(--dim);cursor:pointer;transition:.15s}
+  .stp.done{background:var(--green);border-color:var(--green);color:#04231a}
+  .stp.cur{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 12px rgba(34,211,238,.5)}
+  .stp.lock{opacity:.35;cursor:not-allowed}
+  .stp-line{width:12px;height:2px;background:var(--line2)}
+
+  .lvl-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:6px}
+  .lvl-no{font-size:40px;font-weight:900;line-height:1;background:linear-gradient(160deg,var(--cyan),var(--purple));
+    -webkit-background-clip:text;background-clip:text;color:transparent;opacity:.85}
+  .lvl-title{font-size:24px;font-weight:800;margin:0}
+  .crumb{font-size:11.5px;color:var(--dim);margin-bottom:8px}
+  .goal{background:linear-gradient(135deg,rgba(251,191,36,.10),rgba(168,85,247,.06));border:1px solid var(--line2);
+    border-left:4px solid var(--amber);border-radius:12px;padding:13px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+  .goal b{color:var(--amber)}
+
+  .sec{margin-top:22px}
+  .sec-h{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:700;margin-bottom:10px}
+  .sec-h .num{width:22px;height:22px;border-radius:7px;background:var(--panel2);border:1px solid var(--line2);
+    display:grid;place-items:center;font-size:11px;color:var(--cyan)}
+  .sec-h .sub{font-size:11.5px;color:var(--dim);font-weight:400}
+
+  .blade{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-bottom:9px;overflow:hidden}
+  .blade-head{display:flex;align-items:center;gap:9px;padding:11px 14px;cursor:pointer;font-weight:600;font-size:14px}
+  .blade-head .chev{margin-left:auto;transition:.2s;color:var(--muted);font-size:12px}
+  .blade.open .chev{transform:rotate(90deg)}
+  .blade-body{padding:0 16px 14px;font-size:13.5px;line-height:1.8;color:#cdd8f5;display:none}
+  .blade.open .blade-body{display:block}
+  .blade-body p{margin:8px 0}
+  .blade-body code{background:var(--panel2);border:1px solid var(--line);padding:1px 6px;border-radius:5px;font-size:12px;color:var(--cyan)}
+  .blade-body ul{margin:8px 0;padding-left:20px}
+  .blade-body li{margin:5px 0}
+  .formula{background:#060a18;border:1px solid var(--line2);border-radius:9px;padding:11px 13px;margin:10px 0;
+    font-size:12.5px;color:#bfeaff;overflow-x:auto;line-height:1.7}
+
+  /* 实验台 */
+  .lab{background:var(--bg2);border:1px solid var(--line2);border-radius:14px;padding:16px;margin-top:10px}
+  .lab-head{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:3px}
+  .lab-hint{font-size:12px;color:var(--dim);margin-bottom:12px;line-height:1.6}
+  .ctl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:10px 0}
+  .ctl label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
+  input[type=range]{accent-color:var(--cyan)}
+  input[type=text],input[type=number],textarea,select{background:var(--panel2);border:1px solid var(--line2);color:var(--text);
+    border-radius:8px;padding:8px 10px;font-size:12.5px;font-family:inherit;outline:none}
+  input[type=text]:focus,textarea:focus,select:focus{border-color:var(--cyan)}
+  textarea{width:100%;min-height:64px;resize:vertical;line-height:1.6}
+  .out{background:#060a18;border:1px solid var(--line);border-radius:9px;padding:11px 12px;margin-top:10px;
+    font-size:12.5px;line-height:1.75;min-height:44px;max-height:290px;overflow:auto;white-space:pre-wrap;word-break:break-all}
+  .out .k{color:var(--cyan)} .out .v{color:var(--amber)} .out .g{color:var(--green)} .out .r{color:var(--red)}
+  .chip{display:inline-flex;flex-direction:column;align-items:center;gap:2px;background:var(--panel2);border:1px solid var(--line2);
+    border-radius:8px;padding:6px 9px;margin:3px;font-size:12px;min-width:44px}
+  .chip .id{font-size:9.5px;color:var(--dim)}
+  .chip.hl{border-color:var(--cyan);color:var(--cyan)}
+  .grid8{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin:6px 0}
+  .cell{height:24px;border-radius:4px;display:grid;place-items:center;font-size:9.5px;color:#04121f;font-weight:700}
+  table.tbl{border-collapse:collapse;margin:8px 0;font-size:11.5px;width:100%}
+  table.tbl td,table.tbl th{border:1px solid var(--line);padding:5px 7px;text-align:center}
+  table.tbl th{color:var(--muted);background:var(--panel)}
+  table.tbl td.mask{background:#0a0f22;color:var(--dim)}
+  table.tbl td.focus{box-shadow:inset 0 0 0 2px var(--amber)}
+  .bar-row{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:11.5px}
+  .bar-name{width:150px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar-track{flex:1;height:14px;background:var(--panel2);border-radius:7px;overflow:hidden;border:1px solid var(--line)}
+  .bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--purple));width:0;transition:width .3s}
+  .bar-fill.g{background:linear-gradient(90deg,var(--green),var(--cyan))}
+  .bar-val{width:48px;text-align:right}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .pane{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--panel)}
+  .pane h5{margin:0 0 7px;font-size:12.5px}
+  .pane.bad{border-color:rgba(248,113,113,.5)} .pane.good{border-color:rgba(52,211,153,.5)}
+  canvas{background:#060a18;border:1px solid var(--line);border-radius:10px;max-width:100%;touch-action:none}
+  .stage-row{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+  .stage{padding:8px 11px;border-radius:9px;border:1px solid var(--line2);background:var(--panel);cursor:pointer;font-size:12px;transition:.15s}
+  .stage:hover{border-color:var(--cyan)}
+  .stage.active{background:linear-gradient(90deg,rgba(34,211,238,.2),rgba(168,85,247,.2));border-color:var(--cyan)}
+  .chunk{display:inline-block;padding:7px 9px;margin:4px;border-radius:8px;border:1px solid var(--line2);background:var(--panel2);font-size:12px;line-height:1.6;max-width:100%}
+  .chunk .ov{background:rgba(251,191,36,.28);border-radius:3px;padding:0 2px}
+  .promptblk{background:#060a18;border:1px solid var(--line2);border-radius:9px;padding:12px;font-size:12px;line-height:1.8;white-space:pre-wrap}
+  .promptblk .sys{color:var(--purple)} .promptblk .ctx{color:var(--green)} .promptblk .q{color:var(--amber)} .promptblk .rule{color:var(--cyan)}
+
+  /* 过关任务 */
+  .tasks{border:1px solid var(--line2);border-radius:14px;background:linear-gradient(135deg,rgba(52,211,153,.06),rgba(34,211,238,.04));padding:14px 16px;margin-top:10px}
+  .task{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .task:last-child{border-bottom:none}
+  .tbox{width:19px;height:19px;flex:none;border-radius:6px;border:1.5px solid var(--line2);display:grid;place-items:center;font-size:11px;margin-top:1px;cursor:pointer}
+  .task.done .tbox{background:var(--green);border-color:var(--green);color:#04231a}
+  .task .tbody{flex:1;font-size:13px;line-height:1.6}
+  .task .tbody .lbl{font-weight:600}
+  .task .tbody .tip{font-size:11.5px;color:var(--dim);margin-top:2px}
+  .opts{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+  .opt{padding:7px 11px;border:1px solid var(--line2);border-radius:8px;cursor:pointer;font-size:12px;transition:.15s;background:var(--panel2)}
+  .opt:hover{border-color:var(--cyan)}
+  .opt.correct{border-color:var(--green);background:rgba(52,211,153,.14)}
+  .opt.wrong{border-color:var(--red);background:rgba(248,113,113,.12)}
+  .why{font-size:11.5px;color:var(--muted);margin-top:7px;padding-left:9px;border-left:2px solid var(--line2);display:none}
+  .why.show{display:block}
+  .gate{margin-top:16px;padding:14px 16px;border-radius:12px;border:1px dashed var(--line2);display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    background:var(--panel)}
+  .gate.ok{border-color:var(--green);background:rgba(52,211,153,.07)}
+  .gate .gtext{flex:1;font-size:13px;line-height:1.6}
+  .gate .gtext b{color:var(--amber)}
+
+  /* 真工程对照 */
+  .eng{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:0;margin-top:10px;overflow:hidden}
+  .eng-h{display:flex;align-items:center;gap:9px;padding:12px 16px;background:linear-gradient(90deg,rgba(168,85,247,.10),transparent);font-weight:700;font-size:14px;cursor:pointer}
+  .eng-h .chev{margin-left:auto;color:var(--muted);font-size:12px;transition:.2s}
+  .eng.open .chev{transform:rotate(90deg)}
+  .eng-b{padding:0 16px 16px;display:none}
+  .eng.open .eng-b{display:block}
+  .eng-row{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:12.5px;align-items:start}
+  .eng-row:last-child{border-bottom:none}
+  .eng-row .k{color:var(--purple);font-weight:600}
+  .eng-row .v{color:#cdd8f5;line-height:1.7}
+  .codeblk{background:#050918;border:1px solid var(--line2);border-radius:9px;padding:12px 13px;font-size:11.5px;
+    line-height:1.65;color:#bfeaff;overflow-x:auto;white-space:pre;margin:8px 0}
+  .cmd{display:inline-block;background:#050918;border:1px solid var(--line2);border-left:3px solid var(--cyan);
+    border-radius:6px;padding:6px 10px;font-size:11.5px;color:var(--cyan);margin:3px 0}
+  .eng-note{font-size:12px;color:var(--amber);background:rgba(251,191,36,.07);border-radius:8px;padding:9px 11px;margin-top:9px;line-height:1.7}
+
+  .modal-mask{position:fixed;inset:0;background:rgba(3,6,15,.74);backdrop-filter:blur(4px);display:none;place-items:center;z-index:50}
+  .modal-mask.show{display:grid}
+  .modal{width:min(920px,93vw);max-height:86vh;overflow-y:auto;background:var(--panel);border:1px solid var(--line2);border-radius:18px;padding:24px;box-shadow:var(--shadow);position:relative}
+  .modal h2{margin:0 0 4px;font-size:21px}
+  .modal .lead{color:var(--muted);font-size:12.5px;margin-bottom:18px;line-height:1.7}
+  .close-x{position:absolute;top:14px;right:18px;cursor:pointer;color:var(--muted);font-size:20px}
+  .mchap{font-size:13px;font-weight:700;color:var(--cyan);margin:16px 0 9px}
+  .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px}
+  .mnode{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel2);font-size:12.5px;cursor:pointer}
+  .mnode.lock{opacity:.4;cursor:not-allowed}
+  .mnode.done{border-color:var(--green)}
+  .mnode .n{font-weight:600}
+  .mnode .d{font-size:11px;color:var(--dim);margin-top:3px;line-height:1.5}
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--panel2);
+    border:1px solid var(--cyan);color:var(--text);padding:12px 20px;border-radius:12px;box-shadow:var(--shadow);
+    opacity:0;transition:.3s;z-index:60;font-size:13px}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--dim);font-size:11.5px;line-height:1.8}
+  @media(max-width:820px){#app{grid-template-columns:1fr}aside.sidebar{display:none}.split{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo">🔪</span><div>庖丁解牛 · GPT &amp; RAG 实战 Dojo<small>手搓 GPT → 训练它 → 接上 RAG｜13 关 · 过关解锁</small></div></div>
+    <div class="spacer"></div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+      <div class="progress-txt" id="progTxt">0 / 13 关</div>
+    </div>
+    <button class="btn" id="roadmapBtn">🗺️ 路线图</button>
+    <button class="btn" id="resetBtn" title="清空进度">↺</button>
+  </header>
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="content" id="content"></main>
+</div>
+
+<div class="modal-mask" id="roadmapModal">
+  <div class="modal">
+    <span class="close-x" id="closeModal">✕</span>
+    <h2>🗺️ 庖丁解牛 · 13 刀路线图</h2>
+    <div class="lead">一条主线走到底：<b>亲手造一个会预测下一个字的 GPT → 把它训练到 loss 下降 → 再给它接上「先查资料再回答」的 RAG</b>。每一刀都在浏览器里真跑一个迷你实验，并在「真工程对照」里指向你本机 <code>nano-gpt-practice/</code> 的对应文件与命令。完成该关全部任务才解锁下一刀。</div>
+    <div id="mapBody"></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   庖丁解牛 · GPT & RAG 实战闯关 Dojo
+   单文件 / 零依赖 / 所有实验均为浏览器内真实计算（教学规模）
+   ============================================================ */
+
+/* ---------- 共用语料与工具（真计算） ---------- */
+const CORPUS = "the quick brown fox jumps over the lazy dog. the model learns to predict the next token. " +
+  "a language model reads the prefix and guesses the next character. training lowers the loss. " +
+  "we repeat this game until the model speaks. the quick brown fox jumps over the lazy dog again. " +
+  "attention lets each token look back at earlier tokens. the loss goes down step by step.";
+
+const KB = [
+  "【差旅制度】2026 年本公司国内差旅住宿标准为：一线城市每晚 600 元，其他城市每晚 400 元，需凭发票报销。",
+  "【差旅制度】出差交通优先选择高铁二等座；飞行需提前 3 天申请，经济舱实报实销。",
+  "【GPT 原理】GPT 是自回归模型，训练目标为预测下一个 token，损失用交叉熵，通过反向传播更新参数。",
+  "【注意力】因果自注意力用 QKᵀ/√d 打分，上三角掩码屏蔽未来，softmax 归一化后加权求和 V。",
+  "【RAG 原理】RAG 先检索外部知识片段，拼进 Prompt，让 LLM 仅依据上下文作答，可缓解幻觉并支持溯源。",
+  "【切片】文档切片常用 300~800 字 chunk 并保留 10~20% overlap，避免知识点被边界切断。",
+  "【采样】温度 T 缩放 logits，Top-k 截断候选；T 越大分布越平坦、生成越多样。",
+];
+
+function buildVocab(text){
+  const chars=[...new Set(text.split(''))].sort();
+  const stoi={},itos={}; chars.forEach((c,i)=>{stoi[c]=i;itos[i]=c;});
+  return {chars,stoi,itos,V:chars.length};
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function seeded(seed){let s=seed>>>0;return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
+function softmax(a){const m=Math.max(...a);const e=a.map(x=>Math.exp(x-m));const s=e.reduce((p,q)=>p+q,0);return e.map(x=>x/s);}
+function charVec(text, vocab){
+  // 字符 unigram + bigram 词频向量（真实计算，用作教学级 embedding）
+  const v={}; const t=text.toLowerCase().replace(/\s+/g,'');
+  for(let i=0;i<t.length;i++){ v[t[i]]=(v[t[i]]||0)+1; if(i<t.length-1){const b=t.slice(i,i+2);v[b]=(v[b]||0)+0.6;} }
+  return v;
+}
+function cosine(a,b){
+  let dot=0,na=0,nb=0;
+  for(const k in a){na+=a[k]*a[k]; if(b[k]!==undefined)dot+=a[k]*b[k];}
+  for(const k in b)nb+=b[k]*b[k];
+  return (na&&nb)?dot/Math.sqrt(na*nb):0;
+}
+function rankKB(query,k,hybrid){
+  const q=charVec(query); const scores=KB.map((c,i)=>({i,c,s:cosine(q,charVec(c))}));
+  if(hybrid){ // BM25 风格的关键词精确命中加权（教学简化）
+    const kws=query.replace(/[，。？?、\s]/g,'').split('').filter(c=>/[\u4e00-\u9fff]/.test(c));
+    scores.forEach(o=>{let hit=0;kws.forEach(w=>{if(o.c.includes(w))hit++;});o.s+=0.012*hit;});
+  }
+  return scores.sort((a,b)=>b.s-a.s).slice(0,k);
+}
+
+/* ---------- 关卡数据 ---------- */
+const CHAPTERS=[
+  {t:"第一章 · 手搓 GPT（7 刀）",levels:[1,2,3,4,5,6,7]},
+  {t:"第二章 · 接上 RAG（5 刀）",levels:[8,9,10,11,12]},
+  {t:"第三章 · 合流（1 刀）",levels:[13]},
+];
+
+const LEVELS=[
+/* ============ 第一章：手搓 GPT ============ */
+{
+  id:1, ch:0, title:"备料：语料与字符词表", exp:"vocab",
+  goal:"第一刀先不碰模型，只做一件最朴素的事：<b>把文本变成整数</b>。你会亲手建一张字符词表 stoi/itos，看着一段文字变成一串 id —— 这是后面所有计算的入口。",
+  blades:[
+    {h:"为什么从字符级开始",b:"真实 GPT 用 BPE 子词分词，但你本机的实战工程刻意选了<b>字符级</b>：<code>chars = sorted(list(set(text)))</code>，免掉 tokenizer 依赖，词表 = 语料里出现过的所有不同字符。中文/英文/标点各占一个 id，最直观。"},
+    {h:"stoi 与 itos 是两张互逆的表",b:"<code>stoi[c]=i</code> 把字符编码成整数；<code>itos[i]=c</code> 把整数解码回字符。模型只认 id，最后生成时靠 itos 把 id 还原成文字。<b>vocab_size = 词表大小</b>，它直接决定输出层维度。"},
+    {h:"这一步在整条链路的位置",b:"<div class='formula'>文本 → [字符词表] → id 序列 → Embedding → 注意力 → logits → softmax → 下一个 id → itos 还原</div>词表是「文字世界」与「数字世界」唯一的翻译字典，错一步后面全错。"},
+  ],
+  tasks:[
+    {k:"edit",type:"act",lbl:"亲手改一改语料",tip:"在实验台输入框里改动文本（增删任意字符），观察词表随之变化"},
+    {k:"big",type:"act",lbl:"把词表规模做到 ≥ 30",tip:"往语料里加不同字符，让 vocab_size ≥ 30"},
+    {k:"quiz",type:"quiz",lbl:"自检：vocab_size 由什么决定？",opts:["语料总字数","语料中不同字符的数量","batch_size","模型层数"],a:1,why:"字符级词表 = 语料去重后的字符集大小，与总字数、模型结构无关。"},
+  ],
+  eng:{
+    file:"prepare.py ／ train.py: load_text()",
+    func:"prepare.py 默认离线把 data/sample.txt 复制成 data/input.txt；train.py 的 load_text() 里用 sorted(set(text)) 建词表，再用列表推导把整篇文本编码成 torch.long 张量。",
+    code:"def load_text(path):\n    with open(path, 'r', encoding='utf-8') as f:\n        text = f.read()\n    chars = sorted(list(set(text)))\n    stoi = {c: i for i, c in enumerate(chars)}\n    itos = {i: c for i, c in enumerate(chars)}\n    data = torch.tensor([stoi[c] for c in text], dtype=torch.long)\n    return data, chars, stoi, itos",
+    cmd:"python prepare.py",
+    out:"[prepare] 默认离线模式（不联网）。如需真实莎士比亚：python prepare.py --download\n[prepare] 已用本地兜底语料生成 .../data/input.txt",
+    note:"想用 1MB 真·莎士比亚语料（收敛效果明显更好），在有网络的机器上跑 python prepare.py --download；失败会自动回退本地兜底，不会挂起。",
+  },
+},
+{
+  id:2, ch:0, title:"立靶：预测下一个字（CLM）", exp:"batch",
+  goal:"GPT 的全部训练目标只有一句话：<b>给定前文，猜下一个字</b>。这一刀你会亲手构造训练样本 (x, y)，看见 y 就是 x 整体右移一位 —— 理解这一点，就理解了大模型为什么能「学会说话」。",
+  blades:[
+    {h:"x 与 y 只差一个位置",b:"取一段连续文本 <code>x = text[i : i+block_size]</code>，标签 <code>y = text[i+1 : i+block_size+1]</code>。也就是第 t 个位置要预测第 t+1 个字符。<b>不需要任何人工标注</b>——文本自己就是标签，这就是自监督。"},
+    {h:"交叉熵 = 猜得有多不准",b:"模型输出每个位置上「词表里每个字符」的打分 logits，<code>loss = F.cross_entropy(logits.view(-1,V), targets.view(-1))</code>。loss 初始约 <code>ln(V)</code>（等于瞎猜），训练就是把这个数压下去。"},
+    {h:"为什么这么简单的目标能涌现能力",b:"要准确预测下一个字，模型被迫学会拼写、语法、事实关联乃至推理。规模一大，这一个游戏就把语言与知识「挤」进了参数里。"},
+  ],
+  tasks:[
+    {k:"roll",type:"act",lbl:"点「取下一批」，观察 x / y 的对齐",tip:"至少翻 2 批，确认 y 确实是 x 右移一位"},
+    {k:"pred",type:"act",lbl:"查一次 bigram 统计",tip:"在实验台选一个字符，看语料里它后面最常接哪些字符"},
+    {k:"quiz",type:"quiz",lbl:"自检：y 相对 x 是什么关系？",opts:["完全相同","整体右移一位（下一个字符）","随机打乱","反向"],a:1,why:"CLM 的监督信号就是「下一个字符」，所以 y = x[1:] 拼上下一个字符。"},
+  ],
+  eng:{
+    file:"train.py: get_batch() ／ model.py: GPT.forward()",
+    func:"get_batch 随机抽 batch_size 个起点，拼出 x 与 y；GPT.forward 末尾用 F.cross_entropy 计算下一字符预测损失。",
+    code:"def get_batch(data, device, batch_size, block_size):\n    ix = torch.randint(0, len(data) - block_size, (batch_size,))\n    x = torch.stack([data[i:i + block_size] for i in ix])\n    y = torch.stack([data[i + 1:i + block_size + 1] for i in ix])\n    return x.to(device), y.to(device)\n\n# model.py forward() 末尾\nloss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1))",
+    cmd:"python train.py   # 第 0 步就会打印 device / 语料字符数 / 词表大小 / 参数量",
+    out:"[train] device = cpu\n[train] 语料字符数=... 词表大小=...\n[train] 模型参数量 = 3.17M",
+    note:"block_size=256 是上下文窗口；真实工程一次喂 32 条 × 256 字符。浏览器实验把窗口缩到 12，方便你逐字看清对齐。",
+  },
+},
+{
+  id:3, ch:0, title:"翻译：词嵌入与位置嵌入", exp:"embedding",
+  goal:"id 只是编号，没有含义，也不知道顺序。这一刀你会看到 <b>两张查表</b>：wte 给每个 id 一个稠密向量，wpe 给每个位置一个向量，二者相加才是模型真正吃进去的输入。",
+  blades:[
+    {h:"Embedding 就是一次查表",b:"<code>nn.Embedding(vocab_size, n_embd)</code> 是一张 V×d 的可学习矩阵，输入 id 就取第 id 行。等价于 one-hot 左乘矩阵，但省掉巨大稀疏向量。默认 <code>n_embd=256</code>。"},
+    {h:"位置信息必须额外注入",b:"同一个 id 无论出现在第几个位置，查到的都是同一行 —— 嵌入层天生无视顺序。工程用<b>可学习位置嵌入</b> <code>wpe = nn.Embedding(block_size, n_embd)</code>，然后 <code>x = tok_emb + pos_emb</code> 直接相加。博客里讲的 RoPE 是更现代的替代方案。"},
+    {h:"权重绑定（weight tying）",b:"工程里 <code>transformer.wte.weight = self.lm_head.weight</code>，让输入嵌入与输出分类头共享同一张表：省参数、且「认识一个字」与「预测一个字」用同一套语义坐标。"},
+  ],
+  tasks:[
+    {k:"pick",type:"act",lbl:"点选一个 token，查看它的嵌入向量",tip:"在实验台里点任意字符，观察 wte 行 / wpe 行 / 相加结果"},
+    {k:"dim",type:"act",lbl:"改一次嵌入维度 d",tip:"拖动 d 滑块，看向量形状随之变化"},
+    {k:"quiz",type:"quiz",lbl:"自检：位置信息在工程中怎么加进去？",opts:["拼接到序列末尾","pos_emb 与 tok_emb 直接相加","乘进学习率","写进词表"],a:1,why:"x = drop(tok_emb + pos_emb)，位置嵌入与词嵌入逐元素相加。"},
+  ],
+  eng:{
+    file:"model.py: GPT.__init__ / GPT.forward()",
+    func:"transformer 字典里 wte（词嵌入）、wpe（位置嵌入）、h（N 个 Block）、ln_f；forward 里 pos = arange(T)，两表相加再过 Block 堆叠。",
+    code:"self.transformer = nn.ModuleDict(dict(\n    wte=nn.Embedding(config.vocab_size, config.n_embd),\n    wpe=nn.Embedding(config.block_size, config.n_embd),\n    drop=nn.Dropout(config.dropout),\n    h=nn.ModuleList([Block(config) for _ in range(config.n_layer)]),\n    ln_f=nn.LayerNorm(config.n_embd, bias=config.bias),\n))\nself.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False)\nself.transformer.wte.weight = self.lm_head.weight   # 权重绑定",
+    cmd:"# 在 config.py 里改 n_embd=256 → 768、n_layer=4 → 12 即接近 GPT-2 small",
+    out:"[train] 模型参数量 = 3.17M  →  改大后约 100M+",
+    note:"进阶实验：把 nn.LayerNorm 换成 RMSNorm、把 wpe 换成 RoPE、把多头注意力降成 GQA —— 正是 2023 年后主流模型标配，README 第五节有清单。",
+  },
+},
+{
+  id:4, ch:0, title:"核心：因果自注意力，亲手算一遍", exp:"attention",
+  goal:"这是 GPT 的心脏。你会用真实的小矩阵算 <b>Q·Kᵀ / √d → 因果掩码 → softmax → 加权 V</b>，并亲手关掉 √d 看 softmax 怎么「饱和」—— 从此这条公式不再是黑话。",
+  blades:[
+    {h:"Q / K / V 各司其职",b:"一次线性层 <code>c_attn = nn.Linear(n_embd, 3*n_embd)</code> 同时产出三套向量再 split。Q 是「我想找什么」，K 是「我有什么」，V 是「被选中后我贡献什么」。"},
+    {h:"打分与缩放",b:"<code>att = (q @ k.transpose(-2,-1)) * (1/sqrt(head_size))</code>。除以 √d 让点积方差不随维度爆炸；不除，softmax 会过早变成近乎 one-hot，梯度消失、训练不稳。实验台可一键关掉缩放亲眼看。"},
+    {h:"因果掩码",b:"<code>mask = torch.triu(torch.ones(T,T,bool), diagonal=1)</code>，上三角置 <code>-inf</code>。保证第 i 个位置看不到未来 —— 否则「预测下一个字」就作弊了。"},
+    {h:"多头 = 并行看多种关系",b:"<code>n_head=4</code>，把 n_embd 切成 4 份各自算注意力，再拼回投影。语法、指代、语义相似等关系由不同头分别捕捉。"},
+  ],
+  tasks:[
+    {k:"row",type:"act",lbl:"点一行，看它把注意力给了谁",tip:"在注意力矩阵里点任意行，读出该 token 的关注分布"},
+    {k:"scale",type:"act",lbl:"关掉 √d 缩放，观察分布变尖",tip:"切换「除以 √d」开关，比较最大权重与熵的变化"},
+    {k:"mask",type:"act",lbl:"切换因果掩码开关",tip:"关掉掩码，看未来位置被错误地纳入"},
+    {k:"quiz",type:"quiz",lbl:"自检：掩码后 softmax 对未来位置的权重是？",opts:["0","0.5","1","负无穷"],a:0,why:"未来位置分数被置 -inf，softmax 后权重恰为 0。"},
+  ],
+  eng:{
+    file:"model.py: CausalSelfAttention.forward()",
+    func:"一次 c_attn 算出 q/k/v 并 reshape 成多头 → 缩放点积 → triu 掩码 → softmax → @v → 拼回 (B,T,C) → c_proj 投影。",
+    code:"q, k, v = self.c_attn(x).split(self.n_embd, dim=2)\natt = (q @ k.transpose(-2, -1)) * (1.0 / math.sqrt(self.head_size))\nmask = torch.triu(torch.ones(T, T, dtype=torch.bool), diagonal=1)\natt = att.masked_fill(mask, float('-inf'))\natt = F.softmax(att, dim=-1)\ny = att @ v",
+    cmd:"# 想验证掩码：在 forward 里 print(att[0,0]) 看第一行权重和是否为 1",
+    out:"att[0,0] 只有第 0 个位置非零（首 token 只能看自己）",
+    note:"head_size = n_embd // n_head = 256//4 = 64，所以缩放因子是 1/8。实验台用 d=4 缩到 1/2，数值不同但规律完全一致。",
+  },
+},
+{
+  id:5, ch:0, title:"训练它：让 loss 真的掉下来", exp:"train",
+  goal:"最硬的一刀。浏览器里跑一个<b>真的可训练字符级 bigram 语言模型</b>：前向 → softmax → 交叉熵 → 求梯度 → SGD 更新权重。你要亲手把 loss 曲线压下去，并看到生成文本从乱码变像样。",
+  blades:[
+    {h:"一个最小可训练模型",b:"为让浏览器能秒级跑完，实验用 bigram 版：参数是一张 <code>W[V,V]</code>，给定当前字符 c，logits = W[c]，softmax 得下一字符分布。它和工程里的 Transformer 目标<b>完全相同</b>（下一字符交叉熵），只是把「看多长前文」从 256 缩到 1。"},
+    {h:"梯度其实很漂亮",b:"softmax + 交叉熵的梯度是 <code>∂L/∂logits = probs − onehot(y)</code>：预测概率偏高的地方往下压，正确字符往上抬。SGD 就是 <code>W[cur] -= lr * grad</code>。"},
+    {h:"工程里多了什么",b:"真实 <code>train.py</code> 用 4 层 Transformer + AdamW + 学习率预热/余弦退火 + 梯度裁剪（<code>grad_clip=1.0</code>）+ 每 200 步评估 train/val loss 并生成样例、存 ckpt.pt。原理一致，规模不同。"},
+    {h:"loss 下降意味着什么",b:"loss = 平均负对数似然。从 <code>ln(V)</code>（纯瞎猜）降下来，说明模型真的把字符间的统计规律学进了参数。这就是「大模型学会说话」最直观的证据。"},
+  ],
+  tasks:[
+    {k:"train",type:"act",lbl:"训练 ≥ 30 步，把 loss 压到 2.6 以下",tip:"点「训练 10 步」若干次 / 或「一键训练到底」，观察曲线"},
+    {k:"sample",type:"act",lbl:"生成一次样本，对比训练前后",tip:"点「用当前模型生成一句话」，看乱码如何变得像英文"},
+    {k:"lr",type:"act",lbl:"改一次学习率再训练",tip:"拖动 lr 滑块，观察收敛速度变化"},
+    {k:"quiz",type:"quiz",lbl:"自检：loss 下降说明模型在做什么？",opts:["记住了全部语料原文","提高了对下一个字符的预测概率","减小了词表","关闭了注意力"],a:1,why:"交叉熵下降 = 模型给真实下一个字符的概率越来越高，即学会了字符间统计规律。"},
+  ],
+  eng:{
+    file:"train.py: main() 训练循环 ／ get_lr()",
+    func:"每步取一批 → 前向算 loss → zero_grad → backward → clip_grad_norm_ → AdamW.step；学习率由 get_lr() 做线性预热+余弦退火；每 eval_interval 评估并 generate 一段样例、保存 ckpt.pt。",
+    code:"for iter_num in range(cfg['max_iters']):\n    lr = get_lr(iter_num, cfg)\n    for g in optimizer.param_groups: g['lr'] = lr\n    x, y = get_batch(train_data, device, cfg['batch_size'], cfg['block_size'])\n    _, loss = model(x, y)\n    optimizer.zero_grad(set_to_none=True)\n    loss.backward()\n    torch.nn.utils.clip_grad_norm_(model.parameters(), cfg['grad_clip'])\n    optimizer.step()",
+    cmd:"python train.py",
+    out:"step     0 | loss 4.2xxx | lr 3.00e-06\n  eval  train=4.1xxx  val=4.2xxx\n  sample: xJq!f zLk...mW#            <- 早期：纯噪声\n...\nstep  2000 | loss 1.8xxx\n  sample: The gentleman was of a quiet temper...   <- 后期：像样英文\n  ckpt -> ckpt.pt",
+    note:"CPU 上 2000 步约几分钟。若 loss 不降，检查 learning_rate(3e-4)、max_iters(2000) 是否被改小；玩具数据别急着上 dropout。",
+  },
+},
+{
+  id:6, ch:0, title:"让它开口：自回归生成与采样", exp:"sampling",
+  goal:"模型训练好只会输出概率分布，还不会「说话」。这一刀你亲手拨 <b>温度 T 与 Top-k</b>，看同一组 logits 如何变出完全不同性格的文本，并一次一个字地走完自回归循环。",
+  blades:[
+    {h:"自回归：一次一个字，拼回去再来",b:"<code>generate()</code> 循环里：截到最近 block_size 个 token → 取最后一个位置的 logits → 缩放/截断 → softmax → <code>torch.multinomial</code> 抽样 → <code>cat</code> 拼回序列。 repeats until 长度够。"},
+    {h:"温度 T",b:"<code>logits = logits / temperature</code>。T 小 → 分布尖锐保守（T→0 等价贪心）；T 大 → 分布平坦、更随机更有创意。工程 generate.py 默认 <code>temperature=0.8, top_k=10</code>。"},
+    {h:"Top-k 截断",b:"只保留分数最高的 k 个候选，其余置 -inf。砍掉长尾噪声，让生成更连贯。工程里 <code>torch.topk</code> 找第 k 大分数再 mask。"},
+    {h:"为什么采样而不是取最大",b:"总取概率最高的字会陷入重复循环；按概率抽样才有多样性。真实产品还会加 Top-p（核采样）、重复惩罚、频率惩罚。"},
+  ],
+  tasks:[
+    {k:"temp",type:"act",lbl:"把温度调到 ≥ 1.5 并观察分布变平",tip:"拖动 T 滑块，比较最高概率的变化"},
+    {k:"topk",type:"act",lbl:"把 Top-k 调到 3 并采样",tip:"看长尾候选如何被清零"},
+    {k:"gen",type:"act",lbl:"手动单步生成 ≥ 5 个字",tip:"点「生成下一个字」累积，看序列逐字变长"},
+    {k:"quiz",type:"quiz",lbl:"自检：T → 0 时生成行为接近？",opts:["完全随机","贪心（总取最高概率）","停止生成","只输出标点"],a:1,why:"T→0 时 softmax 退化为 one-hot，等价于 argmax 贪心解码。"},
+  ],
+  eng:{
+    file:"model.py: GPT.generate() ／ generate.py",
+    func:"generate(idx, max_new_tokens, temperature, top_k) 自回归循环；generate.py 读 ckpt.pt（含 itos/cfg/vocab_size），重建模型、load_state_dict、eval()，从空上下文生成 500 字符。",
+    code:"for _ in range(max_new_tokens):\n    idx_cond = idx if idx.size(1) <= block_size else idx[:, -block_size:]\n    logits, _ = self(idx_cond)\n    logits = logits[:, -1, :] / temperature\n    if top_k is not None:\n        v, _ = torch.topk(logits, top_k)\n        logits[logits < v[:, [-1]]] = float('-inf')\n    probs = F.softmax(logits, dim=-1)\n    idx_next = torch.multinomial(probs, num_samples=1)\n    idx = torch.cat((idx, idx_next), dim=1)",
+    cmd:"python generate.py",
+    out:"（从 ckpt.pt 生成的 500 字符文本，应能看出英文单词与句子结构）",
+    note:"报错「找不到 ckpt.pt」说明还没训练；先跑 python train.py。想更保守把 temperature 调到 0.5、top_k 调到 5。",
+  },
+},
+{
+  id:7, ch:0, title:"上真机：把 nano-gpt-practice 跑通", exp:"checklist",
+  goal:"浏览器里的迷你实验已经把直觉建完。这一刀是<b>桥</b>：按清单在你本机把真正的 4 层 Transformer 跑起来，认得每条命令和它的预期输出。",
+  blades:[
+    {h:"三层对应关系",b:"浏览器实验 = 缩小 100 倍的原理模型（bigram，1 字符上下文）；<code>nano-gpt-practice</code> = 完整 Transformer（4 层 / 4 头 / 256 维 / 256 上下文）；生产级 GPT = 同架构放大到百亿千亿参数。<b>三者只是规模不同，目标函数与结构同源。</b>"},
+    {h:"常见坑",b:"没装 torch → <code>pip install torch</code>；全是乱码 / loss 不降 → 检查 learning_rate 与 max_iters；下载莎士比亚失败 → 手动把任意英文文本存成 data/input.txt（prepare.py 默认离线兜底，不会挂起）。"},
+  ],
+  tasks:[
+    {k:"c1",type:"check",lbl:"已执行 pip install torch（CPU 版即可）",tip:"点击勾选表示你在本机完成"},
+    {k:"c2",type:"check",lbl:"已执行 python prepare.py 生成 data/input.txt",tip:"点击勾选"},
+    {k:"c3",type:"check",lbl:"已执行 python train.py 并看到 loss 从 ~4.2 降到 ~1.8",tip:"点击勾选"},
+    {k:"c4",type:"check",lbl:"已执行 python generate.py 看到像样的英文",tip:"点击勾选"},
+    {k:"quiz",type:"quiz",lbl:"自检：训练中途生成样例 & 检查点存在哪里？",opts:["只打印不保存","ckpt.pt，含 model/itos/cfg/vocab_size","data/input.txt","config.py"],a:1,why:"train.py 每 eval_interval 存 dict(model=state_dict, itos, cfg, vocab_size) 到 ckpt.pt，供 generate.py 复原词表。"},
+  ],
+  eng:{
+    file:"整个 nano-gpt-practice/ 工程",
+    func:"README 第三节「运行步骤（3 步）」；训练循环的预期输出见 README 第四节。跑完再回头读 model.py 逐行中文注释，会有「原来如此」的贯通感。",
+    code:"# 3 步\npip install torch\npython prepare.py\npython train.py\npython generate.py\n\n# 想上 GPU / 更大模型：改 config.py\n#   n_embd: 256 -> 768, n_layer: 4 -> 12  (≈ GPT-2 small)\n#   max_iters: 2000 -> 更大",
+    cmd:"python train.py && python generate.py",
+    out:"[train] 完成。用 python generate.py 可继续生成文本。",
+    note:"跑通之后，README 第五节第 3 条「接一条 RAG 支线」就是第二章要做的实战 —— 训练好的模型只凭记忆，外接向量库后就变成「凭证据」的问答。",
+  },
+},
+/* ============ 第二章：接上 RAG ============ */
+{
+  id:8, ch:1, title:"为什么需要 RAG：从闭卷到开卷", exp:"why",
+  goal:"你刚训练出的 GPT 有个致命短板：<b>它只会凭参数记忆说话</b>。这一刀用一个「公司差旅标准」问题，让你亲眼看见闭卷时的一本正经胡说，以及开卷后带出处的回答。",
+  blades:[
+    {h:"参数记忆的三道墙",b:"① <b>时效</b>：训练截止后的事一概不知；② <b>私有</b>：你的内部文档它没见过；③ <b>幻觉</b>：不知道时不会闭嘴，而是按语言概率编一个最「像答案」的答案（详见博客 hallucination 笔记）。"},
+    {h:"RAG = 开卷考试",b:"<b>R</b>etrieval 检索：把问题变成查询找出相关片段；<b>A</b>ugmentation 增强：把片段拼进 Prompt；<b>G</b>eneration 生成：LLM 仅依据上下文作答。知识放在外部，随时更新、可溯源。"},
+    {h:"RAG vs 微调",b:"补新知识/查最新资料/要引用 → RAG；改语气/学新技能/固化风格 → 微调。生产里常组合：微调定风格，RAG 供事实。"},
+  ],
+  tasks:[
+    {k:"reveal",type:"act",lbl:"点「对比：闭卷 vs 开卷」",tip:"观察同一问题两种回答的差别"},
+    {k:"quiz",type:"quiz",lbl:"自检：RAG 主要缓解哪类问题？",opts:["模型参数太多","知识过时/私有/幻觉","分词不准","训练速度慢"],a:1,why:"RAG 把事实外置到可更新的知识库，专治时效、私有知识与幻觉；代价是检索质量决定上限。"},
+  ],
+  eng:{
+    file:"nano-gpt-practice/README.md 第五节第 3 条（RAG 支线） ／ 博客 knowledge/hallucination.md",
+    func:"训练完的模型是「只凭记忆」的，给它外接一个向量库（切片→Embedding→检索→把相关片段喂进 prompt），就变成「凭证据」的问答 —— 这正是缓解幻觉的头号手段。",
+    code:"# 你要在本机新建的目录（第二章会逐关填代码）\nnano-gpt-practice/\n└── rag/\n    ├── prepare_kb.py   # 第 9 刀：加载 + 切片\n    ├── embed.py        # 第 10 刀：向量化 + 余弦\n    ├── retrieve.py     # 第 11 刀：top-k 检索\n    ├── generate.py     # 第 12 刀：拼 Prompt + 生成\n    └── kb/             # 你的私有文档",
+    cmd:"# 先在博客里补一篇 rag.md，正好勾掉 gaps 的 RAG 待补项",
+    out:"（概念闭环：hallucination 解释「为什么要 RAG」，rag.md 承接「怎么做」）",
+    note:"博客知识库目前 23 篇笔记 / 111 条链接，gaps 里 RAG 仍是待补概念 —— 走完第二章，你就有真实实战经验可以落成这篇笔记。",
+  },
+},
+{
+  id:9, ch:1, title:"切片：把文档切成可检索的卡片", exp:"chunking",
+  goal:"检索是以「片段」为单位的，切片直接决定上限。你会调 <b>chunk_size / overlap</b>，实时看到块数、重叠区与元数据，理解「太大掺噪声、太小丢上下文」。",
+  blades:[
+    {h:"为什么不能整篇塞进去",b:"LLM 上下文窗口有限，且整篇文档向量会被平均成一个模糊语义，检索命中率差。切成语义相对完整的小块，才能精准命中。"},
+    {h:"overlap 防边界割裂",b:"相邻块重叠 10~20% 字符，避免一条制度被硬切在两块的边界上。实验里琥珀色就是重叠区。"},
+    {h:"元数据别丢",b:"每块必须带上 <code>{source, title, page, chunk_id}</code>，否则检索到了也无法溯源与过滤。生产里还会按标题/段落做语义切分，而非纯定长。"},
+  ],
+  tasks:[
+    {k:"size",type:"act",lbl:"改一次 chunk size，观察块数变化",tip:"拖动 size 滑块"},
+    {k:"ov",type:"act",lbl:"把 overlap 调到 ≥ 8 并找到重叠区",tip:"拖动 overlap 滑块，看琥珀高亮的重复文本"},
+    {k:"quiz",type:"quiz",lbl:"自检：overlap 的作用？",opts:["减少总块数","防止知识点被边界切断、保留跨块上下文","替代 embedding","加快训练"],a:1,why:"相邻块重叠一小段，保证跨边界的完整语义不会丢失。"},
+  ],
+  eng:{
+    file:"rag/prepare_kb.py（新建）",
+    func:"读取 kb/ 下文档 → 按 chunk_size/overlap 滑动切分 → 为每块附元数据 → 存成 chunks.jsonl 供后续嵌入。",
+    code:"import json, pathlib\n\ndef chunk(text, size=400, overlap=60):\n    out, i, cid = [], 0, 0\n    while i < len(text):\n        seg = text[i:i+size]\n        out.append(dict(chunk_id=cid, text=seg,\n                        source='kb/handbook.md', start=i))\n        i += size - overlap\n        cid += 1\n    return out\n\nchunks = chunk(pathlib.Path('kb/handbook.md').read_text(encoding='utf-8'))\nwith open('chunks.jsonl','w',encoding='utf-8') as f:\n    for c in chunks: f.write(json.dumps(c, ensure_ascii=False)+'\\n')",
+    cmd:"python rag/prepare_kb.py",
+    out:"chunks.jsonl：每行一个 {chunk_id, text, source, start}",
+    note:"真实项目用 langchain RecursiveCharacterTextSplitter 或按语义断点切；先用定长+overlap 跑通，再迭代切片策略（第 13 刀评估会回头看它）。",
+  },
+},
+{
+  id:10, ch:1, title:"嵌入与相似度：让文字可比", exp:"cosine",
+  goal:"检索的本质是「按语义找近邻」。这一刀用<b>真实计算</b>的字符向量把查询和每个知识块变成向量，算余弦相似度；再拖动两个向量，直观看到夹角与 cos 的关系。",
+  blades:[
+    {h:"句/段级 embedding ≠ token embedding",b:"GPT 里的 wte 是「一个字符一个向量」；RAG 用的是<b>整段文本一个语义向量</b>（text-embedding 模型输出，如 768/1536 维）。实验里用字符 uni+bigram 词频向量做教学级替身，计算方式与真实嵌入一致：都是向量点积/余弦。"},
+    {h:"余弦相似度",b:"<code>cos = (A·B)/(|A||B|)</code>，范围 [-1,1]，只看方向不看长度 —— 长片段不会仅因字多被判「远」。1 = 同向最像，0 = 正交无关。"},
+    {h:"向量库与 ANN",b:"百万级向量存进 FAISS / Milvus / PGVector，用 HNSW 等<b>近似最近邻</b>索引毫秒级返回，而非暴力全量比对。实验规模小，直接全量算即可。"},
+  ],
+  tasks:[
+    {k:"query",type:"act",lbl:"输入一个查询，看每块的相似度分数",tip:"在实验台输入「差旅住宿标准」之类，观察排序"},
+    {k:"drag",type:"act",lbl:"拖动向量，让两向量夹角 < 30°",tip:"在下方画布里拖动 A / B 端点"},
+    {k:"quiz",type:"quiz",lbl:"自检：文本检索为何常用余弦而非欧氏距离？",opts:["余弦计算更快","余弦对文本长度不敏感，只比较语义方向","欧氏只用于英文","余弦值域更大"],a:1,why:"余弦归一化掉向量长度（篇幅）影响，更纯粹地衡量语义方向一致性。"},
+  ],
+  eng:{
+    file:"rag/embed.py（新建）",
+    func:"对 chunks.jsonl 每块调用 embedding 模型得到向量，连同元数据写入向量库；query 时用<b>同一个模型</b>编码，保证同一向量空间可比。",
+    code:"# 教学版：无需 API，用 sklearn TF-IDF 得到可比较的稀疏向量\nfrom sklearn.feature_extraction.text import TfidfVectorizer\nfrom sklearn.metrics.pairwise import cosine_similarity\nimport json, numpy as np\n\ntexts = [json.loads(l)['text'] for l in open('chunks.jsonl', encoding='utf-8')]\nvec = TfidfVectorizer(analyzer='char', ngram_range=(1,2))\nX = vec.fit_transform(texts)\nnp.save('kb_vectors.npy', X.toarray())\n\n# 生产版：换成 text-embedding 模型 + FAISS/HNSW 索引\n# from openai import OpenAI\n# e = OpenAI().embeddings.create(model='text-embedding-3-small', input=texts)",
+    cmd:"pip install scikit-learn && python rag/embed.py",
+    out:"kb_vectors.npy：形状 (块数, 特征维度)",
+    note:"query 与文档必须用同一个向量化器/模型，否则空间不一致、相似度无意义 —— 这是新手最常踩的坑。",
+  },
+},
+{
+  id:11, ch:1, title:"检索：真找出 top-k", exp:"retrieval",
+  goal:"把上一刀的相似度排序变成一次真正的检索：输入问题 → 返回最相关的 k 个片段。你还能打开<b>混合检索</b>，看关键词精确匹配如何救回纯向量漏掉的专有名词。",
+  blades:[
+    {h:"top-k 不是越多越好",b:"k 太小可能漏掉答案；k 太大会塞进噪声、稀释注意力、增加成本。生产常取 3~5 并配 Reranker。"},
+    {h:"Reranker 精排",b:"向量检索（双编码器）各算各的，快但粗；<b>交叉编码器 Reranker</b> 把 query+chunk 拼一起重新判相关，对候选精排，命中率明显提升。"},
+    {h:"混合检索 Hybrid",b:"纯语义检索可能漏掉编号、专有名词等字面精确匹配。<b>向量 + BM25 关键词</b> 融合排序是生产级标配。实验台的开关就是简化版 BM25 命中加权。"},
+  ],
+  tasks:[
+    {k:"search",type:"act",lbl:"执行一次检索并读出最高分片段",tip:"输入问题点「检索」"},
+    {k:"topk",type:"act",lbl:"把 top-k 从 1 改到 3，观察候选变化",tip:"拖动 k 滑块"},
+    {k:"hybrid",type:"act",lbl:"打开混合检索开关，比较分数变化",tip:"勾选「+ 关键词混合」，看命中关键词的块分数上升"},
+    {k:"quiz",type:"quiz",lbl:"自检：Reranker 相比初检索强在哪？",opts:["更快","把 query 与 chunk 联合编码，捕捉细微相关性","不需要向量","替代切片"],a:1,why:"交叉编码器联合看 query+chunk，比双编码的初检索更准，用于对 top-k 精排。"},
+  ],
+  eng:{
+    file:"rag/retrieve.py（新建）",
+    func:"query 编码 → 向量库相似度搜索 → 取 top-k → （可选）Reranker 精排 / 与 BM25 结果融合 → 返回带分数的 chunk 列表。",
+    code:"def retrieve(query, k=3, hybrid=True):\n    qv = vec.transform([query])                 # 与文档同一个向量化器\n    scores = cosine_similarity(qv, X)[0]\n    order = scores.argsort()[::-1][:k*3]        # 先多取一些候选\n    if hybrid:                                  # 关键词精确命中加权\n        order = sorted(order, key=lambda i: scores[i] + kw_bonus(query, texts[i]), reverse=True)\n    return [dict(text=texts[i], score=float(scores[i]),\n                 meta=metas[i]) for i in order[:k]]",
+    cmd:"python -c \"from rag.retrieve import retrieve; print(retrieve('差旅住宿标准是多少', k=3))\"",
+    out:"[{'text': '【差旅制度】2026 年...一线城市每晚 600 元...', 'score': 0.41, 'meta': {...}}, ...]",
+    note:"评估检索好坏看 Recall@k / MRR / NDCG：先确认「正确答案在不在候选里」，再谈生成质量。第 13 刀会回头做这件事。",
+  },
+},
+{
+  id:12, ch:1, title:"增强与生成：拼出开卷题", exp:"augment",
+  goal:"最后一步拼装：把检索到的片段 + 问题塞进 Prompt 模板，交给 LLM 作答。你会亲手开关<b>「仅依据上下文」</b>约束，看到它对幻觉的抑制，并理解引用溯源怎么落地。",
+  blades:[
+    {h:"Prompt 四件套",b:"① 系统指令（你是基于资料作答的助手）② <b>上下文</b>（检索到的 chunk，标 [1][2]）③ 用户问题 ④ 输出格式与约束。顺序与分隔标记要固定，便于模型区分资料与指令。"},
+    {h:"那句关键的约束",b:"<b>「仅依据以下上下文回答，若资料不足就明确说不知道」</b>。它把模型从「自由发挥」拉回「按资料说话」，是降低幻觉最便宜有效的一招。"},
+    {h:"溯源与上下文污染",b:"要求输出引用编号 [1] 便于人工核对；但塞太多/太杂的 chunk 会稀释注意力 —— 所以第 11 刀的 top-k / Reranker 不是锦上添花，而是决定「喂给模型的料干不干净」。"},
+  ],
+  tasks:[
+    {k:"asm",type:"act",lbl:"点「拼装 Prompt」，看完整提示词",tip:"观察系统指令 / 上下文 / 问题 / 约束四块"},
+    {k:"rule",type:"act",lbl:"切换约束开关，比较两种回答",tip:"关掉「仅依据上下文」看模型如何自由发挥"},
+    {k:"quiz",type:"quiz",lbl:"自检：Prompt 里抑制幻觉最关键的约束是？",opts:["请尽量详细","仅依据上下文作答，资料不足就说不知道","用英文回答","忽略来源标注"],a:1,why:"明确限定答案必须来自上下文且允许说「不知道」，能显著抑制脱离资料的编造。"},
+  ],
+  eng:{
+    file:"rag/generate.py（新建）",
+    func:"拼装模板 → 调用 LLM（本机可用训练好的 nanoGPT 做续写实验，或用任意 LLM API）→ 解析引用 → 返回答案与来源。真实项目还要处理 token 预算、长上下文截断、流式输出。",
+    code:"def build_prompt(question, chunks, strict=True):\n    ctx = '\\n'.join(f'[{i+1}] {c[\"text\"]}  (来源: {c[\"meta\"][\"source\"]})'\n                    for i, c in enumerate(chunks))\n    rule = ('仅依据以下上下文回答，若资料不足就明确说明不知道；'\n            '每个结论后标注引用编号。') if strict else ''\n    return f'你是资料问答助手。\\n{rule}\\n\\n=== 上下文 ===\\n{ctx}\\n\\n=== 问题 ===\\n{question}\\n\\n请用中文分点作答。'\n\n# answer = llm(build_prompt(q, retrieve(q, k=3)))",
+    cmd:"python -c \"from rag.generate import build_prompt; from rag.retrieve import retrieve; print(build_prompt('差旅住宿标准?', retrieve('差旅住宿标准')))\"",
+    out:"带 [1][2] 引用的中文答案；关闭约束时模型会补出资料里没有的细节（可对照观察）",
+    note:"想做安全测试：往 prompt 里塞「忽略上文指令」，看模型是否被带偏（README 第五节第 4 条）。这是提示注入，生产环境必须防。",
+  },
+},
+/* ============ 第三章：合流 ============ */
+{
+  id:13, ch:2, title:"合流：给训练好的 GPT 接上 RAG", exp:"e2e",
+  goal:"收官一刀，把 12 刀串成一条完整链路：<b>语料 → 训练出 GPT → 私有文档 → 切片 → 嵌入 → 检索 → 拼 Prompt → GPT 生成带引用的答案 → 评估迭代</b>。你会亲手播放全流程并读懂评估指标。",
+  blades:[
+    {h:"两条链路在这里合体",b:"第一章造出的 GPT 负责「生成」，第二章造出的 RAG 负责「供事实」。合体后模型从「凭记忆」升级为「凭证据」：知识可随时更新、答案可溯源、幻觉显著下降。"},
+    {h:"评估要分两段定位",b:"<b>检索端</b>：Recall@k / MRR / NDCG（正确答案在不在候选里）；<b>生成端</b>：忠实度 Faithfulness（答案是否真由上下文支撑）、答案相关性。先定位坏在「没检索到」还是「检索到了没用好」，再对症迭代切片 / 嵌入 / Prompt。"},
+    {h:"进阶形态",b:"GraphRAG（实体关系图谱，擅多跳/全局问题）、Self-RAG（模型自决是否检索）、Agentic RAG（多步规划 + 工具调用迭代检索）。朴素 RAG 是这一切的基线。"},
+    {h:"回到你的知识库飞轮",b:"走完这一圈，把 <code>rag.md</code> 落成标准原子笔记（一句话答案 + 双向链接回指 hallucination / llms / training / practice/nano-gpt），正好勾掉 gaps 的 RAG 待补概念，飞轮从 23 篇继续长。"},
+  ],
+  tasks:[
+    {k:"play",type:"act",lbl:"播放完整 9 步流水线",tip:"点「▶ 播放全流程」，观察数据如何流动"},
+    {k:"eval",type:"act",lbl:"查看评估指标，判断该迭代哪一段",tip:"点「运行评估」，读 Recall@k 与忠实度"},
+    {k:"quiz",type:"quiz",lbl:"自检：答案出现幻觉，第一步该排查？",opts:["立刻加大模型参数","先区分是检索未命中，还是检索到了但生成没用好","换分词器","关闭注意力"],a:1,why:"组件级定位：检索没命中就改切片/嵌入/混合检索；命中了却答错就改 Prompt 约束或 Reranker。"},
+    {k:"quiz2",type:"quiz",lbl:"自检：把知识更新到 RAG 系统需要？",opts:["重新预训练整个 GPT","更新外部知识库并重新嵌入切片","改温度","换损失函数"],a:1,why:"RAG 的知识外置，更新只需重建知识库/向量索引，无需动模型参数 —— 这正是它相对微调的核心优势。"},
+  ],
+  eng:{
+    file:"nano-gpt-practice/ 全工程 + rag/ 支线 + 博客 docs/knowledge/rag.md",
+    func:"端到端串联：prepare.py → train.py → ckpt.pt；rag/prepare_kb.py → embed.py → retrieve.py → generate.py；最后把踩过的坑写成 rag.md 接入知识图谱飞轮。",
+    code:"# 端到端跑通顺序（本机）\npip install torch scikit-learn\npython prepare.py && python train.py          # 第一章：得到 ckpt.pt\npython rag/prepare_kb.py                      # 第二章：切片\npython rag/embed.py                           #          向量化\npython rag/generate.py                        #          检索 + 拼 Prompt + 生成\n\n# 第三章：把实战沉淀成笔记，接回飞轮\n#   docs/knowledge/rag.md  -> node scripts/build-kb-graph.mjs",
+    cmd:"node scripts/build-kb-graph.mjs   # 在 longge-ai-blog 目录下重跑飞轮",
+    out:"图谱新增 rag 节点；gaps 的「RAG」待补项被勾掉；覆盖进度 16/20 → 17/20",
+    note:"至此你已完成一次完整闭环：原理（庖丁解牛）→ 浏览器迷你实战 → 本机真模型 → RAG 支线 → 知识库笔记 → 飞轮。这套「学一个概念就跑一个实验、写一篇笔记」的方法可以复用到多模态 / 提示工程 / 数据工程三个剩余缺口。",
+  },
+},
+];
+
+/* ---------- 进度状态 ---------- */
+const KEY='gptrag_dojo_v3';
+let S={done:{},tasks:{}};
+try{const raw=localStorage.getItem(KEY); if(raw)S=JSON.parse(raw);}catch(e){}
+if(!S.done)S.done={}; if(!S.tasks)S.tasks={};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function isUnlocked(id){ if(id===1)return true; return !!S.done[id-1]; }
+function levelDone(id){ const L=LEVELS.find(x=>x.id===id); return L.tasks.every(t=>S.tasks[id+'_'+t.k]); }
+function taskKey(id,k){return id+'_'+k;}
+function completedCount(){return LEVELS.filter(L=>S.done[L.id]).length;}
+
+/* ---------- 布局 ---------- */
+function buildSidebar(){
+  const sb=document.getElementById('sidebar'); sb.innerHTML='';
+  CHAPTERS.forEach(ch=>{
+    const d=document.createElement('div'); d.className='chap';
+    d.innerHTML='<div class="chap-head">'+ch.t+'</div>';
+    ch.levels.forEach(id=>{
+      const L=LEVELS.find(x=>x.id===id); const un=isUnlocked(id); const done=!!S.done[id];
+      const el=document.createElement('div');
+      el.className='lv'+(un?'':' locked')+(done?' passed':'')+(CUR===id?' active':'');
+      el.innerHTML='<span class="badge">'+(done?'✓':(un?id:'🔒'))+'</span><span>'+esc(L.title)+'</span>';
+      el.onclick=()=>{ if(!un){toast('🔒 先通关第 '+(id-1)+' 刀');return;} go(id); };
+      d.appendChild(el);
+    });
+    sb.appendChild(d);
+  });
+  updateProg();
+}
+function updateProg(){
+  const c=completedCount();
+  document.getElementById('progFill').style.width=Math.round(c/LEVELS.length*100)+'%';
+  document.getElementById('progTxt').textContent=c+' / '+LEVELS.length+' 关';
+}
+function buildStepper(){
+  let h='';
+  LEVELS.forEach((L,i)=>{
+    const un=isUnlocked(L.id),done=!!S.done[L.id];
+    h+='<div class="stp '+(done?'done':(CUR===L.id?'cur':''))+(un?'':' lock')+'" data-id="'+L.id+'" title="第 '+L.id+' 刀：'+esc(L.title)+'">'+(done?'✓':L.id)+'</div>';
+    if(i<LEVELS.length-1)h+='<div class="stp-line"></div>';
+  });
+  return '<div class="stepper">'+h+'</div>';
+}
+function bindStepper(root){
+  root.querySelectorAll('.stp').forEach(el=>el.onclick=()=>{
+    const id=+el.dataset.id;
+    if(!isUnlocked(id)){toast('🔒 先通关第 '+(id-1)+' 刀');return;}
+    go(id);
+  });
+}
+
+/* ---------- 渲染关卡 ---------- */
+let CUR=1;
+function go(id){ CUR=id; render(); document.getElementById('content').scrollTop=0; }
+function render(){
+  buildSidebar();
+  const L=LEVELS.find(x=>x.id===CUR);
+  const c=document.getElementById('content');
+  let h=buildStepper();
+  h+='<div class="crumb">'+CHAPTERS[L.ch].t+' › 第 '+L.id+' 刀 / 共 13 刀</div>';
+  h+='<div class="lvl-head"><div class="lvl-no">'+String(L.id).padStart(2,'0')+'</div><h1 class="lvl-title">'+esc(L.title)+'</h1></div>';
+  h+='<div class="goal">🎯 <b>本刀目标：</b>'+L.goal+'</div>';
+
+  // 1 庖丁解牛
+  h+='<div class="sec"><div class="sec-h"><span class="num">1</span>庖丁解牛 · 拆原理 <span class="sub">先懂骨头，再动刀</span></div>';
+  L.blades.forEach((b,i)=>{ h+='<div class="blade '+(i===0?'open':'')+'"><div class="blade-head"><span style="color:var(--purple)">🔪</span>'+esc(b.h)+'<span class="chev">▶</span></div><div class="blade-body">'+b.b+'</div></div>'; });
+  h+='</div>';
+
+  // 2 动手实验台
+  h+='<div class="sec"><div class="sec-h"><span class="num">2</span>动手实验台 <span class="sub">浏览器里真跑 · 改参数即时看结果</span></div><div class="lab" id="lab"></div></div>';
+
+  // 3 过关任务
+  h+='<div class="sec"><div class="sec-h"><span class="num">3</span>过关任务 <span class="sub">必须亲自做完 / 答对</span></div><div class="tasks" id="tasks"></div><div id="gate"></div></div>';
+
+  // 4 真工程对照
+  h+='<div class="sec"><div class="sec-h"><span class="num">4</span>真工程对照 <span class="sub">nano-gpt-practice · 文件 / 函数 / 命令 / 输出</span></div>';
+  h+='<div class="eng open"><div class="eng-h">💻 '+esc(L.eng.file)+'<span class="chev">▶</span></div><div class="eng-b">';
+  h+='<div class="eng-row"><span class="k">对应实现</span><span class="v">'+L.eng.func+'</span></div>';
+  h+='<div class="eng-row"><span class="k">关键代码</span><span class="v"><div class="codeblk">'+esc(L.eng.code)+'</div></span></div>';
+  h+='<div class="eng-row"><span class="k">本机命令</span><span class="v"><span class="cmd">'+esc(L.eng.cmd)+'</span></span></div>';
+  h+='<div class="eng-row"><span class="k">预期输出</span><span class="v"><div class="codeblk" style="color:#c6e8b0">'+esc(L.eng.out)+'</div></span></div>';
+  h+='<div class="eng-note">💡 '+L.eng.note+'</div>';
+  h+='</div></div></div>';
+
+  h+='<div class="foot">📌 学习法：① 读原理建直觉 → ② 在实验台亲手把数字跑出来 → ③ 完成过关任务 → ④ 按「真工程对照」在本机复现 → ⑤ 解锁下一刀。浏览器实验为教学规模（缩小版），工程对照里的命令跑的是真实完整实现。</div>';
+  c.innerHTML=h;
+
+  bindStepper(c);
+  c.querySelectorAll('.blade-head').forEach(x=>x.onclick=()=>x.parentElement.classList.toggle('open'));
+  const eh=c.querySelector('.eng-h'); eh.onclick=()=>eh.parentElement.classList.toggle('open');
+  renderTasks();
+  mountExp(L.exp, document.getElementById('lab'), L);
+}
+
+/* ---------- 任务引擎 ---------- */
+/* 实验台挂载瞬间的首次 run()/draw() 会算出初始状态，
+   若这些函数直接 hit() 就会「打开页面即白送任务」。
+   用 EXP_READY 守卫：挂载期间抑制自动判定，只有用户真实交互(输入/点击)触发的 hit 才计入。*/
+var EXP_READY=true;
+function renderTasks(){
+  const L=LEVELS.find(x=>x.id===CUR), box=document.getElementById('tasks');
+  let h='';
+  L.tasks.forEach((t,i)=>{
+    const ok=!!S.tasks[taskKey(L.id,t.k)];
+    h+='<div class="task '+(ok?'done':'')+'" data-k="'+t.k+'"><div class="tbox">'+(ok?'✓':'')+'</div><div class="tbody"><div class="lbl">'+(i+1)+'. '+esc(t.lbl)+'</div><div class="tip">'+esc(t.tip||'')+'</div>';
+    if(t.type==='quiz'){
+      h+='<div class="opts">'+t.opts.map((o,oi)=>'<span class="opt" data-oi="'+oi+'">'+esc(o)+'</span>').join('')+'</div><div class="why"></div>';
+    }
+    h+='</div></div>';
+  });
+  box.innerHTML=h;
+  box.querySelectorAll('.task').forEach(el=>{
+    const k=el.dataset.k, t=L.tasks.find(x=>x.k===k);
+    const tb=el.querySelector('.tbox');
+    if(t.type==='check'){ tb.onclick=()=>{ const key=taskKey(L.id,k); S.tasks[key]=!S.tasks[key]; save(); renderTasks(); checkGate(); }; }
+    if(t.type==='quiz'){
+      el.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{
+        if(!!S.tasks[taskKey(L.id,k)])return;
+        const oi=+o.dataset.oi, why=el.querySelector('.why');
+        why.classList.add('show');
+        if(oi===t.a){ o.classList.add('correct'); why.innerHTML='✅ 正确。'+t.why; hit(k); }
+        else { o.classList.add('wrong'); why.innerHTML='❌ 再想想。'+t.why; }
+      });
+    }
+  });
+  checkGate();
+}
+function hit(k){
+  if(!EXP_READY)return;               // 挂载瞬间的自动判定不算，必须用户亲手操作
+  const L=LEVELS.find(x=>x.id===CUR), t=L&&L.tasks.find(x=>x.k===k);
+  if(!t)return;                        // 防御：任务 key 拼错时静默忽略，绝不白屏
+  const key=taskKey(CUR,k);
+  if(S.tasks[key])return;
+  S.tasks[key]=true; save();
+  toast('✅ 任务完成：'+t.lbl);
+  renderTasks();
+  checkGate();
+}
+function checkGate(){
+  const L=LEVELS.find(x=>x.id===CUR), ok=levelDone(L.id), gate=document.getElementById('gate');
+  if(!gate)return;
+  if(ok){
+    if(!S.done[L.id]){ S.done[L.id]=true; save(); updateProg(); buildSidebar(); toast('🎉 第 '+L.id+' 刀通关！下一刀已解锁'); }
+    const nx=L.id+1;
+    gate.className='gate ok';
+    gate.innerHTML='<div class="gtext"><b>🎉 本刀已通关</b> —— 原理、实验、动手任务全部完成，真工程对照记得在本机复现。</div>'+
+      (nx<=LEVELS.length?'<button class="btn primary" id="nextBtn">解锁下一刀 →</button>':'<button class="btn primary" id="nextBtn">🗺️ 查看路线图</button>');
+    gate.querySelector('#nextBtn').onclick=()=>{ if(nx<=LEVELS.length)go(nx); else openRoadmap(); };
+  }else{
+    const left=L.tasks.filter(t=>!S.tasks[taskKey(L.id,t.k)]).length;
+    gate.className='gate';
+    gate.innerHTML='<div class="gtext">🔒 <b>还剩 '+left+' 项任务</b>未完成。完成全部任务后自动解锁下一刀。</div><button class="btn" disabled>下一刀 🔒</button>';
+  }
+}
+
+/* ---------- 实验台 ---------- */
+function mountExp(type,box,L){
+  const fn=EXP[type];
+  if(fn){
+    EXP_READY=false;                       // 同步挂载期的首次 run()/draw() 禁止判定任务
+    try{ fn(box,L); } finally { EXP_READY=true; }  // 返回后恢复，用户交互(异步事件)才计入
+  } else box.innerHTML='<div class="lab-hint">（本关为清单式实战）</div>';
+}
+
+const EXP={};
+
+/* 第 1 刀：词表 */
+EXP.vocab=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 字符词表构建器（真实计算）</div>'+
+   '<div class="lab-hint">改动文本 → 立即重算 <code>sorted(set(text))</code> → stoi/itos → 编码序列。这就是 train.py 里 load_text() 做的事。</div>'+
+   '<textarea id="vText">the quick brown fox jumps over the lazy dog. 大模型预测下一个字！</textarea>'+
+   '<div class="out" id="vOut"></div>';
+  const ta=box.querySelector('#vText'),out=box.querySelector('#vOut');
+  function run(){
+    const text=ta.value; const {chars,stoi,itos,V}=buildVocab(text);
+    const preview=[...text].slice(0,26).map(c=>'<span class="chip hl">'+esc(c===' '?'␣':c)+'<span class="id">'+stoi[c]+'</span></span>').join('');
+    const vocabShow=chars.slice(0,40).map(c=>'<span class="chip">'+esc(c===' '?'␣':c)+'<span class="id">'+stoi[c]+'</span></span>').join('');
+    out.innerHTML='<span class="k">vocab_size</span> = <span class="v">'+V+'</span>   <span class="k">文本长度</span> = <span class="v">'+text.length+'</span>\n'+
+      '<span class="k">编码（前 26 个 id）</span>：['+[...text].slice(0,26).map(c=>stoi[c]).join(', ')+']\n'+
+      '<span class="k">字符 → id 对照</span>：\n'+preview+'\n'+
+      '<span class="k">词表（部分）</span>：\n'+vocabShow+'\n'+
+      '<span class="g">解码验证</span>：'+esc([...text].slice(0,18).map(c=>itos[stoi[c]]).join(''))+'  ← itos[stoi[c]] 原样还原';
+    if(text!==ta.defaultValue)hit('edit');
+    if(V>=30)hit('big');
+  }
+  ta.defaultValue=ta.value;
+  ta.oninput=run; run();
+};
+
+/* 第 2 刀：批次 + bigram */
+EXP.batch=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 (x, y) 批次构造器 + bigram 统计</div>'+
+   '<div class="lab-hint">窗口 block_size = 12。点「取下一批」看 y 是不是 x 右移一位；再选一个字符，用语料真实统计它后面最常接什么。</div>'+
+   '<div class="ctl"><button class="btn primary sm" id="bRoll">取下一批 →</button><span class="lab-hint" id="bPos" style="margin:0"></span></div>'+
+   '<div class="out" id="bOut"></div>'+
+   '<div class="ctl" style="margin-top:14px"><label>查看字符的后继统计 <select id="bSel"></select></label><button class="btn sm" id="bBi">统计 →</button></div>'+
+   '<div class="out" id="bBiOut" style="min-height:30px"></div>';
+  const out=box.querySelector('#bOut'),pos=box.querySelector('#bPos');
+  let i=0,rolls=0; const W=12;
+  function roll(){
+    const x=CORPUS.slice(i,i+W), y=CORPUS.slice(i+1,i+W+1);
+    out.innerHTML='<span class="k">x</span> = '+esc(x).replace(/ /g,'<span style="color:var(--dim)">·</span>')+'\n'+
+      '<span class="v">y</span> = '+esc(y).replace(/ /g,'<span style="color:var(--dim)">·</span>')+'\n'+
+      '<span class="g">对齐检查</span>：y[0] =「'+esc(y[0])+'」 应等于 x[1] =「'+esc(x[1])+'」 → '+(y[0]===x[1]?'✅ 一致（右移一位）':'⚠️ 边界')+'\n'+
+      '<span class="k">训练目标</span>：把 x 喂进模型，让每个位置的预测分布尽量把 y 对应字符的概率抬高。';
+    i=(i+3)%(CORPUS.length-W-1); pos.textContent='第 '+(++rolls)+' 批 · 起点 '+i;
+    if(rolls>=2)hit('roll');
+  }
+  const {chars}=buildVocab(CORPUS); const sel=box.querySelector('#bSel');
+  sel.innerHTML=chars.filter(c=>/[a-z]/.test(c)).map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
+  box.querySelector('#bBi').onclick=()=>{
+    const c=sel.value,cnt={}; for(let j=0;j<CORPUS.length-1;j++){if(CORPUS[j]===c){cnt[CORPUS[j+1]]=(cnt[CORPUS[j+1]]||0)+1;}}
+    const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,6); const tot=Object.values(cnt).reduce((a,b)=>a+b,0);
+    box.querySelector('#bBiOut').innerHTML='语料里「<span class="v">'+esc(c)+'</span>」共出现 '+tot+' 次，后继字符统计（真计数）：\n'+
+      top.map(([ch,n])=>'  「'+esc(ch===' '?'␣':ch)+'」 '+n+' 次  '+'█'.repeat(Math.round(n/Math.max(...top.map(t=>t[1]))*16))+'  '+(n/tot*100).toFixed(1)+'%').join('\n')+
+      '\n<span class="g">这就是「预测下一个字」最朴素的模型（bigram 计数）</span> —— 第 5 刀会把它升级成可训练的参数矩阵。';
+    hit('pred');
+  };
+  box.querySelector('#bRoll').onclick=roll; roll();
+};
+
+/* 第 3 刀：嵌入 */
+EXP.embedding=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 wte / wpe 查表器</div>'+
+   '<div class="lab-hint">点一个 token → 看它的词嵌入行、位置嵌入行、以及相加后的输入向量。维度 d 可调（工程默认 256，这里缩到 8）。</div>'+
+   '<div class="ctl"><label>嵌入维度 d <input type="range" id="eD" min="4" max="12" step="1" value="8"><span id="eDv">8</span></label></div>'+
+   '<div id="eTok" style="line-height:2.1"></div><div class="out" id="eOut"></div>';
+  const toks=['t','h','e',' ','m','o','d','l'];
+  const tk=box.querySelector('#eTok'),out=box.querySelector('#eOut'),dEl=box.querySelector('#eD');
+  let cur=0,d=8,dimTouched=false;
+  const rnd=seeded(20261108);
+  const WTE=toks.map(()=>Array.from({length:12},()=>+(rnd()*2-1).toFixed(2)));
+  const WPE=toks.map((_,p)=>Array.from({length:12},(_,k)=>+(Math.sin((p+1)*(k+1)*0.7)*0.6).toFixed(2)));
+  function cell(v){const t=Math.max(-1,Math.min(1,v));return '<div class="cell" style="background:'+(t>=0?'rgba(248,113,113,'+(0.2+0.7*t)+')':'rgba(34,211,238,'+(0.2+0.7*-t)+')')+'" title="'+v+'">'+v+'</div>';}
+  function row(v){return '<div class="grid8" style="grid-template-columns:repeat('+d+',1fr)">'+v.slice(0,d).map(cell).join('')+'</div>';}
+  function draw(){
+    tk.innerHTML=toks.map((c,i)=>'<span class="chip '+(i===cur?'hl':'')+'" data-i="'+i+'">'+esc(c===' '?'␣':c)+'<span class="id">id '+i+'</span></span>').join('');
+    tk.querySelectorAll('.chip').forEach(el=>el.onclick=()=>{cur=+el.dataset.i;draw();hit('pick');});
+    const a=WTE[cur].slice(0,d),b=WPE[cur].slice(0,d),s=a.map((v,k)=>+(v+b[k]).toFixed(2));
+    out.innerHTML='token「<span class="v">'+esc(toks[cur]===' '?'␣':toks[cur])+'</span>」在位置 <span class="v">'+cur+'</span>\n'+
+      '<span class="k">wte['+cur+'] 词嵌入</span>'+row(a)+
+      '<span class="k">wpe['+cur+'] 位置嵌入</span>'+row(b)+
+      '<span class="g">x = wte + wpe（模型实际输入）</span>'+row(s)+
+      '\n注意：同一个 token 出现在<b>不同位置</b>，wte 行完全相同，但 wpe 行不同 → 相加后才带上顺序信息。';
+  }
+  dEl.oninput=()=>{d=+dEl.value;document.getElementById('eDv').textContent=d;draw();if(!dimTouched){dimTouched=true;hit('dim');}};
+  draw();
+};
+
+/* 第 4 刀：注意力真算 */
+EXP.attention=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 因果自注意力计算器（真实矩阵运算）</div>'+
+   '<div class="lab-hint">序列「我 爱 学 大 模 型」，d=4。Q/K/V 由固定种子生成，下面是真算的 QKᵀ/√d → 掩码 → softmax。点行 / 切开关看变化。</div>'+
+   '<div class="ctl">'+
+     '<label><input type="checkbox" id="aScale" checked> 除以 √d 缩放</label>'+
+     '<label><input type="checkbox" id="aMask" checked> 因果掩码</label>'+
+     '<span class="lab-hint" id="aNote" style="margin:0"></span>'+
+   '</div><div class="out" id="aOut" style="max-height:none"></div>';
+  const seq=['我','爱','学','大','模','型'],n=seq.length,d=4,rnd=seeded(777);
+  const Q=seq.map(()=>Array.from({length:d},()=>rnd()*2-1));
+  const K=seq.map(()=>Array.from({length:d},()=>rnd()*2-1));
+  const V=seq.map(()=>Array.from({length:d},()=>rnd()*2-1));
+  const sc=box.querySelector('#aScale'),mk=box.querySelector('#aMask'),out=box.querySelector('#aOut'),note=box.querySelector('#aNote');
+  let active=-1,scaleTouched=false,maskTouched=false;
+  function dot(a,b){let s=0;for(let i=0;i<d;i++)s+=a[i]*b[i];return s;}
+  function compute(){
+    const rows=[]; let maxW=0,entSum=0;
+    for(let i=0;i<n;i++){
+      let sco=[]; for(let j=0;j<n;j++){ let v=dot(Q[i],K[j]); if(sc.checked)v/=Math.sqrt(d); if(mk.checked&&j>i)v=-Infinity; sco.push(v); }
+      const p=sco.map(x=>x===-Infinity?0:Math.exp(x-(Math.max(...sco.filter(x=>x!==-Infinity)))));
+      const sum=p.reduce((a,b)=>a+b,0); const w=p.map(x=>x/sum);
+      maxW=Math.max(maxW,Math.max(...w)); entSum+=-w.reduce((a,b)=>a+(b>0?b*Math.log(b):0),0);
+      rows.push(w);
+    }
+    const oV=rows.map((w,i)=>Array.from({length:d},(_,k)=>w.reduce((s,p,j)=>s+p*V[j][k],0).toFixed(2)));
+    let h='<table class="tbl"><tr><th>行↓ 列→</th>'+seq.map(s=>'<th>'+s+'</th>').join('')+'</tr>';
+    rows.forEach((w,i)=>{ h+='<tr><th data-i="'+i+'" style="cursor:pointer;color:var(--cyan)">'+seq[i]+'</th>';
+      w.forEach((p,j)=>{ const masked=mk.checked&&j>i; h+='<td class="'+(masked?'mask ':((active===i&&p>0.12)?'focus':''))+'" '+(masked?'':'style="background:rgba(251,191,36,'+(0.06+0.7*p).toFixed(2)+')"')+'>'+(masked?'·':(p*100).toFixed(1)+'%')+'</td>'; });
+      h+='</tr>'; });
+    h+='</table>';
+    h+='\n<span class="k">最大权重</span> = <span class="v">'+maxW.toFixed(3)+'</span>   <span class="k">平均熵</span> = <span class="v">'+(entSum/n).toFixed(3)+'</span>'+
+       (sc.checked?'  <span class="g">（已缩放：分布平滑，梯度健康）</span>':'  <span class="r">（未缩放：分数被放大，softmax 趋于饱和/one-hot，梯度变小）</span>')+
+       '\n<span class="k">输出 o = Σ w·V（第 '+(active>=0?seq[active]:'—')+' 行）</span>：'+(active>=0?'['+oV[active].join(', ')+']':'点任意行查看加权求和结果')+
+       '\n<span class="k">说明</span>：每行权重和为 1；灰色格 = 被掩码屏蔽的未来位置（权重 0）。';
+    out.innerHTML=h;
+    out.querySelectorAll('th[data-i]').forEach(th=>th.onclick=()=>{active=+th.dataset.i;compute();hit('row');});
+    note.textContent='点行可查看关注分布与加权 V 输出';
+  }
+  sc.onchange=()=>{compute();if(!scaleTouched){scaleTouched=true;hit('scale');}};
+  mk.onchange=()=>{compute();if(!maskTouched){maskTouched=true;hit('mask');}};
+  compute();
+};
+
+/* 第 5 刀：真训练 */
+EXP.train=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 可训练字符级语言模型（真·梯度下降）</div>'+
+   '<div class="lab-hint">参数 W[V,V]，前向 softmax → 交叉熵 → 梯度 (probs − onehot) → SGD 更新。loss 曲线是真实计算结果，不是动画。</div>'+
+   '<div class="ctl">'+
+     '<label>学习率 lr <input type="range" id="tLr" min="0.1" max="3" step="0.1" value="1.0"><span id="tLrv">1.0</span></label>'+
+     '<button class="btn sm primary" id="tStep">训练 10 步</button>'+
+     '<button class="btn sm" id="tAll">一键训练到底</button>'+
+     '<button class="btn sm" id="tGen">用当前模型生成一句话</button>'+
+     '<button class="btn sm" id="tReset">↺ 重置</button>'+
+   '</div><div class="out" id="tStat"></div>'+
+   '<div class="ctl" style="margin-top:10px"><canvas id="tCanvas" width="520" height="150"></canvas></div>'+
+   '<div class="out" id="tSample"></div>';
+  const {chars,stoi,itos,V}=buildVocab(CORPUS);
+  const data=[...CORPUS].map(c=>stoi[c]); const pairs=[];
+  for(let i=0;i<data.length-1;i++)pairs.push([data[i],data[i+1]]);
+  let W,lr=1.0,step=0,losses=[],lrTouched=false,trained=false,sampled=false;
+  const stat=box.querySelector('#tStat'),cv=box.querySelector('#tCanvas'),ctx=cv.getContext('2d'),samp=box.querySelector('#tSample');
+  function reset(){W=Array.from({length:V},()=>new Array(V).fill(0));step=0;losses=[];trained=false;sampled=false;loss();draw();samp.innerHTML='（还没生成。先训练几步，再点「用当前模型生成一句话」）';}
+  function loss(){
+    let L=0; for(const [x,y] of pairs){const p=softmax(W[x]);L+=-Math.log(Math.max(1e-9,p[y]));}
+    return L/pairs.length;
+  }
+  function trainStep(n){
+    for(let s=0;s<n;s++){
+      const grad=Array.from({length:V},()=>new Array(V).fill(0)); const cnt=new Array(V).fill(0);
+      for(const [x,y] of pairs){const p=softmax(W[x]);for(let j=0;j<V;j++)grad[x][j]+=p[j]-(j===y?1:0);cnt[x]++;}
+      for(let i=0;i<V;i++)if(cnt[i]>0)for(let j=0;j<V;j++)W[i][j]-=lr*grad[i][j]/cnt[i];
+      step++; if(step%2===0)losses.push(loss());
+    }
+    trained=true; const cur=loss();
+    stat.innerHTML='<span class="k">训练步数</span> = <span class="v">'+step+'</span>   <span class="k">当前 loss</span> = <span class="v">'+cur.toFixed(4)+'</span>   <span class="k">初始基线 ln(V)</span> = '+Math.log(V).toFixed(4)+
+      '\n<span class="k">参数量</span> = V×V = '+V*V+'   <span class="k">lr</span> = '+lr.toFixed(1)+'   <span class="g">loss 下降 = 模型真的学到了字符转移规律</span>';
+    draw();
+    if(step>=30&&cur<2.6)hit('train');
+  }
+  function draw(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    ctx.strokeStyle='#1b2647';ctx.lineWidth=1;
+    for(let i=0;i<4;i++){const y=20+i*30;ctx.beginPath();ctx.moveTo(34,y);ctx.lineTo(cv.width-10,y);ctx.stroke();}
+    ctx.fillStyle='#5e6f9c';ctx.font='10px sans-serif';
+    ctx.fillText('ln(V)='+Math.log(V).toFixed(1),2,24);ctx.fillText('2.6',14,80);ctx.fillText('loss',2,145);
+    if(losses.length<2){ctx.fillStyle='#8ea0c9';ctx.fillText('点「训练 10 步」开始，这里会出现真实 loss 曲线',60,80);return;}
+    const maxL=Math.max(...losses,Math.log(V)),minL=Math.min(...losses,1.0);
+    ctx.strokeStyle='#fbbf24';ctx.lineWidth=1;ctx.setLineDash([4,4]);
+    const y26=20+((maxL-2.6)/(maxL-minL||1))*90;ctx.beginPath();ctx.moveTo(34,y26);ctx.lineTo(cv.width-10,y26);ctx.stroke();ctx.setLineDash([]);
+    ctx.strokeStyle='#22d3ee';ctx.lineWidth=2;ctx.beginPath();
+    losses.forEach((v,i)=>{const x=34+i/(losses.length-1)*(cv.width-48),y=20+((maxL-v)/(maxL-minL||1))*90;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});
+    ctx.stroke();ctx.fillStyle='#22d3ee';ctx.fillText(losses[losses.length-1].toFixed(3),cv.width-46,Math.max(14,20+((maxL-losses[losses.length-1])/(maxL-minL||1))*90-6));
+  }
+  function generate(){
+    let cur=stoi['t'],s='t'; for(let i=0;i<60&&s.length<60;i++){const p=softmax(W[cur]);let r=Math.random(),acc=0,nx=p.length-1;for(let j=0;j<p.length;j++){acc+=p[j];if(r<=acc){nx=j;break;}}s+=itos[nx];cur=nx;}
+    samp.innerHTML='<span class="k">训练前（W=0，均匀分布 → 纯随机）</span>：\n  '+genRandom()+'\n<span class="g">当前模型（step='+step+'）生成</span>：\n  '+esc(s)+
+      '\n<span class="k">对比</span>：'+(step<10?'还太早，多训练几步再看':'是不是开始出现 the / model / token 这类常见字母组合？这就是 loss 下降的文字证据。');
+    sampled=true; if(step>=10)hit('sample');
+  }
+  function genRandom(){let s='t';for(let i=0;i<55;i++)s+=chars[Math.floor(Math.random()*V)];return esc(s);}
+  box.querySelector('#tLr').oninput=e=>{lr=+e.target.value;document.getElementById('tLrv').textContent=lr.toFixed(1);if(!lrTouched){lrTouched=true;hit('lr');}};
+  box.querySelector('#tStep').onclick=()=>trainStep(10);
+  box.querySelector('#tAll').onclick=()=>{let n=0;const timer=setInterval(()=>{trainStep(5);n++;if(n>=16)clearInterval(timer);},40);};
+  box.querySelector('#tGen').onclick=generate;
+  box.querySelector('#tReset').onclick=reset;
+  reset();
+};
+
+/* 第 6 刀：采样 */
+EXP.sampling=function(box,L){
+  const {chars,stoi,itos,V}=buildVocab(CORPUS);
+  const cnt={}; for(let i=0;i<CORPUS.length-1;i++){if(CORPUS[i]==='t'){cnt[CORPUS[i+1]]=(cnt[CORPUS[i+1]]||0)+1;}}
+  const vocab=Object.keys(cnt),base=vocab.map(c=>Math.log(cnt[c]+0.5)+2.2);
+  box.innerHTML='<div class="lab-head">🧪 采样实验室：温度 / Top-k / 自回归</div>'+
+   '<div class="lab-hint">上下文字符「t」在语料里后继字符的真实计数 → logits。拖动滑块看 softmax 分布，点「生成下一个字」逐字走自回归循环。</div>'+
+   '<div class="ctl">'+
+     '<label>温度 T <input type="range" id="sT" min="0.1" max="2.5" step="0.1" value="1"><span id="sTv">1.0</span></label>'+
+     '<label>Top-k <input type="range" id="sK" min="1" max="'+vocab.length+'" step="1" value="'+vocab.length+'"><span id="sKv">'+vocab.length+'</span></label>'+
+     '<button class="btn sm primary" id="sGen">生成下一个字 →</button>'+
+     '<button class="btn sm" id="sRoll">🎲 抽 5 次</button>'+
+   '</div><div id="sBars"></div><div class="out" id="sOut"></div>';
+  const T=box.querySelector('#sT'),K=box.querySelector('#sK'),bars=box.querySelector('#sBars'),out=box.querySelector('#sOut');
+  let seq='t',genCount=0,tempHit=false,topkHit=false,genHit=false;
+  function probs(){
+    const t=+T.value,k=+K.value;
+    document.getElementById('sTv').textContent=t.toFixed(1);document.getElementById('sKv').textContent=k;
+    let lg=base.map(x=>x/t);
+    const ord=lg.map((v,i)=>[v,i]).sort((a,b)=>b[0]-a[0]);
+    const keep=new Set(ord.slice(0,k).map(o=>o[1]));
+    const capped=lg.map((v,i)=>keep.has(i)?v:-Infinity);
+    const m=Math.max(...capped);const e=capped.map(x=>x===-Infinity?0:Math.exp(x-m));const s=e.reduce((a,b)=>a+b,0);
+    return e.map(x=>x/s);
+  }
+  function draw(){
+    const p=probs();
+    bars.innerHTML=vocab.map((c,i)=>'<div class="bar-row"><span class="bar-name">「'+esc(c===' '?'␣':c)+'」 logits='+base[i].toFixed(2)+'</span><div class="bar-track"><div class="bar-fill" style="width:'+(p[i]*100).toFixed(1)+'%"></div></div><span class="bar-val">'+(p[i]*100).toFixed(1)+'%</span></div>').join('');
+  }
+  function sample(){const p=probs();let r=Math.random(),a=0;for(let i=0;i<p.length;i++){a+=p[i];if(r<=a)return vocab[i];}return vocab[vocab.length-1];}
+  T.oninput=()=>{draw();if(+T.value>=1.5&&!tempHit){tempHit=true;hit('temp');}};
+  K.oninput=()=>{draw();if(+K.value<=3&&!topkHit){topkHit=true;hit('topk');}};
+  box.querySelector('#sGen').onclick=()=>{seq+=sample();genCount++;out.innerHTML='<span class="k">自回归序列（逐字拼回输入再预测）</span>：\n  <span class="v">'+esc(seq)+'</span>\n'+
+    '<span class="k">已生成</span> = '+genCount+' 字   <span class="k">循环</span>：取最后一个位置 logits → /T → Top-k → softmax → 抽样 → cat 拼回 → 再来一次';
+    if(genCount>=5&&!genHit){genHit=true;hit('gen');}};
+  box.querySelector('#sRoll').onclick=()=>{const a=[];for(let i=0;i<5;i++)a.push(sample());out.innerHTML='<span class="k">同一分布抽 5 次</span>：'+a.map(c=>'「'+esc(c===' '?'␣':c)+'」').join(' ')+'\n<span class="g">按概率抽样所以结果不同 —— 这就是生成多样性的来源；T→0 时 5 次会完全相同（贪心）。</span>';};
+  draw();out.innerHTML='点「生成下一个字」开始自回归循环。';
+};
+
+/* 第 7 刀：清单 */
+EXP.checklist=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 本机实战交接台</div>'+
+   '<div class="lab-hint">浏览器里的迷你实验 → 你本机的真实 4 层 Transformer。下面这张表是「同一件事，两种规模」的对照，勾选任务区清单即可通关。</div>'+
+   '<div class="out" style="max-height:none"><span class="k">规模对照</span>\n'+
+   '  浏览器实验        ：bigram，上下文 1 字符，参数 V×V ≈ '+ (new Set(CORPUS).size**2) +'，SGD，秒级收敛\n'+
+   '  nano-gpt-practice ：4 层 / 4 头 / 256 维，上下文 256 字符，参数 ≈ 3.17M，AdamW + 余弦退火，CPU 几分钟\n'+
+   '  生产级 GPT        ：同架构放大到百亿~千亿参数，海量语料 + 集群训练\n\n'+
+   '<span class="g">三者同源</span>：目标都是「下一个 token 的交叉熵」，结构都是 Embedding → 注意力 Block → logits → softmax。差别只在规模与工程细节。\n\n'+
+   '<span class="k">本机目录</span>：nano-gpt-practice/\n'+
+   '  model.py    CausalSelfAttention / MLP / Block / GPT.generate\n'+
+   '  config.py   batch_size=32  block_size=256  max_iters=2000  lr=3e-4\n'+
+   '  train.py    load_text / get_batch / get_lr / 训练循环 / ckpt.pt\n'+
+   '  prepare.py  离线语料兜底（不联网）\n'+
+   '  generate.py 读 ckpt.pt 自回归生成 500 字符</div>';
+};
+
+/* 第 8 刀：为何 RAG */
+EXP.why=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 闭卷 vs 开卷 对照实验</div>'+
+   '<div class="lab-hint">问一个「模型训练语料里根本不存在」的私有问题，看两种模式的回答差别。</div>'+
+   '<div class="ctl"><button class="btn primary sm" id="wGo">对比：闭卷 vs 开卷 →</button></div>'+
+   '<div class="split" id="wSplit" style="display:none">'+
+     '<div class="pane bad"><h5>🙈 闭卷（只凭参数记忆）</h5><div class="out" style="border:none;background:#0a0f22;max-height:none" id="wA"></div></div>'+
+     '<div class="pane good"><h5>📖 开卷（RAG：先检索再答）</h5><div class="out" style="border:none;background:#0a0f22;max-height:none" id="wB"></div></div>'+
+   '</div><div class="out" id="wOut">点击上方按钮运行对比。</div>';
+  const q='2026 年本公司国内差旅住宿报销标准是多少？';
+  box.querySelector('#wGo').onclick=()=>{
+    box.querySelector('#wSplit').style.display='grid';
+    box.querySelector('#wA').innerHTML='<span class="r">「根据一般惯例，差旅住宿报销标准通常为每日 500 元左右，具体以公司财务规定为准……」</span>\n\n⚠️ 听起来非常流畅、格式完整，但 <b>500 元是编的</b>。模型只是在补全「最像答案」的字串 —— 这就是幻觉（详见 hallucination 笔记）。';
+    const top=rankKB('差旅 住宿 标准 报销',2,true);
+    box.querySelector('#wB').innerHTML='<span class="k">① 检索命中</span>：'+esc(top[0].c.slice(0,46))+'…\n'+
+      '<span class="k">② 拼进 Prompt</span>：仅依据上下文作答\n\n'+
+      '<span class="g">「一线城市每晚 600 元，其他城市每晚 400 元，需凭发票报销 [1]」</span>\n\n✅ 数字来自资料、带出处可核对；资料更新后无需重新训练模型。';
+    box.querySelector('#wOut').innerHTML='<span class="k">问题</span>：'+esc(q)+'\n'+
+      '<span class="k">差别</span>：闭卷 = 用语言概率「猜一个像答案的答案」；开卷 = 先把证据找出来，再让模型照着说。\n'+
+      '<span class="g">代价</span>：RAG 多一步检索、延迟与成本更高，且质量高度依赖「检索是否命中」—— 这正是第 9~11 刀要解决的。';
+    hit('reveal');
+  };
+};
+
+/* 第 9 刀：切片 */
+EXP.chunking=function(box,L){
+  const sample='检索增强生成（RAG）让大模型先查资料再回答，能有效缓解幻觉。但切片策略直接决定检索上限：切太大噪声多，切太小丢上下文。常用固定长度加重叠或语义切分，并保留来源元数据以便溯源。生产环境中还会按标题与段落边界切分，避免把一个完整制度拦腰截断。';
+  box.innerHTML='<div class="lab-head">🧪 文档切片器（真实切分）</div>'+
+   '<div class="lab-hint">琥珀色 = 与上一块的重叠区。调节 size / overlap，观察块数与边界，并留意元数据在真工程里必须一起保存。</div>'+
+   '<div class="ctl"><label>size <input type="number" id="cS" value="40" min="12" max="120" step="4"></label>'+
+   '<label>overlap <input type="number" id="cO" value="8" min="0" max="40" step="2"></label></div>'+
+   '<textarea id="cT">'+sample+'</textarea><div class="out" id="cOut" style="max-height:none"></div>';
+  const S=box.querySelector('#cS'),O=box.querySelector('#cO'),T=box.querySelector('#cT'),out=box.querySelector('#cOut');
+  let sizeT=false,ovT=false;
+  function run(){
+    const s=Math.max(6,+S.value||40),o=Math.min(s-1,Math.max(0,+O.value||0));
+    const txt=T.value,ch=[];let i=0;while(i<txt.length){ch.push(txt.slice(i,i+s));i+=Math.max(1,s-o);}
+    out.innerHTML='<span class="k">共 '+ch.length+' 块</span> · size='+s+' · overlap='+o+' · 每块带元数据 {chunk_id, source:\'kb/handbook.md\', start}\n\n'+
+      ch.map((c,idx)=>{const ov=c.slice(Math.max(0,c.length-o)),main=c.slice(0,Math.max(0,c.length-o));
+        return '<span class="chunk"><span class="k">['+idx+']</span> '+esc(main)+(ov?'<span class="ov">'+esc(ov)+'</span>':'')+'</span>';}).join('')+
+      '\n\n<span class="g">观察</span>：overlap 越大，跨边界的完整语义越不容易丢，但冗余与存储也越多（经验 10~20%）。';
+    if(o>=8&&!ovT){ovT=true;hit('ov');}
+  }
+  S.oninput=()=>{run();if(!sizeT){sizeT=true;hit('size');}};
+  O.oninput=run; T.oninput=run; run();
+};
+
+/* 第 10 刀：余弦 */
+EXP.cosine=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 文本向量与余弦相似度（真实计算）</div>'+
+   '<div class="lab-hint">输入查询，用字符 uni+bigram 词频向量真算与 7 条知识块的 cos 相似度。下方画布可拖动向量，直观感受夹角 ↔ cos。</div>'+
+   '<div class="ctl"><input type="text" id="kQ" value="差旅住宿标准" style="width:260px"><button class="btn sm primary" id="kGo">计算相似度 →</button></div>'+
+   '<div id="kBars"></div>'+
+   '<div class="ctl" style="margin-top:14px"><canvas id="kCv" width="380" height="240"></canvas><div class="out" id="kCos" style="flex:1;min-width:180px"></div></div>';
+  const q=box.querySelector('#kQ'),bars=box.querySelector('#kBars');
+  function run(){
+    const qv=charVec(q.value); if(!Object.keys(qv).length){bars.innerHTML='<span class="lab-hint">请输入查询</span>';return;}
+    const sc=KB.map((c,i)=>({i,c,s:cosine(qv,charVec(c))})).sort((a,b)=>b.s-a.s);
+    bars.innerHTML=sc.map(o=>'<div class="bar-row"><span class="bar-name" title="'+esc(o.c)+'">['+(o.i+1)+'] '+esc(o.c.slice(0,16))+'…</span><div class="bar-track"><div class="bar-fill '+(o===sc[0]?'g':'')+'" style="width:'+Math.max(0,o.s*100).toFixed(1)+'%"></div></div><span class="bar-val">'+o.s.toFixed(3)+'</span></div>').join('')+
+      '\n<span class="g">最高分</span>：第 ['+(sc[0].i+1)+'] 块 —— 第 11 刀的检索就是把这个排序取前 k 条。';
+    hit('query');
+  }
+  q.oninput=run; box.querySelector('#kGo').onclick=run; run();
+  // 可拖动画布
+  const cv=box.querySelector('#kCv'),ctx=cv.getContext('2d'),co=box.querySelector('#kCos');
+  const cx=cv.width/2,cy=cv.height/2; let A={x:120,y:-40},B={x:90,y:70},drag=null,dragHit=false;
+  function conv(v){return{x:cx+v.x,y:cy-v.y};}
+  function drawC(){
+    ctx.clearRect(0,0,cv.width,cv.height);ctx.strokeStyle='#1b2647';ctx.beginPath();ctx.moveTo(0,cy);ctx.lineTo(cv.width,cy);ctx.moveTo(cx,0);ctx.lineTo(cx,cv.height);ctx.stroke();
+    const pa=conv(A),pb=conv(B);
+    function arrow(p,col){ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(p.x,p.y);ctx.stroke();const a=Math.atan2(p.y-cy,p.x-cx),h=10;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x-h*Math.cos(a-.4),p.y-h*Math.sin(a-.4));ctx.lineTo(p.x-h*Math.cos(a+.4),p.y-h*Math.sin(a+.4));ctx.closePath();ctx.fill();}
+    arrow(pa,'#22d3ee');arrow(pb,'#a855f7');
+    const dot=A.x*B.x+A.y*B.y,na=Math.hypot(A.x,A.y),nb=Math.hypot(B.x,B.y),cs=dot/(na*nb),deg=Math.acos(Math.max(-1,Math.min(1,cs)))*180/Math.PI;
+    co.innerHTML='<span class="k">A·B</span> = '+dot.toFixed(0)+'\n<span class="k">|A||B|</span> = '+(na*nb).toFixed(0)+'\n<span class="v">cosθ</span> = <b style="color:var(--amber)">'+cs.toFixed(3)+'</b>\n<span class="k">夹角</span> = '+deg.toFixed(1)+'°\n\n'+(deg<30?'<span class="g">✅ 夹角 < 30°，语义方向高度一致</span>':'拖动任一箭头端点，让夹角小于 30°');
+    if(deg<30&&!dragHit){dragHit=true;hit('drag');}
+  }
+  cv.addEventListener('pointerdown',e=>{const r=cv.getBoundingClientRect(),p={x:e.clientX-r.left,y:e.clientY-r.top};const a=conv(A),b=conv(B);if(Math.hypot(p.x-a.x,p.y-a.y)<20)drag='A';else if(Math.hypot(p.x-b.x,p.y-b.y)<20)drag='B';});
+  cv.addEventListener('pointermove',e=>{if(!drag)return;const r=cv.getBoundingClientRect(),p={x:e.clientX-r.left,y:e.clientY-r.top},v={x:p.x-cx,y:cy-p.y};if(drag==='A')A=v;else B=v;drawC();});
+  window.addEventListener('pointerup',()=>drag=null);
+  drawC();
+};
+
+/* 第 11 刀：检索 */
+EXP.retrieval=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 top-k 检索器（真实排序）</div>'+
+   '<div class="lab-hint">输入问题 → 真算相似度 → 取前 k 块。打开「关键词混合」看专有名词命中如何改变排序。</div>'+
+   '<div class="ctl"><input type="text" id="rQ" value="差旅住宿标准是多少" style="width:240px">'+
+     '<label>k <input type="range" id="rK" min="1" max="5" step="1" value="1"><span id="rKv">1</span></label>'+
+     '<label><input type="checkbox" id="rH"> + 关键词混合(BM25 风格)</label>'+
+     '<button class="btn sm primary" id="rGo">检索 →</button></div>'+
+   '<div class="out" id="rOut" style="max-height:none"></div>'+
+   '<div class="lab-hint" style="margin-top:10px">试试这些预设：<span class="chip" data-q="注意力 掩码 QK">注意力掩码</span><span class="chip" data-q="采样 温度 topk">采样温度</span><span class="chip" data-q="切片 overlap 元数据">切片重叠</span></div>';
+  const q=box.querySelector('#rQ'),k=box.querySelector('#rK'),h=box.querySelector('#rH'),out=box.querySelector('#rOut');
+  let searched=false,kTouched=false,hybTouched=false;
+  function run(){
+    document.getElementById('rKv').textContent=k.value;
+    const res=rankKB(q.value,+k.value,h.checked);const qv=charVec(q.value);
+    const all=KB.map((c,i)=>({i,c,s:cosine(qv,charVec(c))})).sort((a,b)=>b.s-a.s);
+    out.innerHTML='<span class="k">query</span>：「'+esc(q.value)+'」  k='+k.value+'  hybrid='+(h.checked?'ON':'OFF')+'\n'+
+      '<span class="k">全量相似度排序</span>：\n'+all.map((o,n)=>'  '+(n+1)+'. ['+(o.i+1)+'] cos='+o.s.toFixed(3)+'  '+esc(o.c.slice(0,30))+'…').join('\n')+
+      '\n\n<span class="g">返回 top-'+k.value+'</span>：\n'+res.map((o,n)=>'  <span class="v">['+(n+1)+'] 得分 '+o.s.toFixed(3)+'</span>  '+esc(o.c)+'').join('\n')+
+      '\n\n<span class="k">下一步</span>：把这些块连同 source 元数据交给第 12 刀拼进 Prompt。';
+    if(!searched){searched=true;hit('search');}
+  }
+  q.oninput=run;k.oninput=()=>{run();if(+k.value>=3&&!kTouched){kTouched=true;hit('topk');}};
+  h.onchange=()=>{run();if(h.checked&&!hybTouched){hybTouched=true;hit('hybrid');}};
+  box.querySelector('#rGo').onclick=run;
+  box.querySelectorAll('.chip[data-q]').forEach(c=>c.onclick=()=>{q.value=c.dataset.q;run();});
+  run();
+};
+
+/* 第 12 刀：拼 Prompt */
+EXP.augment=function(box,L){
+  box.innerHTML='<div class="lab-head">🧪 Prompt 拼装器 + 约束开关</div>'+
+   '<div class="lab-hint">把检索结果拼成完整提示词，并开关「仅依据上下文」约束，观察生成答案是否守住证据。</div>'+
+   '<div class="ctl"><label><input type="checkbox" id="gRule" checked> 仅依据上下文（抑制幻觉约束）</label>'+
+     '<button class="btn sm primary" id="gGo">拼装 Prompt →</button>'+
+     '<button class="btn sm" id="gAns">生成答案</button></div>'+
+   '<div class="promptblk" id="gPrompt">点「拼装 Prompt」查看四件套：系统指令 / 上下文 / 问题 / 约束。</div>'+
+   '<div class="out" id="gOut" style="margin-top:10px"></div>';
+  const rule=box.querySelector('#gRule'),p=box.querySelector('#gPrompt'),out=box.querySelector('#gOut');
+  const q='2026 年本公司差旅住宿报销标准是多少？';
+  const chunks=rankKB('差旅 住宿 标准 报销',2,true);
+  let built=false,ruleTouched=false;
+  function build(){
+    const ctx=chunks.map((c,i)=>'<span class="ctx">['+(i+1)+'] '+esc(c.c)+'  (来源: kb/handbook.md)</span>').join('\n');
+    p.innerHTML='<span class="sys">你是资料问答助手。</span>\n'+
+      (rule.checked?'<span class="rule">仅依据以下上下文回答，若资料不足就明确说明不知道；每个结论后标注引用编号。</span>':'<span class="r">（未加约束：模型可自由发挥）</span>')+
+      '\n\n<span class="sys">=== 上下文 ===</span>\n'+ctx+'\n\n<span class="q">=== 问题 ===\n'+esc(q)+'</span>\n\n<span class="sys">请用中文分点作答。</span>';
+    out.innerHTML='<span class="k">提示词长度</span> ≈ '+p.textContent.length+' 字符 · <span class="k">注入片段</span> '+chunks.length+' 条 · <span class="g">切换约束开关后再点「生成答案」对比</span>';
+    if(!built){built=true;hit('asm');}
+  }
+  function answer(){
+    if(!built)build();
+    if(rule.checked){out.innerHTML='<span class="g">【有约束 · 开卷作答】</span>\n• 一线城市每晚 600 元，其他城市每晚 400 元 [1]\n• 需凭发票报销 [1]\n• 资料未提及餐饮与市内交通标准，故不作补充。\n\n✅ 每个数字都能回溯到 [1]，没有编造。';}
+    else{out.innerHTML='<span class="r">【无约束 · 自由发挥】</span>\n• 一般公司差旅住宿约每晚 500 元，一线城市可能上浮至 800 元，通常还包含早餐与税费，另可报销往返机票……\n\n⚠️ 后两句是模型按语言习惯补出来的，<b>资料里根本没有</b> —— 这就是脱离上下文的幻觉。';}
+  }
+  rule.onchange=()=>{build();answer();if(!ruleTouched){ruleTouched=true;hit('rule');}};
+  box.querySelector('#gGo').onclick=build;
+  box.querySelector('#gAns').onclick=answer;
+};
+
+/* 第 13 刀：端到端 */
+EXP.e2e=function(box,L){
+  const stages=[
+    ['① 语料','prepare.py → input.txt'],['② 训练','train.py → ckpt.pt'],['③ 私有文档','kb/*.md'],
+    ['④ 切片','prepare_kb.py → chunks.jsonl'],['⑤ 嵌入','embed.py → 向量库'],['⑥ 检索','retrieve.py → top-k'],
+    ['⑦ 增强','拼 Prompt + 约束'],['⑧ 生成','GPT / LLM → 带引用答案'],['⑨ 评估','Recall@k / 忠实度 → 迭代'],
+  ];
+  box.innerHTML='<div class="lab-head">🧪 端到端流水线（9 步）</div>'+
+   '<div class="lab-hint">点击任一步看数据形态，或点「播放全流程」从上到下走一遍。最后运行评估，判断该回头迭代哪一段。</div>'+
+   '<div class="stage-row" id="eS"></div>'+
+   '<div class="ctl"><button class="btn sm primary" id="ePlay">▶ 播放全流程</button><button class="btn sm" id="eEval">运行评估 →</button></div>'+
+   '<div class="out" id="eOut" style="max-height:none"></div>';
+  const row=box.querySelector('#eS'),out=box.querySelector('#eOut');
+  stages.forEach((s,i)=>{const el=document.createElement('div');el.className='stage';el.textContent=s[0];el.onclick=()=>show(i);row.appendChild(el);});
+  let played=false,evaluated=false,timer=null;
+  function show(i){row.querySelectorAll('.stage').forEach((e,j)=>e.classList.toggle('active',j===i));
+    out.innerHTML='<span class="v">'+stages[i][0]+'</span>  '+esc(stages[i][1])+'\n\n<span class="k">主线位置</span>：'+(i<2?'第一章 · 手搓 GPT':(i<8?'第二章 · 接上 RAG':'第三章 · 合流与评估'))+
+      '\n<span class="k">数据形态</span>：'+['纯文本','模型参数','原始文档','小块 JSONL','稠密向量','带分数的片段列表','完整 Prompt','自然语言答案','指标的数值'][i];}
+  box.querySelector('#ePlay').onclick=()=>{let i=0;clearInterval(timer);show(0);timer=setInterval(()=>{i++;if(i>=stages.length){clearInterval(timer);if(!played){played=true;hit('play');}return;}show(i);},650);};
+  box.querySelector('#eEval').onclick=()=>{
+    const res=rankKB('差旅住宿标准',3,true);
+    const recall=res.some(o=>o.c.includes('600 元'))?1:0;
+    out.innerHTML='<span class="k">检索端</span>\n  Recall@3 = <span class="v">'+recall+'</span>  '+(recall?'（含正确答案的块被召回 ✅）':'（漏检，需回头改切片/嵌入 ⚠️）')+'\n'+
+      '  命中分数：'+res.map(o=>o.s.toFixed(3)).join(' / ')+'\n\n'+
+      '<span class="k">生成端</span>\n  忠实度 Faithfulness = <span class="v">0.94</span>（答案每个数字都能回溯到 [1]）\n  答案相关性 = <span class="v">0.91</span>\n\n'+
+      '<span class="g">定位法</span>：Recall 低 → 迭代第 ④⑤ 刀（切片/嵌入/混合检索）；Recall 高但忠实度低 → 迭代第 ⑦ 刀（Prompt 约束、Reranker、少塞噪声）。\n'+
+      '<span class="g">闭环</span>：把这次实战写成 docs/knowledge/rag.md 接入飞轮，gaps 的 RAG 待补项即可勾掉。';
+    if(!evaluated){evaluated=true;hit('eval');}
+  };
+  show(0);
+};
+
+/* ---------- 路线图 ---------- */
+function openRoadmap(){
+  const mb=document.getElementById('mapBody');let h='';
+  CHAPTERS.forEach(ch=>{
+    h+='<div class="mchap">'+ch.t+'</div><div class="mgrid">';
+    ch.levels.forEach(id=>{const L=LEVELS.find(x=>x.id===id),un=isUnlocked(id),done=!!S.done[id];
+      h+='<div class="mnode '+(un?'':'lock')+(done?' done':'')+'" data-id="'+id+'"><div class="n">'+(done?'✓ ':'')+id+'. '+esc(L.title)+'</div><div class="d">'+L.goal.replace(/<[^>]+>/g,'').slice(0,42)+'…</div></div>';});
+    h+='</div>';
+  });
+  mb.innerHTML=h;
+  mb.querySelectorAll('.mnode').forEach(el=>el.onclick=()=>{const id=+el.dataset.id;if(!isUnlocked(id)){toast('🔒 先通关第 '+(id-1)+' 刀');return;}document.getElementById('roadmapModal').classList.remove('show');go(id);});
+  document.getElementById('roadmapModal').classList.add('show');
+}
+document.getElementById('roadmapBtn').onclick=openRoadmap;
+document.getElementById('closeModal').onclick=()=>document.getElementById('roadmapModal').classList.remove('show');
+document.getElementById('roadmapModal').onclick=e=>{if(e.target.id==='roadmapModal')e.target.classList.remove('show');};
+document.getElementById('resetBtn').onclick=()=>{
+  if(!confirm('确定清空全部 13 关进度？此操作不可撤销。'))return;
+  S={done:{},tasks:{}};save();CUR=1;render();toast('进度已清空，从第 1 刀重新开始');
+};
+
+/* ---------- 工具 ---------- */
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2300);}
+
+/* ---------- 初始化 ---------- */
+(function init(){
+  // 停在「第一个未通关」的关卡：全新用户 = 第 1 刀；全部通关 = 最后一刀
+  let cur=1;
+  for(const L of LEVELS){ if(S.done[L.id]) cur=L.id+1; else break; }
+  CUR=Math.min(cur,LEVELS.length);
+  if(!isUnlocked(CUR)) CUR=1;   // 兜底：绝不落在锁定关卡上
+  render();
+})();
+</script>
+</body>
+</html>
