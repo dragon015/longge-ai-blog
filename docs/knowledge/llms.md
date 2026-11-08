@@ -98,15 +98,16 @@ graph TD
 - **想抠成本与速度**：看 [推理优化](/inference-optimization/)——量化、蒸馏、KV 缓存优化。
 - **想横向比各家**：看 [模型架构](/architecture/) 与 [基础模型](/base-models/claude)。
 - **想了解模型最大的毛病**：看 [大模型幻觉](/knowledge/hallucination)——它为什么"一本正经胡说八道"。
+- **想亲手验证**：看 [从零手搓 GPT（nanoGPT 实战）](/practice/nano-gpt)——把本页每个组件写成可运行的 PyTorch 代码，CPU 就能跑。
 
 <!-- kb-related:start -->
 ## 相关笔记
 
+- [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) — 标签：自回归、标签：大语言模型、交叉引用
 - [注意力机制](/knowledge/attention) — 交叉引用
 - [大模型幻觉](/knowledge/hallucination) — 交叉引用
 - [推理模型](/knowledge/reasoning) — 交叉引用
 - [预训练与后训练](/knowledge/training) — 交叉引用
-- [Transformer 架构](/knowledge/transformer) — 交叉引用
 
 <!-- kb-related:end -->
 
@@ -122,6 +123,7 @@ graph TD
 - [Agent 总览](/agent/)
 - [模型架构总览](/architecture/)
 - [推理优化总览](/inference-optimization/)
+- [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt)
 
 <!-- kb-backlinks:end -->
 

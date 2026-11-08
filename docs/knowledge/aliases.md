@@ -18,6 +18,7 @@ title: 概念别名表
 | 编码Agent | [主流 AI 编码 Agent 的架构范式](/agent/architectures) |
 | 残差连接 | [Transformer 架构](/knowledge/transformer) |
 | 层归一化 | [Transformer 架构](/knowledge/transformer) |
+| 从零实现GPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | 大模型 | [大语言模型概览](/knowledge/llms) |
 | 大模型幻觉 | [大模型幻觉](/knowledge/hallucination) |
 | 大语言模型 | [大语言模型概览](/knowledge/llms) |
@@ -60,7 +61,12 @@ title: 概念别名表
 | 上下文窗口 | [大语言模型概览](/knowledge/llms) |
 | 深度求索 | [DeepSeek](/base-models/deepseek) |
 | 神经网络 | [神经网络与反向传播](/knowledge/neural-networks) |
+| 实战GPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | 事实性错误 | [大模型幻觉](/knowledge/hallucination) |
+| 手搓大模型 | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
+| 手搓GPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
+| 手写GPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
+| 手写Transformer | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | 思考开关 | [推理模型](/knowledge/reasoning) |
 | 思考开关 | [推理模型总览](/inference-models/) |
 | 思维链 | [推理模型](/knowledge/reasoning) |
@@ -132,6 +138,7 @@ title: 概念别名表
 | Haiku | [Claude](/base-models/claude) |
 | Hallucination | [大模型幻觉](/knowledge/hallucination) |
 | HumanEval | [评测总览](/evaluation/) |
+| Karpathy | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | KV Cache | [注意力机制](/knowledge/attention) |
 | KV缓存 | [注意力机制](/knowledge/attention) |
 | LLM | [大语言模型概览](/knowledge/llms) |
@@ -148,6 +155,8 @@ title: 概念别名表
 | MoE | [DeepSeek](/base-models/deepseek) |
 | MoE | [模型架构总览](/architecture/) |
 | MQA | [注意力机制](/knowledge/attention) |
+| nanoGPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
+| NanoGPT | [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) |
 | o1 | [推理模型](/knowledge/reasoning) |
 | o1 | [GPT](/base-models/gpt) |
 | o3 | [GPT](/base-models/gpt) |
@@ -212,6 +221,7 @@ title: 概念别名表
 - [推理模型总览](/inference-models/)：推理模型、推理轨迹、RLVR、思考开关、Aha moment、推理努力
 - [推理优化总览](/inference-optimization/)：推理优化、量化、投机解码、vLLM、PagedAttention、蒸馏、批处理
 - [评测总览](/evaluation/)：评测、基准、Benchmark、MMLU、GSM8K、HumanEval、榜单
+- [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt)：nanoGPT、NanoGPT、手搓GPT、手写GPT、从零实现GPT、实战GPT、手写Transformer、Karpathy、手搓大模型
 
 > 给笔记加别名的方法：在 frontmatter 里写 `aliases: [Attention, 自注意力, QKV]`，下次构建本表自动更新。
 

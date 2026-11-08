@@ -29,6 +29,7 @@ const SCAN_DIRS = [
   'inference-models',
   'inference-optimization',
   'evaluation',
+  'practice',
 ]
 
 // 目录 → 默认领域（frontmatter 里的 domain 优先）
@@ -41,6 +42,7 @@ const DIR_DOMAIN = {
   'inference-models': '推理模型专题',
   'inference-optimization': '推理优化专题',
   'evaluation': '评测专题',
+  'practice': '实战专题',
 }
 
 // 不进入图谱的文件

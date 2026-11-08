@@ -89,11 +89,11 @@ aliases: [幻觉, Hallucination, 大模型幻觉, 一本正经胡说, 事实性�
 <!-- kb-related:start -->
 ## 相关笔记
 
+- [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt) — 标签：幻觉、交叉引用
 - [大语言模型概览](/knowledge/llms) — 交叉引用
 - [推理模型](/knowledge/reasoning) — 交叉引用
 - [后训练总览](/post-training/) — 交叉引用
 - [RLHF 与 DPO](/post-training/rlhf-dpo) — 交叉引用
-- [主流 AI 编码 Agent 的架构范式](/agent/architectures) — 交叉引用
 
 <!-- kb-related:end -->
 
@@ -107,6 +107,7 @@ aliases: [幻觉, Hallucination, 大模型幻觉, 一本正经胡说, 事实性�
 - [主流 AI 编码 Agent 的架构范式](/agent/architectures)
 - [工具调用](/agent/tool-use)
 - [评测总览](/evaluation/)
+- [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt)
 
 <!-- kb-backlinks:end -->
 

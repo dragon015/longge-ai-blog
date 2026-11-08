@@ -127,11 +127,13 @@ $$\mathcal{L}_{DPO} = -\log\sigma\Big(\beta\log\frac{\pi_\theta(y_w|x)}{\pi_{ref
 - [RLHF 与 DPO](/post-training/rlhf-dpo)
 - [SFT 监督微调](/post-training/sft)
 - [推理模型总览](/inference-models/)
+- [从零手搓 GPT（nanoGPT 风格实战）](/practice/nano-gpt)
 
 <!-- kb-backlinks:end -->
 
 ## 延伸阅读
 
+- [从零手搓 GPT（nanoGPT 实战）](/practice/nano-gpt)——把预训练循环写成可运行代码，亲手验证 Scaling 直觉。
 - 本博客 [后训练](/post-training/) 栏目（SFT / RLHF / DPO 专篇）
 - Sebastian Raschka《Build a Large Language Model From Scratch》（从预训练到 SFT 手写实现）
 - 原论文：InstructGPT（RLHF 奠基）、DPO（Direct Preference Optimization, 2023）

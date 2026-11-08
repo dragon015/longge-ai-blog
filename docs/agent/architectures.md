@@ -198,7 +198,10 @@ WorkBuddy 把记忆显式分三层：
 <!-- kb-backlinks:start -->
 ## 被以下笔记引用
 
+- [大模型幻觉](/knowledge/hallucination)
+- [推理模型](/knowledge/reasoning)
 - [Agent 总览](/agent/)
+- [工具调用](/agent/tool-use)
 
 <!-- kb-backlinks:end -->
 

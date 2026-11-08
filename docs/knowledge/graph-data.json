@@ -517,6 +517,31 @@
         "HumanEval",
         "榜单"
       ]
+    },
+    {
+      "id": "practice__nano_gpt",
+      "title": "从零手搓 GPT（nanoGPT 风格实战）",
+      "route": "/practice/nano-gpt",
+      "domain": "实战专题",
+      "tags": [
+        "Transformer",
+        "注意力机制",
+        "预训练",
+        "自回归",
+        "大语言模型",
+        "幻觉"
+      ],
+      "aliases": [
+        "nanoGPT",
+        "NanoGPT",
+        "手搓GPT",
+        "手写GPT",
+        "从零实现GPT",
+        "实战GPT",
+        "手写Transformer",
+        "Karpathy",
+        "手搓大模型"
+      ]
     }
   ],
   "links": [
@@ -569,6 +594,10 @@
       "target": "post_training__index"
     },
     {
+      "source": "knowledge__hallucination",
+      "target": "agent__architectures"
+    },
+    {
       "source": "knowledge__llms",
       "target": "knowledge__transformer"
     },
@@ -603,6 +632,10 @@
     {
       "source": "knowledge__llms",
       "target": "knowledge__hallucination"
+    },
+    {
+      "source": "knowledge__llms",
+      "target": "practice__nano_gpt"
     },
     {
       "source": "knowledge__ml_basics",
@@ -649,6 +682,10 @@
       "target": "knowledge__llms"
     },
     {
+      "source": "knowledge__reasoning",
+      "target": "agent__architectures"
+    },
+    {
       "source": "knowledge__training",
       "target": "post_training__index"
     },
@@ -683,6 +720,10 @@
     {
       "source": "knowledge__training",
       "target": "knowledge__transformer"
+    },
+    {
+      "source": "knowledge__training",
+      "target": "practice__nano_gpt"
     },
     {
       "source": "knowledge__transformer",
@@ -846,6 +887,10 @@
     },
     {
       "source": "agent__tool_use",
+      "target": "agent__architectures"
+    },
+    {
+      "source": "agent__tool_use",
       "target": "knowledge__hallucination"
     },
     {
@@ -922,6 +967,26 @@
     },
     {
       "source": "evaluation__index",
+      "target": "knowledge__hallucination"
+    },
+    {
+      "source": "practice__nano_gpt",
+      "target": "knowledge__llms"
+    },
+    {
+      "source": "practice__nano_gpt",
+      "target": "knowledge__attention"
+    },
+    {
+      "source": "practice__nano_gpt",
+      "target": "knowledge__transformer"
+    },
+    {
+      "source": "practice__nano_gpt",
+      "target": "knowledge__training"
+    },
+    {
+      "source": "practice__nano_gpt",
       "target": "knowledge__hallucination"
     }
   ]

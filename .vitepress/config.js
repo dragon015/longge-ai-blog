@@ -82,6 +82,12 @@ export default defineConfig({
           { text: '工具调用', link: '/agent/tool-use' },
         ],
       },
+      {
+        text: '🛠️ 实战',
+        items: [
+          { text: '从零手搓 GPT', link: '/practice/nano-gpt' },
+        ],
+      },
       { text: '📰 AI动态', link: '/ai-news/' },
       { text: '👤 关于', link: '/about' },
     ],
@@ -180,6 +186,14 @@ export default defineConfig({
             { text: '总览', link: '/agent/' },
             { text: '工具调用', link: '/agent/tool-use' },
             { text: '主流架构解析', link: '/agent/architectures' },
+          ],
+        },
+      ],
+      '/practice/': [
+        {
+          text: '实战',
+          items: [
+            { text: '从零手搓 GPT', link: '/practice/nano-gpt' },
           ],
         },
       ],
