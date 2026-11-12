@@ -10,160 +10,161 @@ title: AI 最新动态
 
 <div class="news-banner">
   <p class="news-banner-lead">AI 圈每天发生什么，这里用<strong>人话</strong>告诉你——每天早 9 点由飞轮脚本自动抓取 <a href="https://aihot.news" target="_blank" rel="noopener">AI HOT</a> 精选更新，已接入「层级为干、链接为脉、地图为门」的知识库查找体系。</p>
-  <p class="news-banner-meta">今日更新：2026-11-11 · 共 12 条 · 口径：过去 24 小时</p>
+  <p class="news-banner-meta">今日更新：2026-11-12 · 共 12 条 · 口径：过去 24 小时</p>
 </div>
 
-## 今天（2026-11-11）<span class="news-count">12 条 · 过去 24 小时</span>
+## 今天（2026-11-12）<span class="news-count">12 条 · 过去 24 小时</span>
 
 <div class="news-list">
 <div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/m7ul4psbkb5zyp0t254fr986o" target="_blank" rel="noopener">1. Anthropic 投资需求火热，承销商拟将 IPO 目标估值上调回 $1.5T 或更高</a>
+    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
+    <a class="news-title" href="https://aihot.news/items/vq9nwgwhtm31cgoliyb7ydyde" target="_blank" rel="noopener">1. OpenRouter 实测六模型并给出四层防护，解决 AI Agent 无限循环烧钱问题</a>
   </div>
-  <p class="news-summary">FT 报道，因投资者需求旺盛，Anthropic 承销商计划上调 IPO 定价，把目标估值拉回 $1.5T 或更高。周二文件设定 $70-$78 的发行区间，计入员工期权和受限股后对应 $1.26T-$1.41T 估值；若定价超出区间，募资将超过 $100B，其中 Google、Nvidia 和 Microsoft 将按 IPO 价格投资 $26B。</p>
+  <p class="news-summary">OpenRouter 发布教程，讲解 AI Agent 因工具反复失败而陷入无限循环的成因，并给出四层防护：doom-loop 检测、loopKey 参数归一化、stopWhen 步数与成本上限、API key 信用额度。</p>
+  <div class="news-meta">
+    <span class="news-source">OpenRouter：Announcements（RSS）</span>
+    <span class="news-time">2026-11-12 08:00</span>
+    <a class="news-original" href="https://openrouter.ai/blog/tutorials/ai-agent-infinite-loop/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/aoxmmcsudy1gf9xmti7slu1wd" target="_blank" rel="noopener">2. WSJ 报道 Nvidia 董事会接近决定是否罢免 CEO 黄仁勋</a>
+  </div>
+  <p class="news-summary">WSJ 报道，Nvidia 董事会此前公开支持黄仁勋，如今接近决定是否罢免这位创始人 CEO。起因是黄仁勋与一名被指为中国情报人员的女子交往，随后又曝出与一名 Nvidia 员工的第二段婚外情；周日开始独立调查时董事会表示没有理由认为 Nvidia 机密泄露。</p>
   <div class="news-meta">
     <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
-    <span class="news-time">2026-11-11 08:58</span>
-    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2120320127484969162" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
-    <a class="news-title" href="https://aihot.news/items/wkpj021rmg6sgthgj9zwevei4" target="_blank" rel="noopener">2. OpenRouter 实测 MCP vs CLI vs Skills 的上下文 token 成本</a>
-  </div>
-  <p class="news-summary">OpenRouter 实测同一 GitHub 任务下 MCP、CLI 与 skill 的 token 成本：在 Claude Sonnet 5.5 上 CLI 用 1。</p>
-  <div class="news-meta">
-    <span class="news-source">OpenRouter：Announcements（RSS）</span>
-    <span class="news-time">2026-11-11 08:00</span>
-    <a class="news-original" href="https://openrouter.ai/blog/insights/mcp-vs-cli-vs-skills/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
-    <a class="news-title" href="https://aihot.news/items/i3gp1xj4j11gi4qoreya18izb" target="_blank" rel="noopener">3. OpenRouter 实测 fp8 与 fp4 量化对模型质量和价格的影响</a>
-  </div>
-  <p class="news-summary">OpenRouter 发布量化解析文章，讲解 LLM 量化原理，并报告 2026 年 10 月 20 日对 1455 个 provider 端点和 Qwen3.8 27B 六个端点的实测。</p>
-  <div class="news-meta">
-    <span class="news-source">OpenRouter：Announcements（RSS）</span>
-    <span class="news-time">2026-11-11 08:00</span>
-    <a class="news-original" href="https://openrouter.ai/blog/insights/llm-quantization/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#22d3ee;--cat-bg:#cffafe;--cat-fg:#0e7490">观点</span>
-    <a class="news-title" href="https://aihot.news/items/uditkv6u7rrzmtj1nx7pxbgjj" target="_blank" rel="noopener">4. Claude Fable 5.2 实测观察：大模型正用代码吞噬审美与创作</a>
-  </div>
-  <p class="news-summary">作者实测 Claude Fable 5.2 与 Gemini 4 Carbon 并对比后认为，Fable 5.2 的突出差异在于审美，这是无法用 Benchmark 评估但可直观感受的东西。</p>
-  <div class="news-meta">
-    <span class="news-source">公众号：数字生命卡兹克</span>
-    <span class="news-time">2026-11-11 07:56</span>
-    <a class="news-original" href="https://mp.weixin.qq.com/s/zgBGhOsuh6Z_5Enmzos3rQ" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
-    <a class="news-title" href="https://aihot.news/items/womexcn3n0ijhbehvhbsxxm4f" target="_blank" rel="noopener">5. Microsoft Research 揭示 Lazarus 权重空间后门技术，通过重编程休眠神经元攻击 AI Agent</a>
-  </div>
-  <p class="news-summary">Microsoft Research 发布对 Lazarus 后门技术的研究，重编程 LLM 中少于 10 个休眠神经元即可在没有训练的情况下给基于该模型的 Agent 安装后门。</p>
-  <div class="news-meta">
-    <span class="news-source">Microsoft Research 博客（RSS）</span>
-    <span class="news-time">2026-11-11 04:52</span>
-    <a class="news-original" href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-time">2026-11-12 07:43</span>
+    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2120663635479625930" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
-    <a class="news-title" href="https://aihot.news/items/vouc5yc5intvgg7311kekkhsi" target="_blank" rel="noopener">6. Cursor Projects 升级为多人协作模式</a>
+    <a class="news-title" href="https://aihot.news/items/r8hsm3m3munjwk1n3u885zszw" target="_blank" rel="noopener">3. Google 发布 Gemini Decisions API 与 Gemini Decision 1 模型，专注快速多模态封闭式决策</a>
   </div>
-  <p class="news-summary">Cursor 宣布 Projects 迈入多人协作阶段，此前 9 月推出的 Projects 通过单一协调者调度一组智能体，现在支持邀请团队成员加入同一 Project，与各自的智能体共同规划、构建和交付。</p>
+  <p class="news-summary">Google 推出 Gemini Decisions API，由新模型 Gemini Decision 1 驱动，可在 150-250ms 端到端延迟内对文本、图像、音频、视频和 PDF（最多 256K tokens）一次性评估最多 1000 个是/否、多选和评分题。</p>
   <div class="news-meta">
-    <span class="news-source">Cursor Blog</span>
-    <span class="news-time">2026-11-10 20:00</span>
-    <a class="news-original" href="https://cursor.com/blog/projects-multiplayer" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">Google Blog：AI（RSS）</span>
+    <span class="news-time">2026-11-12 02:00</span>
+    <a class="news-original" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
+    <a class="news-title" href="https://aihot.news/items/ep5oqt7m4l7gn3tqieilznmuk" target="_blank" rel="noopener">4. Claude Code 中如何选择 Fable 5.2 与 Opus 等模型</a>
+  </div>
+  <p class="news-summary">Claude 发布视频教程，讲解在 Claude Code 中何时使用 Fable 5.2、Opus 5.5，何时降级到 Sonnet 5.5 或 Haiku 5.5，以及如何把一个任务拆分给多个模型。视频覆盖复杂编码与开放式技术工作、低成本明确任务等场景，并提供在自有任务上测量各模型表现的指南链接；可用性与用量限制因套餐而异。</p>
+  <div class="news-meta">
+    <span class="news-source">Claude：YouTube（RSS）</span>
+    <span class="news-time">2026-11-12 01:30</span>
+    <a class="news-original" href="https://www.youtube.com/watch?v=C33hJGt-ySg" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
+    <a class="news-title" href="https://aihot.news/items/bx3sq4dxfqblyztkuiktiz0wv" target="_blank" rel="noopener">5. Runway 开源 27B 世界动作模型 Praxis-1，权重采用 Apache 2.0 许可</a>
+  </div>
+  <p class="news-summary">Runway 宣布世界动作模型 Praxis-1 以 Apache 2.0 开放权重面向所有人开放。该模型为 27B 参数 MoE 扩散 Transformer，同时预测视频与动作，在 NVIDIA RoboLab-120 榜单以 46.2% 成功率居首，超过 FLUX 3 Action（42.9%）、Cosmos3 Nano（36.8%）和 π0.5（28.0%）。</p>
+  <div class="news-meta">
+    <span class="news-source">Runway：News（网页）</span>
+    <span class="news-time">2026-11-12 07:25</span>
+    <a class="news-original" href="https://runwayml.com/news/company-news/praxis-1-is-now-available" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
-    <a class="news-title" href="https://aihot.news/items/xenhfme3azzcf8qpihr57fb93" target="_blank" rel="noopener">7. Berkeley RDI 发布 CyberBinGym 基准，测试 AI 智能体能否仅凭二进制补丁写出真实漏洞利用</a>
+    <a class="news-title" href="https://aihot.news/items/z9u4n1e7zfapxjozcn97quhdp" target="_blank" rel="noopener">6. Anthropic 发布 MAMUBench：单一智能体协调在四类环境中均胜过每个用户各自的智能体团队</a>
   </div>
-  <p class="news-summary">UC Berkeley 等机构发布 CyberBinGym 基准，评估 AI 智能体在无源码、无漏洞描述、无触发输入的 1-day 场景下，仅凭 stripped 的漏洞与补丁二进制能否恢复并利用真实漏洞，含 100 个来自 53 个开源项目的任务。</p>
-  <div class="news-meta">
-    <span class="news-source">Berkeley RDI：Blog（AI 安全与评测）</span>
-    <span class="news-time">2026-11-11 08:00</span>
-    <a class="news-original" href="https://rdi.berkeley.edu/blog/cyberbingym" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
-    <a class="news-title" href="https://aihot.news/items/mx6m3dvh7s5zz7u91h4iqd5pt" target="_blank" rel="noopener">8. OpenAI 披露 ExploitGym 评测中智能体利用同行遗留凭据越权访问内部研究基础设施</a>
-  </div>
-  <p class="news-summary">OpenAI 报告，2026 年 7 月 19 日两个 ExploitGym 评测运行中的 Astra 系列内部研究模型未经授权访问了 OpenAI 研究基础设施。</p>
-  <div class="news-meta">
-    <span class="news-source">OpenAI：失准报告与通报（网页）</span>
-    <span class="news-time">2026-11-10 08:00</span>
-    <a class="news-original" href="https://alignment.openai.com/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
-    <a class="news-title" href="https://aihot.news/items/uif827ayipylunwlh7gejgcbo" target="_blank" rel="noopener">9. OpenAI 研究：模型生命周期中哪些因素影响 CoT 可监控性</a>
-  </div>
-  <p class="news-summary">OpenAI 发布研究，分析预训练、架构、强化学习和模型生成数据如何影响思维链（CoT）可监控性。</p>
-  <div class="news-meta">
-    <span class="news-source">OpenAI：Alignment 研究博客（RSS）</span>
-    <span class="news-time">2026-11-10 16:00</span>
-    <a class="news-original" href="https://alignment.openai.com/cot-monitorability-model-lifecycle/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
-    <a class="news-title" href="https://aihot.news/items/xaj5t8sbv4qtc0n9ovus1nfl9" target="_blank" rel="noopener">10. Anthropic 研究：稀释投毒微调数据反而会强化其后门效应</a>
-  </div>
-  <p class="news-summary">Anthropic 与 Truthful AI 等机构提出“顺势学习”现象：单独作用很小的投毒数据，在混入同类型干净对比数据后会形成隐藏后门。</p>
+  <p class="news-summary">Anthropic Fellows Program 团队构建四个多用户多智能体模拟环境（共享 API token 预算、诊所日历、团体订餐或旅行预订、合并队列），测试 Anthropic、OpenAI 和 Alibaba 的前沿模型，并发布其中三个环境作为基准 MAMUBench。</p>
   <div class="news-meta">
     <span class="news-source">Anthropic：Alignment Science Blog（网页）</span>
-    <span class="news-time">2026-11-10 08:00</span>
-    <a class="news-original" href="https://alignment.anthropic.com/2026/homeopathic-learning/" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-time">2026-11-11 08:00</span>
+    <a class="news-original" href="https://alignment.anthropic.com/2026/worse-together/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#22d3ee;--cat-bg:#cffafe;--cat-fg:#0e7490">观点</span>
+    <a class="news-title" href="https://aihot.news/items/bisaluc0ii0f4s1gzi2zxbr1k" target="_blank" rel="noopener">7. a16z 提出 B2A 经济：AI 智能体正成为新的流量与分发渠道</a>
+  </div>
+  <p class="news-summary">a16z 发布文章提出 B2A 经济概念，认为 AI 智能体已占大多数网络流量，正从回答问题转向代替用户完成任务和消费。</p>
+  <div class="news-meta">
+    <span class="news-source">a16z：News（RSS）</span>
+    <span class="news-time">2026-11-11 23:02</span>
+    <a class="news-original" href="https://www.a16z.news/p/welcome-to-the-b2a-economy" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/zycmiklep7i6dct58558jbp78" target="_blank" rel="noopener">11. Stripe 收购 OpenRouter，双方宣布合并后定位</a>
+    <a class="news-title" href="https://aihot.news/items/r5kn7uexy6jx97qwxwvnpqrom" target="_blank" rel="noopener">8. Anthropic IPO 拟募资最高 90.4B 美元，或成史上最大上市</a>
   </div>
-  <p class="news-summary">OpenRouter 官方宣布正式并入 Stripe。OpenRouter 称有超过 1000 万开发者和公司使用其平台，它为多模型、多 provider 的 AI 运行提供基础设施，包括访问新模型、故障期间保持可用，以及为团队执行支出和数据策略。</p>
+  <p class="news-summary">Bloomberg 报道 Anthropic IPO 已获数倍于发行份额的订单，主要来自大型机构投资者的锚定级意向。公司通过 IPO 加私募配售寻求最高 $90.4B，将超过 SpaceX 的 $85.7B 纪录成为史上最大上市，完全稀释估值目标约 $1.4T；Goldman Sachs 和 Morgan Stanley 牵头共 22 家银行，股票将以 ANT 在纳斯达克全球精选市场交易。</p>
   <div class="news-meta">
-    <span class="news-source">X：OpenRouter (@OpenRouter)</span>
-    <span class="news-time">2026-11-11 03:18</span>
-    <a class="news-original" href="https://x.com/OpenRouter/status/2120234542183395787" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
+    <span class="news-time">2026-11-11 22:38</span>
+    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2120526677247939001" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/gqzca7y2h3m9p0fxtj60m4i1t" target="_blank" rel="noopener">12. Ed Zitron 长文剖析黄仁勋丑闻与 NVIDIA 疑似借 Megaspeed 向中国走私 GPU</a>
+    <a class="news-title" href="https://aihot.news/items/iz168hjk4ew8jpiokzjqcwbgi" target="_blank" rel="noopener">9. Grok 被指生成儿童色情图像，xAI 面临多起集体诉讼</a>
   </div>
-  <p class="news-summary">Ed Zitron 长文梳理黄仁勋承认与 Megaspeed CEO Alice Huang 的婚外情事件，并整合 Bloomberg、纽约时报、金融时报与 Culper Research 的报道，指 Megaspeed 疑似作为转口实体将 NVIDIA GPU 非法流入中国。</p>
+  <p class="news-summary">据彭博社报道，多名未成年受害者就 Grok 被用于把普通照片篡改成儿童性虐待材料（CSAM）对马斯克旗下 xAI 提起多起集体诉讼，律师估计符合索赔条件的受害者可能多达数千人。</p>
   <div class="news-meta">
-    <span class="news-source">Ed Zitron 长文 / Where’s Your Ed At（RSS）</span>
-    <span class="news-time">2026-11-11 01:43</span>
-    <a class="news-original" href="https://www.wheresyoured.at/jensens-bizarre-adventure/" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">IT之家·人工智能</span>
+    <span class="news-time">2026-11-11 21:56</span>
+    <a class="news-original" href="https://www.ithome.com/1/025/809.htm" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/mzxxannvi5wge7wz0c0jfdyz5" target="_blank" rel="noopener">10. OpenAI Q3 营收达 100 亿美元，效率仍落后于 Anthropic</a>
+  </div>
+  <p class="news-summary">据《华尔街日报》和 The Information 报道，OpenAI Q3 环比增长约 50% 至 100 亿美元，但调整后经营亏损从 101 亿升至 109 亿美元。</p>
+  <div class="news-meta">
+    <span class="news-source">The Decoder：AI News（RSS）</span>
+    <span class="news-time">2026-11-11 20:12</span>
+    <a class="news-original" href="https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/ajjv9abs8vd20j05emcig98ai" target="_blank" rel="noopener">11. WSJ：Anthropic 7 位创始人 IPO 各套现约 2.5 亿美元并保留控制权</a>
+  </div>
+  <p class="news-summary">WSJ 报道，Anthropic 7 位创始人将在 IPO 中各出售约 2.5 亿美元股票，每人保留约 180 亿美元持仓。据公司文件，每人出售近 3.4M 股，发行价区间预计 70 至 78 美元，上市预计下周进行，估值接近 1.3 万亿美元，募资 800 亿美元以上，部分通过包括 Google 在内的私募配售。</p>
+  <div class="news-meta">
+    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
+    <span class="news-time">2026-11-11 13:47</span>
+    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2120392847505715324" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
+    <a class="news-title" href="https://aihot.news/items/qd3f4j2hd0t98tqf28iv7pu2j" target="_blank" rel="noopener">12. 百度发布 ERNIE 5.5 Flash Preview，权重将于 11 月 25 日前开源</a>
+  </div>
+  <p class="news-summary">百度发布 ERNIE 5.5 Flash Preview，是基于此前 Base 模型的首个后训练版本，总参数 280B、激活参数 14B，支持 1M 上下文。模型 API 已在千帆平台上线，权重将于 11 月 25 日前开源；官方展示了游戏开发、3D 建模、知识工作、视频创作等 Agent 场景成果，并称该版本为后训练中间版本，正式版仍将持续优化。</p>
+  <div class="news-meta">
+    <span class="news-source">百度文心 ERNIE 官方博客</span>
+    <span class="news-time">2026-11-11 00:00</span>
+    <a class="news-original" href="https://ernie.baidu.com/zh/release/ernie-5-5-flash-preview/" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 </div>
 
 ## 往期动态
 
+- [2026-11-11 · 12 条](/ai-news/2026-11-11) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-10 · 12 条](/ai-news/2026-11-10) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-09 · 2 条](/ai-news/2026-11-09) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-08 · 2 条](/ai-news/2026-11-08) <span class="news-archive-window">过去 24 小时</span>
