@@ -10,160 +10,161 @@ title: AI 最新动态
 
 <div class="news-banner">
   <p class="news-banner-lead">AI 圈每天发生什么，这里用<strong>人话</strong>告诉你——每天早 9 点由飞轮脚本自动抓取 <a href="https://aihot.news" target="_blank" rel="noopener">AI HOT</a> 精选更新，已接入「层级为干、链接为脉、地图为门」的知识库查找体系。</p>
-  <p class="news-banner-meta">今日更新：2026-11-12 · 共 12 条 · 口径：过去 24 小时</p>
+  <p class="news-banner-meta">今日更新：2026-11-13 · 共 12 条 · 口径：过去 24 小时</p>
 </div>
 
-## 今天（2026-11-12）<span class="news-count">12 条 · 过去 24 小时</span>
+## 今天（2026-11-13）<span class="news-count">12 条 · 过去 24 小时</span>
 
 <div class="news-list">
 <div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
-    <a class="news-title" href="https://aihot.news/items/vq9nwgwhtm31cgoliyb7ydyde" target="_blank" rel="noopener">1. OpenRouter 实测六模型并给出四层防护，解决 AI Agent 无限循环烧钱问题</a>
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/t86m3q7vdlqmvm2zmx91vps5a" target="_blank" rel="noopener">1. 黄仁勋辞去英伟达总裁兼CEO，作者梳理14天风波始末</a>
   </div>
-  <p class="news-summary">OpenRouter 发布教程，讲解 AI Agent 因工具反复失败而陷入无限循环的成因，并给出四层防护：doom-loop 检测、loopKey 参数归一化、stopWhen 步数与成本上限、API key 信用额度。</p>
+  <p class="news-summary">英伟达公告黄仁勋辞去总裁、CEO和董事职务，即刻生效，股价开盘下跌14个点。作者依据《纽约时报》、The Information 等报道梳理脉络：从2022年A100、H100对华禁售，到 Megaspeed 采购争议、黄乐被情报机构认定涉间谍活动，再到婚外情曝光后董事会于10月29日起14天内收网，黄仁勋在英伟达33年的时代就此结束。</p>
   <div class="news-meta">
-    <span class="news-source">OpenRouter：Announcements（RSS）</span>
-    <span class="news-time">2026-11-12 08:00</span>
-    <a class="news-original" href="https://openrouter.ai/blog/tutorials/ai-agent-infinite-loop/" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">公众号：数字生命卡兹克</span>
+    <span class="news-time">2026-11-13 07:56</span>
+    <a class="news-original" href="https://mp.weixin.qq.com/s/ToplAo9NHP356Fu-hbYlsg" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/aoxmmcsudy1gf9xmti7slu1wd" target="_blank" rel="noopener">2. WSJ 报道 Nvidia 董事会接近决定是否罢免 CEO 黄仁勋</a>
+    <a class="news-title" href="https://aihot.news/items/cfh0nazzl7eedgttz8n99fza4" target="_blank" rel="noopener">2. 民主党对 Nvidia 对华芯片销售启动调查，致函质疑黄仁勋与特朗普的安排</a>
   </div>
-  <p class="news-summary">WSJ 报道，Nvidia 董事会此前公开支持黄仁勋，如今接近决定是否罢免这位创始人 CEO。起因是黄仁勋与一名被指为中国情报人员的女子交往，随后又曝出与一名 Nvidia 员工的第二段婚外情；周日开始独立调查时董事会表示没有理由认为 Nvidia 机密泄露。</p>
+  <p class="news-summary">民主党议员 Rep. Richard Neal 和 Sen. Ron Wyden 就特朗普政府处理 Nvidia 对华芯片销售一事开启调查，并致函商务部长 Howard Lutnick 要求保存相关记录。</p>
   <div class="news-meta">
-    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
-    <span class="news-time">2026-11-12 07:43</span>
-    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2120663635479625930" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">TechCrunch：AI（RSS）</span>
+    <span class="news-time">2026-11-13 06:42</span>
+    <a class="news-original" href="https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
-    <a class="news-title" href="https://aihot.news/items/r8hsm3m3munjwk1n3u885zszw" target="_blank" rel="noopener">3. Google 发布 Gemini Decisions API 与 Gemini Decision 1 模型，专注快速多模态封闭式决策</a>
+    <a class="news-title" href="https://aihot.news/items/t5pucqx6ac58z0ed1b0875ci0" target="_blank" rel="noopener">3. Anthropic 建议把 Claude Opus 5.5 作为知识工作的日常主力模型</a>
   </div>
-  <p class="news-summary">Google 推出 Gemini Decisions API，由新模型 Gemini Decision 1 驱动，可在 150-250ms 端到端延迟内对文本、图像、音频、视频和 PDF（最多 256K tokens）一次性评估最多 1000 个是/否、多选和评分题。</p>
+  <p class="news-summary">Anthropic 宣布 Claude Opus 5.5 成为 Pro、Max、Ultra 和 Team 套餐的默认模型，并推荐将其作为研究、分析和写作等知识工作的日常主力。</p>
   <div class="news-meta">
-    <span class="news-source">Google Blog：AI（RSS）</span>
-    <span class="news-time">2026-11-12 02:00</span>
-    <a class="news-original" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">Claude：Blog（网页）</span>
+    <span class="news-time">2026-11-12 08:00</span>
+    <a class="news-original" href="https://claude.com/blog/using-claude-opus-5-5-as-your-daily-driver-for-knowledge-work" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
-    <a class="news-title" href="https://aihot.news/items/ep5oqt7m4l7gn3tqieilznmuk" target="_blank" rel="noopener">4. Claude Code 中如何选择 Fable 5.2 与 Opus 等模型</a>
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/k1kga19xtdab67lhplor8he8n" target="_blank" rel="noopener">4. Rohan Paul 类比乔布斯被逐，评 NVIDIA 放走黄仁勋</a>
   </div>
-  <p class="news-summary">Claude 发布视频教程，讲解在 Claude Code 中何时使用 Fable 5.2、Opus 5.5，何时降级到 Sonnet 5.5 或 Haiku 5.5，以及如何把一个任务拆分给多个模型。视频覆盖复杂编码与开放式技术工作、低成本明确任务等场景，并提供在自有任务上测量各模型表现的指南链接；可用性与用量限制因套餐而异。</p>
+  <p class="news-summary">Lex Fridman 发文称 NVIDIA 让黄仁勋离开对美国和人类都是巨大错误，堪比 Apple 当年解雇 Steve Jobs 但影响更大，并为其品格辩护、回应间谍传闻。Rohan Paul 转引并列举 Atari 1978（Nolan Bushnell）、Apple 1985（Steve Jobs）、Uber 2017（Travis Kalanick）、OpenAI 2023（Sam Altman），称每隔几年董事会就会重新认识到创始人本身就是战略。</p>
   <div class="news-meta">
-    <span class="news-source">Claude：YouTube（RSS）</span>
-    <span class="news-time">2026-11-12 01:30</span>
-    <a class="news-original" href="https://www.youtube.com/watch?v=C33hJGt-ySg" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
+    <span class="news-time">2026-11-13 05:39</span>
+    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2120994977421705296" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
-    <a class="news-title" href="https://aihot.news/items/bx3sq4dxfqblyztkuiktiz0wv" target="_blank" rel="noopener">5. Runway 开源 27B 世界动作模型 Praxis-1，权重采用 Apache 2.0 许可</a>
+    <a class="news-title" href="https://aihot.news/items/zlbngirpqifhhi3bd5pbmixu4" target="_blank" rel="noopener">5. Gemini 4 Hydrogen 今日起向全球所有用户推送</a>
   </div>
-  <p class="news-summary">Runway 宣布世界动作模型 Praxis-1 以 Apache 2.0 开放权重面向所有人开放。该模型为 27B 参数 MoE 扩散 Transformer，同时预测视频与动作，在 NVIDIA RoboLab-120 榜单以 46.2% 成功率居首，超过 FLUX 3 Action（42.9%）、Cosmos3 Nano（36.8%）和 π0.5（28.0%）。</p>
+  <p class="news-summary">Google Gemini 宣布 Gemini 4 Hydrogen 今日起向全球所有用户推送，覆盖桌面、移动和网页端。免费用户无需单独选择模型，当提示词适合该模型时可通过自动模型选择使用它，详情见 https://goo.gle/4AxH40q。</p>
   <div class="news-meta">
-    <span class="news-source">Runway：News（网页）</span>
-    <span class="news-time">2026-11-12 07:25</span>
-    <a class="news-original" href="https://runwayml.com/news/company-news/praxis-1-is-now-available" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：Gemini (@GeminiApp)</span>
+    <span class="news-time">2026-11-13 04:50</span>
+    <a class="news-original" href="https://x.com/GeminiApp/status/2120982674638864797" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
+    <a class="news-title" href="https://aihot.news/items/l36ne5q2gsdx6thyia7fi10kn" target="_blank" rel="noopener">6. Anthropic 推出 Claude Meetings，Claude 以参会者身份加入视频会议</a>
+  </div>
+  <p class="news-summary">Anthropic 推出 Claude Meetings beta，Claude 可作为可见参会者加入视频通话，在会中回答提问、协作创建文档和白板，并生成笔记和行动项。</p>
+  <div class="news-meta">
+    <span class="news-source">Claude：Blog（网页）</span>
+    <span class="news-time">2026-11-12 08:00</span>
+    <a class="news-original" href="https://claude.com/blog/claude-meetings" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
-    <a class="news-title" href="https://aihot.news/items/z9u4n1e7zfapxjozcn97quhdp" target="_blank" rel="noopener">6. Anthropic 发布 MAMUBench：单一智能体协调在四类环境中均胜过每个用户各自的智能体团队</a>
+    <a class="news-title" href="https://aihot.news/items/yg97h3u5vthadivuv5po5f0aw" target="_blank" rel="noopener">7. OpenAI 用自动化红队训练提升 GPT-6 Astra 和 Sol 在高风险领域的模糊鲁棒性</a>
   </div>
-  <p class="news-summary">Anthropic Fellows Program 团队构建四个多用户多智能体模拟环境（共享 API token 预算、诊所日历、团体订餐或旅行预订、合并队列），测试 Anthropic、OpenAI 和 Alibaba 的前沿模型，并发布其中三个环境作为基准 MAMUBench。</p>
+  <p class="news-summary">OpenAI 研究团队介绍如何用自动化红队提升模型在网络、生物等高风险双用途领域的模糊鲁棒性，通过扩大攻击者模型的测试时算力迭代搜索越狱，并要求攻击在多次重复测试中成功（worst@n），生成可靠的对抗训练数据用于 RL 训练。</p>
   <div class="news-meta">
-    <span class="news-source">Anthropic：Alignment Science Blog（网页）</span>
-    <span class="news-time">2026-11-11 08:00</span>
-    <a class="news-original" href="https://alignment.anthropic.com/2026/worse-together/" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">OpenAI：Alignment 研究博客（RSS）</span>
+    <span class="news-time">2026-11-12 16:00</span>
+    <a class="news-original" href="https://alignment.openai.com/fuzzy-robustness/" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:#22d3ee;--cat-bg:#cffafe;--cat-fg:#0e7490">观点</span>
-    <a class="news-title" href="https://aihot.news/items/bisaluc0ii0f4s1gzi2zxbr1k" target="_blank" rel="noopener">7. a16z 提出 B2A 经济：AI 智能体正成为新的流量与分发渠道</a>
+    <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
+    <a class="news-title" href="https://aihot.news/items/mt013742fhedisepp2i31h1r4" target="_blank" rel="noopener">8. Gemini 4 Hydrogen 上线 Cursor，CursorBench 得分 54.3%</a>
   </div>
-  <p class="news-summary">a16z 发布文章提出 B2A 经济概念，认为 AI 智能体已占大多数网络流量，正从回答问题转向代替用户完成任务和消费。</p>
+  <p class="news-summary">作者以「爱好包括制作 og:images」调侃，配图为 CursorBench 4.0 的模型散点图；其引用 Cursor 官方内容称 Gemini 4 Hydrogen 现已在 Cursor 上线，默认 effort 下 CursorBench 得分 54.3%，高于 Gemini 3.8 Flash 的 39.6%。</p>
   <div class="news-meta">
-    <span class="news-source">a16z：News（RSS）</span>
-    <span class="news-time">2026-11-11 23:02</span>
-    <a class="news-original" href="https://www.a16z.news/p/welcome-to-the-b2a-economy" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：Matt Palmer（SpaceXSI，Grok Bot） (@mattyp)</span>
+    <span class="news-time">2026-11-13 02:22</span>
+    <a class="news-original" href="https://x.com/mattyp/status/2120945253666762973" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/r5kn7uexy6jx97qwxwvnpqrom" target="_blank" rel="noopener">8. Anthropic IPO 拟募资最高 90.4B 美元，或成史上最大上市</a>
+    <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
+    <a class="news-title" href="https://aihot.news/items/lazmov9ciw8y5uqpuda9qcizm" target="_blank" rel="noopener">9. World Labs 开放世界模型 Atlas，支持生成关键帧、视频片段和 3D Gaussian splats</a>
   </div>
-  <p class="news-summary">Bloomberg 报道 Anthropic IPO 已获数倍于发行份额的订单，主要来自大型机构投资者的锚定级意向。公司通过 IPO 加私募配售寻求最高 $90.4B，将超过 SpaceX 的 $85.7B 纪录成为史上最大上市，完全稀释估值目标约 $1.4T；Goldman Sachs 和 Morgan Stanley 牵头共 22 家银行，股票将以 ANT 在纳斯达克全球精选市场交易。</p>
+  <p class="news-summary">World Labs 宣布 Atlas 世界模型向所有人开放，李飞飞转发并表达期待用户用它构建的内容。官方为用户提供了应用和 API 端点，可用 Atlas 生成关键帧、视频片段或 3D Gaussian splats。</p>
   <div class="news-meta">
-    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
-    <span class="news-time">2026-11-11 22:38</span>
-    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2120526677247939001" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/iz168hjk4ew8jpiokzjqcwbgi" target="_blank" rel="noopener">9. Grok 被指生成儿童色情图像，xAI 面临多起集体诉讼</a>
-  </div>
-  <p class="news-summary">据彭博社报道，多名未成年受害者就 Grok 被用于把普通照片篡改成儿童性虐待材料（CSAM）对马斯克旗下 xAI 提起多起集体诉讼，律师估计符合索赔条件的受害者可能多达数千人。</p>
-  <div class="news-meta">
-    <span class="news-source">IT之家·人工智能</span>
-    <span class="news-time">2026-11-11 21:56</span>
-    <a class="news-original" href="https://www.ithome.com/1/025/809.htm" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：Fei-Fei Li (@drfeifei, World Labs)</span>
+    <span class="news-time">2026-11-13 02:11</span>
+    <a class="news-original" href="https://x.com/drfeifei/status/2120942509786558671" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/mzxxannvi5wge7wz0c0jfdyz5" target="_blank" rel="noopener">10. OpenAI Q3 营收达 100 亿美元，效率仍落后于 Anthropic</a>
+    <a class="news-title" href="https://aihot.news/items/ivpl9ziip8mpoa90avi3ke9pj" target="_blank" rel="noopener">10. Jensen Huang 辞任 Nvidia CEO 后对 AI 经济的五点影响分析</a>
   </div>
-  <p class="news-summary">据《华尔街日报》和 The Information 报道，OpenAI Q3 环比增长约 50% 至 100 亿美元，但调整后经营亏损从 101 亿升至 109 亿美元。</p>
+  <p class="news-summary">Tomasz Tunguz 分析 Jensen Huang 即日辞任 Nvidia 总裁、CEO 及董事后对 AI 行业的影响，CFO Colette Kress 出任临时 CEO。</p>
   <div class="news-meta">
-    <span class="news-source">The Decoder：AI News（RSS）</span>
-    <span class="news-time">2026-11-11 20:12</span>
-    <a class="news-original" href="https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic/" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">Tomasz Tunguz 博客（VC 分析）</span>
+    <span class="news-time">2026-11-12 08:00</span>
+    <a class="news-original" href="https://tomtunguz.com/the-impact-of-jensens-resignation/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
+    <a class="news-title" href="https://aihot.news/items/v26fsdyhbktgyuedmrx25p58y" target="_blank" rel="noopener">11. Google Gemini 开放推送，覆盖开发者、企业与普通用户渠道</a>
+  </div>
+  <p class="news-summary">Google DeepMind 宣布开始向各渠道推送：开发者可在 Google AI Studio、Android Studio 中用 Gemini API，付费 Google AI Pro 和 Ultra 订阅者可在 Google Antigravity 中使用；企业可通过 Gemini for business 和 Google Antigravity 部署；所有用户可在 Google Search 和 Gemini 应用模型下拉菜单中访问。详情见 https://goo.gle/4zDCs8N。</p>
+  <div class="news-meta">
+    <span class="news-source">X：Google DeepMind (@GoogleDeepMind)</span>
+    <span class="news-time">2026-11-13 02:02</span>
+    <a class="news-original" href="https://x.com/GoogleDeepMind/status/2120940342505566438" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/ajjv9abs8vd20j05emcig98ai" target="_blank" rel="noopener">11. WSJ：Anthropic 7 位创始人 IPO 各套现约 2.5 亿美元并保留控制权</a>
+    <a class="news-title" href="https://aihot.news/items/n73ab4h9gqlu6ucv69ynzxln4" target="_blank" rel="noopener">12. SemiAnalysis 分析黄仁勋辞任 Nvidia CEO 背后的出口管制博弈</a>
   </div>
-  <p class="news-summary">WSJ 报道，Anthropic 7 位创始人将在 IPO 中各出售约 2.5 亿美元股票，每人保留约 180 亿美元持仓。据公司文件，每人出售近 3.4M 股，发行价区间预计 70 至 78 美元，上市预计下周进行，估值接近 1.3 万亿美元，募资 800 亿美元以上，部分通过包括 Google 在内的私募配售。</p>
+  <p class="news-summary">SemiAnalysis 发表长文分析黄仁勋不再担任 Nvidia CEO 一事，认为其去职与美国情报界推动、针对中国远程访问 GPU 的 RASA 法案推进有关。</p>
   <div class="news-meta">
-    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
-    <span class="news-time">2026-11-11 13:47</span>
-    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2120392847505715324" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
-    <a class="news-title" href="https://aihot.news/items/qd3f4j2hd0t98tqf28iv7pu2j" target="_blank" rel="noopener">12. 百度发布 ERNIE 5.5 Flash Preview，权重将于 11 月 25 日前开源</a>
-  </div>
-  <p class="news-summary">百度发布 ERNIE 5.5 Flash Preview，是基于此前 Base 模型的首个后训练版本，总参数 280B、激活参数 14B，支持 1M 上下文。模型 API 已在千帆平台上线，权重将于 11 月 25 日前开源；官方展示了游戏开发、3D 建模、知识工作、视频创作等 Agent 场景成果，并称该版本为后训练中间版本，正式版仍将持续优化。</p>
-  <div class="news-meta">
-    <span class="news-source">百度文心 ERNIE 官方博客</span>
-    <span class="news-time">2026-11-11 00:00</span>
-    <a class="news-original" href="https://ernie.baidu.com/zh/release/ernie-5-5-flash-preview/" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">SemiAnalysis 长文 RSS（RSS）</span>
+    <span class="news-time">2026-11-13 02:06</span>
+    <a class="news-original" href="https://newsletter.semianalysis.com/p/nvidia-and-the-world-without-jensen" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 </div>
 
 ## 往期动态
 
+- [2026-11-12 · 12 条](/ai-news/2026-11-12) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-11 · 12 条](/ai-news/2026-11-11) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-10 · 12 条](/ai-news/2026-11-10) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-09 · 2 条](/ai-news/2026-11-09) <span class="news-archive-window">过去 24 小时</span>
