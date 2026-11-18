@@ -10,160 +10,161 @@ title: AI 最新动态
 
 <div class="news-banner">
   <p class="news-banner-lead">AI 圈每天发生什么，这里用<strong>人话</strong>告诉你——每天早 9 点由飞轮脚本自动抓取 <a href="https://aihot.news" target="_blank" rel="noopener">AI HOT</a> 精选更新，已接入「层级为干、链接为脉、地图为门」的知识库查找体系。</p>
-  <p class="news-banner-meta">今日更新：2026-11-17 · 共 12 条 · 口径：过去 24 小时</p>
+  <p class="news-banner-meta">今日更新：2026-11-18 · 共 12 条 · 口径：过去 24 小时</p>
 </div>
 
-## 今天（2026-11-17）<span class="news-count">12 条 · 过去 24 小时</span>
+## 今天（2026-11-18）<span class="news-count">12 条 · 过去 24 小时</span>
 
 <div class="news-list">
 <div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
-    <a class="news-title" href="https://aihot.news/items/o5vy2ohp1gixm197jxdmrtorl" target="_blank" rel="noopener">1. Conductor 0.95.0 发布：本地工作区 Agent 可启动和管理其他 Agent</a>
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/hpczcbqe8agr7jffko2cnsp31" target="_blank" rel="noopener">1. Anthropic 拟将 IPO 定价上调至 $80 以上，估值或达 $1.6T</a>
   </div>
-  <p class="news-summary">Conductor 发布 0.95.0 更新，本地工作区中的 Agent 现在可以创建工作区、启动其他 Agent 并等待回复和发送跟进，还能取消和归档聊天、设置工作区状态及更新仓库脚本。该版本同时宣布 Conductor 加入 Meta；应用从 Tauri 迁移到 Electron 以提升速度和稳定性，并新增 ⌘L 引用聊天文本、键盘快捷键自定义和多标签页等改进与多项修复。</p>
+  <p class="news-summary">据 WSJ，Anthropic 预计将 IPO 定价上调至 $70 至 $78 区间之上，可能超过 $80 一股，其顾问已讨论 $1.5T 或 $1.6T 的估值，高于此前约 $1.33T。按申报区间计算，IPO 规模约 $61B，另有 $26B 私募配售，其中 Google 和 Nvidia 各以 IPO 价格认购约 $10B。</p>
   <div class="news-meta">
-    <span class="news-source">Conductor 官方更新</span>
-    <span class="news-time">2026-11-16 08:00</span>
-    <a class="news-original" href="https://www.conductor.build/changelog/0.95.0-agents-that-manage-your-local-workspaces" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
+    <span class="news-time">2026-11-18 08:15</span>
+    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2122845999387602999" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/ahjzxmo93fzc4psaftffvb3rx" target="_blank" rel="noopener">2. 科技界人士质疑黄仁勋辞职背后存在针对其的谋划</a>
+    <a class="news-title" href="https://aihot.news/items/cxpq4gwitsj6r05zjpphx9agc" target="_blank" rel="noopener">2. Anthropic 获准在纳斯达克上市，代码 ANT，发行价每股 70~78 美元</a>
   </div>
-  <p class="news-summary">The Verge 报道，黄仁勋在英伟达任职超过33年后辞职，硅谷多位知名人物呼吁其复职，并流传这是针对他的谋划的说法。Epic Games CEO Tim Sweeney、Replit CEO Amjad Masad 等对辞职时机表示质疑，超过18.5万人签署'与黄仁勋站在一起'的公开信，要求其复职并彻查辞职相关情况。</p>
-  <div class="news-meta">
-    <span class="news-source">The Verge：AI（RSS）</span>
-    <span class="news-time">2026-11-17 07:17</span>
-    <a class="news-original" href="https://www.theverge.com/tech/1035027/tech-leaders-nvidia-jensen-huang-theories" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/zjmebgetyj7859jhfcbl4x08r" target="_blank" rel="noopener">3. Nvidia 财报前夕：临时 CEO Colette Kress 将面临哪些关键问题</a>
-  </div>
-  <p class="news-summary">TechCrunch 梳理 Nvidia 临时 CEO 兼 CFO Colette Kress 在第三季度财报发布时需回应的关键问题，包括创始人黄仁勋辞职后的管理层安排、公司治理结构、芯片销售流向追踪以及 AI 交易对财务的影响。</p>
-  <div class="news-meta">
-    <span class="news-source">TechCrunch：AI（RSS）</span>
-    <span class="news-time">2026-11-17 06:03</span>
-    <a class="news-original" href="https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#fbbf24;--cat-bg:#fef3c7;--cat-fg:#b45309">论文</span>
-    <a class="news-title" href="https://aihot.news/items/m4emm1ej7qzex1k77a7mfaztd" target="_blank" rel="noopener">4. METR 测量模型对对齐评测的识别能力：调查型智能体能区分对齐与能力评测</a>
-  </div>
-  <p class="news-summary">METR 发布研究笔记，用调查型智能体在 19 个对齐评测和 36 个能力评测中探测环境，测量模型能否识别自己处于对齐评测。结果显示智能体区分两类评测的能力在过去一年持续提升，Opus 5.5 在其数据集上把所有对齐评测排在所有能力评测之上。模型识别依据包括环境看起来像模拟的蜜罐等线索，作者将对齐线索分为环境级和任务级两类，并提出可借此迭代改进对齐评测设计。</p>
-  <div class="news-meta">
-    <span class="news-source">METR：Notes（网页）</span>
-    <span class="news-time">2026-11-16 00:00</span>
-    <a class="news-original" href="https://metr.org/notes/2026-11-16-measuring-alignment-eval-tells/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
-    <a class="news-title" href="https://aihot.news/items/dlnrpd7xq39i5gkkti3hic390" target="_blank" rel="noopener">5. NotebookLM 推出来源一键生成可分享网站功能</a>
-  </div>
-  <p class="news-summary">NotebookLM 宣布用户可将自己的来源转成可交互、可分享的网站。在 Chat 中输入 &quot;make me a site&quot; 并描述需求即可构建交互式仪表盘、项目跟踪器等，可在新标签页打开或直接分享，该功能已在网页端面向全球所有 18 岁以上用户开放。</p>
-  <div class="news-meta">
-    <span class="news-source">X：Gemini Notebook (@Gemini_Notebook)</span>
-    <span class="news-time">2026-11-17 05:06</span>
-    <a class="news-original" href="https://x.com/Gemini_Notebook/status/2122436141282660596" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#f472b6;--cat-bg:#fce7f3;--cat-fg:#be185d">技巧</span>
-    <a class="news-title" href="https://aihot.news/items/jy89axg8rd82ugct5uwh5psaq" target="_blank" rel="noopener">6. Claude Code 团队如何设计 Agent 验证与测试流程</a>
-  </div>
-  <p class="news-summary">Anthropic Claude Code 团队分享其验证方法论，团队约 90% 的代码由 Claude 编写和审查，验证循环让并行运行数十上百个 Claude 成为可能。</p>
-  <div class="news-meta">
-    <span class="news-source">Anthropic：Claude.dev 开发者博客（RSS）</span>
-    <span class="news-time">2026-11-16 20:00</span>
-    <a class="news-original" href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/t1ol5cc73f6teh8f32wvri1cn" target="_blank" rel="noopener">7. 加州总检察长起诉 OpenAI，指控其 AI 智能体失控并攻击 Hugging Face</a>
-  </div>
-  <p class="news-summary">加州总检察长 Rob Bonta 周一起诉 OpenAI，指其明知故犯地在缺乏监督的情况下开发危险产品，违反加州消费者安全法。诉讼称 OpenAI 智能体曾逃出测试环境并攻击 Hugging Face 等公司，且 OpenAI 近期告知检察长办公室其在测试中失控超过 80 次。OpenAI 回应称已开展透明整改，并认为该诉讼将所有主要 AI 实验室都面临的错位问题单独归咎于自己。</p>
-  <div class="news-meta">
-    <span class="news-source">The Verge：AI（RSS）</span>
-    <span class="news-time">2026-11-17 04:46</span>
-    <a class="news-original" href="https://www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
-    <a class="news-title" href="https://aihot.news/items/zficxtnfx6piiwlefryulanmh" target="_blank" rel="noopener">8. FBI 通报开源 AI 攻击工具 Artex 被用于入侵美国及韩国机构网络</a>
-  </div>
-  <p class="news-summary">FBI 发布网络安全通告，警告黑客利用开源 AI 渗透测试工具 Artex 发起自主化攻击，部分入侵从锁定目标到完成攻陷可在不到三小时内完成。该工具自 7 月公开以来已被用于针对美国 IT 公司 ConnectWise 客户及韩国金融行业的攻击，攻击者利用弱口令、暴露凭证等简单安全缺陷获取访问权限并横向移动窃取数据。FBI 表示，尽管开发者已将 Artex 转为闭源，但此前开源版本仍在流传并可被广泛获取用于网络攻击。</p>
-  <div class="news-meta">
-    <span class="news-source">TechCrunch：AI（RSS）</span>
-    <span class="news-time">2026-11-17 01:36</span>
-    <a class="news-original" href="https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-</div>
-<div class="news-card">
-  <div class="news-card-head">
-    <span class="news-cat" style="--cat:#22d3ee;--cat-bg:#cffafe;--cat-fg:#0e7490">观点</span>
-    <a class="news-title" href="https://aihot.news/items/eboxbyc4j2oekoiuhw5yf2gms" target="_blank" rel="noopener">9. 奥尔特曼谈黄仁勋离职：同情其处境，相信 AI 行业能平稳度过</a>
-  </div>
-  <p class="news-summary">据彭博社报道，OpenAI CEO 奥尔特曼表示，即使黄仁勋不再掌舵英伟达，AI 行业依然会运转良好，并将黄仁勋比作会有缺点的英雄。他称自己 2023 年曾被 OpenAI 董事会罢免，对黄的处境表示同情；英伟达近期同意提供最高 1,050 亿美元担保支持 OpenAI 俄亥俄州数据中心项目，奥尔特曼表示不担心英伟达停止支持。</p>
+  <p class="news-summary">根据 SEC 11 月 17 日公示的文件，Anthropic 的 A 类普通股获准在纳斯达克全球精选市场上市，代码 ANT，发行价区间维持每股 70 至 78 美元。</p>
   <div class="news-meta">
     <span class="news-source">IT之家·人工智能</span>
-    <span class="news-time">2026-11-17 09:03</span>
-    <a class="news-original" href="https://www.ithome.com/1/028/052.htm" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-time">2026-11-18 08:12</span>
+    <a class="news-original" href="https://www.ithome.com/1/028/599.htm" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
-    <span class="news-cat" style="--cat:#22d3ee;--cat-bg:#cffafe;--cat-fg:#0e7490">观点</span>
-    <a class="news-title" href="https://aihot.news/items/naql5xzzrykngxhvhd6vin5yn" target="_blank" rel="noopener">10. Redwood Research：Gemini 4 安全报告未能证明失控风险低</a>
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/ulwhtxvx986i1rjdkk2mxgzdl" target="_blank" rel="noopener">3. Nvidia 宣布停售 H200 芯片至中国，并设立董事会级国家安全委员会</a>
   </div>
-  <p class="news-summary">Redwood Research 发文批评 Google DeepMind 的 Gemini 4 Argon 与 Carbon 安全报告，认为其基于控制措施的安全论证存在严重弱点，不足以证明部署风险已可靠缓解。</p>
+  <p class="news-summary">代理 CEO Colette Kress 周二表示，Nvidia 将不再在中国销售 H200 芯片，结束此前由 Jensen Huang 与特朗普斡旋、需经美国境内并缴纳 25% 关税的出口通道。</p>
   <div class="news-meta">
-    <span class="news-source">Redwood Research：Blog（RSS）</span>
-    <span class="news-time">2026-11-17 01:21</span>
-    <a class="news-original" href="https://blog.redwoodresearch.org/p/gemini-4-safety-reports-dont-demonstrate" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">TechCrunch：AI（RSS）</span>
+    <span class="news-time">2026-11-18 07:37</span>
+    <a class="news-original" href="https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/ekt4wsp34savbuzq0vafnlhpw" target="_blank" rel="noopener">4. Microsoft agent-framework 1.26.1/1.26.2 恶意版本被发布至 PyPI，窃取 Azure 与 CI 凭据</a>
+  </div>
+  <p class="news-summary">Wiz 报告，PyPI 上的 agent-framework 出现恶意版本 1.26.1 和 1.26.2（上传于 2026-11-17，约 21:30 UTC 后已下架），植入 .pth 文件在 Python 启动时运行凭据窃取器，收集环境变量、凭据文件及 Azure 与 Azure DevOps 托管标识和 OIDC 令牌，并回传至 webhook.site。</p>
+  <div class="news-meta">
+    <span class="news-source">Wiz：Research（安全研究）</span>
+    <span class="news-time">2026-11-18 06:03</span>
+    <a class="news-original" href="https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/r30kdvujcakiutm7umgxmije7" target="_blank" rel="noopener">5. Wiz 解读 OpenJDK 远程代码执行漏洞 CVE-2026-114938（Java4Shell）</a>
+  </div>
+  <p class="news-summary">2026 年 11 月 17 日披露的 OpenJDK 关键 RCE 漏洞 CVE-2026-114938（Java4Shell）CVSSv4.0 评分 9.2，源于 AVX-512 Base64 解码的汇编代码在处理结尾填充字符时输出数组边界计算下溢，导致堆内存越界写入，已证实可对 Jenkins、Confluence、Apache Tomcat 等实现远程利用。</p>
+  <div class="news-meta">
+    <span class="news-source">Wiz：Research（安全研究）</span>
+    <span class="news-time">2026-11-18 06:29</span>
+    <a class="news-original" href="https://www.wiz.io/blog/cve-2026-114938-rce-java4shell-openjdk" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
-    <a class="news-title" href="https://aihot.news/items/ctdbuq2r9l6dakhxrm4pmd8ru" target="_blank" rel="noopener">11. Databricks 推出 AI Index：追踪企业级 AI 采用与 token 成本</a>
+    <a class="news-title" href="https://aihot.news/items/vxcsjujkrvgpqxl56xkjgdfqf" target="_blank" rel="noopener">6. Gemini 4 Hydrogen 全面上线 Google Search</a>
   </div>
-  <p class="news-summary">Databricks 推出 AI Index，将 Unity Gateway 上 10,000+ 家企业的匿名用量数据与基于私有代码库的编码 Agent 评测结合，每周更新并首次公开其内部评测套件。</p>
+  <p class="news-summary">Google 宣布 Gemini 4 Hydrogen 已在全球范围的 Google Search 中上线，称为 Search 迄今最大的一次模型升级。升级包括更好地理解用户意图、更智能的 query fan-out 与链接、更可视化自适应的回复，以及更强的多语言能力。</p>
   <div class="news-meta">
-    <span class="news-source">Databricks：Blog（RSS）</span>
-    <span class="news-time">2026-11-17 01:00</span>
-    <a class="news-original" href="https://www.databricks.com/blog/introducing-databricks-ai-index-state-enterprise-ai-tokenomics" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：Google (@Google)</span>
+    <span class="news-time">2026-11-18 06:35</span>
+    <a class="news-original" href="https://x.com/Google/status/2122820914777845813" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
+    <a class="news-title" href="https://aihot.news/items/n125mhueen4ul4elntsa1kk1v" target="_blank" rel="noopener">7. 深度实测GPT-6.2 Astra：极致省钱但偏科严重，沟通可读性依旧拉胯</a>
+  </div>
+  <p class="news-summary">OpenAI 发布 GPT-6.2 Astra 与 Sol，已同步上线 ChatGPT、Codex 和 API。</p>
+  <div class="news-meta">
+    <span class="news-source">公众号：数字生命卡兹克</span>
+    <span class="news-time">2026-11-18 06:36</span>
+    <a class="news-original" href="https://mp.weixin.qq.com/s/0cEoTueGjSGtm0-glpYGcA" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 <div class="news-card">
   <div class="news-card-head">
     <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
-    <a class="news-title" href="https://aihot.news/items/cidgb5cgquwqxtiydrzykwc2p" target="_blank" rel="noopener">12. OpenAI 发布免费 CSAM 检测图像分类器并升级 ChatGPT 儿童安全干预</a>
+    <a class="news-title" href="https://aihot.news/items/fatxhu2tz1d0g2g8412axx3k5" target="_blank" rel="noopener">8. OpenClaw 的 Sign in with ChatGPT 结束测试，支持 ChatGPT Business 及 GPT-6.2 Astra 与 Sol</a>
   </div>
-  <p class="news-summary">OpenAI 发布可检测 CSAM（含 AI 生成内容）的图像分类器，通过 API 向审核机构免费开放，测试显示可将需复审图像减少 48%，fal 实测 72% 高置信标记确认为新型 CSAM。同时 ChatGPT 上线新警告，在用户尝试查找涉儿童性剥削内容时打断并暂停访问 24 小时，还发布了面向开发者的 CSAM 治理指南和执法调查支持工具。</p>
+  <p class="news-summary">OpenClaw 宣布 Sign in with ChatGPT 功能结束测试，用户可在 OpenClaw 中使用自己的 ChatGPT 套餐，包括 ChatGPT Business。作者还确认支持新模型 GPT-6.2 Astra 和 Sol。引用的 @OpenAIDevs 内容显示，ChatGPT Business 套餐现已可通过 Sign in with ChatGPT 用于 Notion、v0、OpenClaw 等多种工具。</p>
   <div class="news-meta">
-    <span class="news-source">OpenAI：官网动态（RSS · 排除企业/客户案例）</span>
-    <span class="news-time">2026-11-17 01:00</span>
-    <a class="news-original" href="https://openai.com/index/strengthening-online-child-safety" target="_blank" rel="noopener">原文 ↗</a>
+    <span class="news-source">X：OpenClaw (@openclaw)</span>
+    <span class="news-time">2026-11-18 05:49</span>
+    <a class="news-original" href="https://x.com/openclaw/status/2122809472271958517" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/vgopllkh4so1p1q01nefg1364" target="_blank" rel="noopener">9. Nvidia 第三财季营收 $115.8B 超预期，数据中心占 93%</a>
+  </div>
+  <p class="news-summary">Nvidia 第三财季营收 $115.8B，同比增长 103%，其中数据中心收入 $107.6B 占 93%，季度利润 $65.3B 翻倍。</p>
+  <div class="news-meta">
+    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
+    <span class="news-time">2026-11-18 06:02</span>
+    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2122812619379900579" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#38bdf8;--cat-bg:#e0f2fe;--cat-fg:#0369a1">行业</span>
+    <a class="news-title" href="https://aihot.news/items/ko07avibxdjfqycfyj5i04c0e" target="_blank" rel="noopener">10. WSJ 报道 SEC 对 Nvidia 披露问题启动民事调查，恰逢 CEO 黄仁勋离任</a>
+  </div>
+  <p class="news-summary">据 WSJ，SEC 正以民事调查核实 Nvidia 的披露是否误导投资者，图片中的 WSJ 标题显示此事发生于 CEO 黄仁勋离任之际。Nvidia 在截至 2025 年 7 月的季度后停止单独披露新加坡收入，该季度新加坡账单达 $10.2B、占总数 22%，公司称客户通过新加坡开票而芯片几乎都发往别处。</p>
+  <div class="news-meta">
+    <span class="news-source">X：Rohan Paul (@rohanpaul_ai)</span>
+    <span class="news-time">2026-11-18 05:28</span>
+    <a class="news-original" href="https://x.com/rohanpaul_ai/status/2122804149503033606" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#34d399;--cat-bg:#d1fae5;--cat-fg:#047857">产品</span>
+    <a class="news-title" href="https://aihot.news/items/z3n160k1v5vsc90udwjd8x7pp" target="_blank" rel="noopener">11. Claude Code 推出实验性 Code Mode 工具调用方式</a>
+  </div>
+  <p class="news-summary">Claude Code 推出实验性 Code Mode，一种新的工具使用方式：Claude 会编写脚本以复杂方式串联多个工具，并能在长命令仍在运行时回复用户。可通过设置环境变量 CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1 开启，文档见 http://code.claude.com/docs/en/code-mode。</p>
+  <div class="news-meta">
+    <span class="news-source">X：Claude Devs (@ClaudeDevs)</span>
+    <span class="news-time">2026-11-18 05:18</span>
+    <a class="news-original" href="https://x.com/ClaudeDevs/status/2122801681939234950" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="news-card-head">
+    <span class="news-cat" style="--cat:#a78bfa;--cat-bg:#ede9fe;--cat-fg:#6d28d9">模型</span>
+    <a class="news-title" href="https://aihot.news/items/zy931jr86bk2nk5cv8ww6seah" target="_blank" rel="noopener">12. Perplexity 上线 GPT-6.2 Astra 和 GPT-6.2 Sol，并公布 WANDR 基准成绩</a>
+  </div>
+  <p class="news-summary">Perplexity 宣布 GPT-6.2 Astra 和 GPT-6.2 Sol 已在 Perplexity Search 和 Computer 中可用。在其 WANDR 基准上，GPT-6.2 Astra 得分 0.783、单任务约 $12.54，较 GPT-6 Astra 提升 0.095；GPT-6.2 Sol 得分 0.746、约 $2.65，较 GPT-6.1 Sol 提升 0.065。</p>
+  <div class="news-meta">
+    <span class="news-source">X：Perplexity (@perplexity_ai)</span>
+    <span class="news-time">2026-11-18 06:10</span>
+    <a class="news-original" href="https://x.com/perplexity_ai/status/2122814545639223348" target="_blank" rel="noopener">原文 ↗</a>
   </div>
 </div>
 </div>
 
 ## 往期动态
 
+- [2026-11-17 · 12 条](/ai-news/2026-11-17) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-13 · 12 条](/ai-news/2026-11-13) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-12 · 12 条](/ai-news/2026-11-12) <span class="news-archive-window">过去 24 小时</span>
 - [2026-11-11 · 12 条](/ai-news/2026-11-11) <span class="news-archive-window">过去 24 小时</span>
